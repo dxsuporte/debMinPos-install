@@ -14,7 +14,7 @@ apt install -y thunar-dropbox-plugin
 apt install -y samba wsdd wsdd2
 apt install -y curl wget git
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
-export OSH="$HOME/.dotfiles/oh-my-bash"; bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
+runuser - l $(id 1000 -u -n) -c 'bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended'
 xfconf-query -c xsettings -p /Net/ThemeName -s Orchis-Dark
 xfconf-query -c xfwm4 -p /general/theme -s Orchis-Dark
 xfconf-query -c xsettings -p /Net/IconThemeName -s elementary-xfce-dark
