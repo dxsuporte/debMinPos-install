@@ -9,7 +9,7 @@ apt update && apt -y upgrade
 update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
 #Instalar Interface grafica XFCE4
-apt install -y xorg xfce4 lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings python3-gi menulibre mugshot
+apt install -y xorg xfce4* lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings python3-gi menulibre mugshot
 #Instalar gerenciador de rede, usuários, impressora e software para X.
 apt install -y network-manager network-manager-gnome gnome-system-tools system-config-printer software-properties-gtk
 #Instalar Fonts
@@ -37,6 +37,8 @@ sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lig
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/g' /etc/default/grub
 sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/g' /etc/default/grub
 plymouth-set-default-theme -R bgrt
-update-grub2cd
+#Theme Panel XFCE
+mv -n W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
+update-grub2
 #Reinicia o sistema
 reboot
