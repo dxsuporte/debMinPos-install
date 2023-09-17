@@ -1,4 +1,8 @@
 #!/bin/sh
+#Desativar CDROM, codigo font e Habilitar Repositorio extras Debian
+sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
+sed -i 's/deb-src/#deb-src/g' /etc/apt/sources.list
+sed -i 's/main non-free-firmware/main non-free-firmware contrib non-free/g' /etc/apt/sources.list
 #Atualizar sistema
 apt update && apt -y upgrade
 #Mudar lingual do Sistema
