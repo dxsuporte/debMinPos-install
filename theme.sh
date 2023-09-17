@@ -7,3 +7,4 @@ xfconf-query -c xsettings -p /Net/IconThemeName -s elementary-xfce-dark
 xfconf-query -c xsettings -p /Gtk/CursorThemeName -s Breeze
 xfconf-query -c xsettings -p /Gtk/FontName -s "Noto Sans 10"
 xfce4-panel-profiles load /usr/share/xfce4-panel-profiles/layouts/W7.tar.bz2
+#$HOME/.local/share/applications

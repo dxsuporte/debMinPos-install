@@ -29,8 +29,8 @@ sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
 mv -n /etc/network/interfaces /etc/network/interfaces.bkp.debMinPros
 cp -f interfaces /etc/network/interfaces
 #Backup e Substituir o arquivo xfce settings manager menu
-##mv -n /etc/xdg/menus/xfce-settings-manager.menu /etc/xdg/menus/xfce-settings-manager.menu.bkp.debMinPros
-##cp -f xfce-settings-manager.menu /etc/xdg/menus/xfce-settings-manager.menu
+mv -n /etc/xdg/menus/xfce-settings-manager.menu /etc/xdg/menus/xfce-settings-manager.menu.bkp.debMinPros
+cp -f xfce-settings-manager.menu /etc/xdg/menus/xfce-settings-manager.menu
 #Habilitar Mostra usuario no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Habilitar theme de carregamento do sistemax
