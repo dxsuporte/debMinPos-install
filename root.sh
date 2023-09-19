@@ -10,23 +10,54 @@ update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
 #Instalar Interface grafica XFCE4
 apt install -y xorg
-apt install -y xfce4 xfce4-*
-apt install -y lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-apt install -y python3-gi menulibre mugshot
+apt install -y xfce4 
+apt install -y xfce4*
+apt install -y lightdm
+apt install -y lightdm-gtk-greeter
+apt install -y lightdm-gtk-greeter-settings
+apt install -y python3-gi
+apt install -y menulibre
+apt install -y mugshot
 #Instalar gerenciador de rede, usuários, impressora e software para X.
-apt install -y network-manager network-manager-gnome gnome-system-tools system-config-printer software-properties-gtk
+apt install -y network-manager
+apt install -y network-manager-gnome
+apt install -y gnome-system-tools
+apt install -y system-config-printer
+apt install -y software-properties-gtk
 #Instalar Fonts
-apt install -y fonts-noto fonts-powerline
+apt install -y fonts-noto
+apt install -y fonts-powerline
 #Instalar Theme
-apt install -y plymouth plymouth-themes elementary-xfce-icon-theme orchis-gtk-theme greybird-gtk-theme breeze-cursor-theme
+apt install -y plymouth
+apt install -y plymouth-themes
+apt install -y elementary-xfce-icon-theme
+apt install -y orchis-gtk-theme
+apt install -y greybird-gtk-theme
+apt install -y breeze-cursor-theme
 #Instalar Ferramentas do Sistema
-apt install -y synaptic gparted neofetch gdebi gufw blueman
+apt install -y synaptic
+apt install -y gparted
+apt install -y neofetch
+apt install -y gdebi
+apt install -y gufw
+apt install -y blueman
 #Instalar Complementos do sistema
-apt install -y firmware-linux xdg-user-dirs-gtk optipng
+apt install -y firmware-linux
+apt install -y xdg-user-dirs-gtk
+apt install -y optipng
 #Instalar Compartilhamento de rede
-apt install -y samba wsdd wsdd2
+apt install -y samba
+apt install -y wsdd
+apt install -y wsdd2
 #Instalar outro programas
-apt install -y firefox-esr curl wget atril mate-calc zip p7zip* p7zip*
+apt install -y firefox-esr
+apt install -y curl
+apt install -y wget
+apt install -y atril
+apt install -y mate-calc
+apt install -y zip
+apt install -y p7zip*
+apt install -y p7zip*
 #Aplicar Theme no terminal bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
 sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
