@@ -3,16 +3,20 @@
 
 <Menu>
   <Name>Settings</Name>
+
   <DefaultAppDirs/>
   <DefaultDirectoryDirs/>
   <DefaultMergeDirs/>
-   <Layout>
-     <Menuname>Personal</Menuname>
-     <Menuname>Hardware</Menuname>
-     <Menuname>System</Menuname>
-     <Menuname>Other</Menuname>
-     <Merge type="all" />
-   </Layout>
+
+  <Layout>
+    <Menuname>Personal</Menuname>
+    <Menuname>Hardware</Menuname>
+    <Menuname>System</Menuname>
+    <Menuname>Other</Menuname>
+    <Merge type="menus"/>
+    <Merge type="files"/>
+  </Layout>
+
   <Include>
     <And>
       <Category>Settings</Category>
@@ -25,6 +29,7 @@
       </Not>
     </And>
   </Include>
+
   <Exclude>
     <Filename>xfce-settings-manager.desktop</Filename>
   </Exclude>
@@ -68,6 +73,7 @@
       </And>
       <Filename>nm-connection-editor.desktop</Filename>
       <Filename>system-config-printer.desktop</Filename>
+      <Filename>settings-hardware-sound.desktop</Filename>
     </Include>
   </Menu>
 

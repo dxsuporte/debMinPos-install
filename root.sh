@@ -20,17 +20,19 @@ apt install -y plymouth plymouth-themes elementary-xfce-icon-theme orchis-gtk-th
 apt install -y synaptic gparted neofetch gdebi gufw blueman
 #Instalar Complementos do sistema
 apt install -y firmware-linux xdg-user-dirs-gtk optipng
+#Instalar Compartilhamento de rede
+apt install -y samba wsdd wsdd2
 #Instalar outro programas
-apt install -y curl wget
+apt install -y firefox-esr curl wget atril mate-calc zip p7zip* p7zip*
 #Aplicar Theme no terminal bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
 sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
-#Backup e Substituir o arquivo inface para network-manager ter controle da rede no X
-mv -n /etc/network/interfaces /etc/network/interfaces.bkp.debMinPros
+#Substituir o arquivo inface para network-manager ter controle da rede no X
 cp -f interfaces /etc/network/interfaces
-#Backup e Substituir o arquivo xfce settings manager menu
-mv -n /etc/xdg/menus/xfce-settings-manager.menu /etc/xdg/menus/xfce-settings-manager.menu.bkp.debMinPros
+#Substituir o arquivo xfce settings manager menu
 cp -f xfce-settings-manager.menu /etc/xdg/menus/xfce-settings-manager.menu
+cp -f xfce4-panel.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+cp -f dx-logo.svg /usr/share/icons/hicolor/scalable/apps/xfce4-logo.svg
 #Habilitar Mostra usuario no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Habilitar theme de carregamento do sistemax
