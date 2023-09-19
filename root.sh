@@ -66,8 +66,8 @@ sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
 cp -f interfaces /etc/network/interfaces
 #Substituir o arquivo xfce settings manager menu
 cp -f xfce-settings-manager.menu /etc/xdg/menus/xfce-settings-manager.menu
-cp -f /xfce/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
-cp -f dx-logo.svg /usr/share/icons/hicolor/scalable/apps/xfce4-logo.svg
+cp -f xfce/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
+cp -f dx-logo.svg /usr/share/icons/hicolor/scalable/apps
 #Habilitar Mostra usuario no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Habilitar theme de carregamento do sistemax

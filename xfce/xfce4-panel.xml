@@ -40,7 +40,7 @@
   </property>
   <property name="plugins" type="empty">
     <property name="plugin-1" type="string" value="whiskermenu">
-      <property name="button-icon" type="string" value="emblem-debian"/>
+      <property name="button-icon" type="string" value="org.xfce.panel.whiskermenu"/>
       <property name="category-icon-size" type="int" value="0"/>
       <property name="command-logout" type="string" value="xfce4-session-logout"/>
       <property name="command-logoutuser" type="string" value="xfce4-session-logout --logout --fast"/>
