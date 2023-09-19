@@ -11,14 +11,12 @@ update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
 #Instalar Interface grafica XFCE4
 apt install -y xorg
-apt install -y xfce4
+apt install -y xfce4*
 apt install -y lightdm
-apt install -y lightdm-gtk-greeter
 apt install -y lightdm-gtk-greeter-settings
 apt install -y python3-gi
 apt install -y menulibre
 apt install -y mugshot
-apt install -y xfce4-*
 #Instalar gerenciador de rede, usuários, impressora e software para X.
 apt install -y network-manager
 apt install -y network-manager-gnome
