@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 #Desativar CDROM, codigo font e Habilitar Repositorio extras Debian
 sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
 sed -i 's/deb-src/#deb-src/g' /etc/apt/sources.list
@@ -10,14 +11,14 @@ update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
 #Instalar Interface grafica XFCE4
 apt install -y xorg
-apt install -y xfce4 
-apt install -y xfce4*
+apt install -y xfce4
 apt install -y lightdm
 apt install -y lightdm-gtk-greeter
 apt install -y lightdm-gtk-greeter-settings
 apt install -y python3-gi
 apt install -y menulibre
 apt install -y mugshot
+apt install -y xfce4-*
 #Instalar gerenciador de rede, usuários, impressora e software para X.
 apt install -y network-manager
 apt install -y network-manager-gnome
@@ -65,7 +66,7 @@ sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
 cp -f interfaces /etc/network/interfaces
 #Substituir o arquivo xfce settings manager menu
 cp -f xfce-settings-manager.menu /etc/xdg/menus/xfce-settings-manager.menu
-cp -f xfce4-panel.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+cp -f /xfce/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
 cp -f dx-logo.svg /usr/share/icons/hicolor/scalable/apps/xfce4-logo.svg
 #Habilitar Mostra usuario no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
