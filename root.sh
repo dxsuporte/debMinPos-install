@@ -13,10 +13,14 @@ locale-gen --purge pt_BR.UTF-8
 apt install -y xorg
 apt install xfce4-terminal
 apt install -y xfce4-goodies
+apt install -y xfce4-panel
+apt install -y xfce4-panel-profiles
+apt install -y xfce4-session
 apt install -y xfce4
 apt install -y lightdm
 apt install -y lightdm-gtk-greeter-settings
 apt install -y python3-gi
+apt install -y python3-psutil
 apt install -y menulibre
 apt install -y mugshot
 #Instalar gerenciador de rede, usuários, impressora e software para X.
