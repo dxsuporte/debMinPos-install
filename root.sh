@@ -11,7 +11,9 @@ update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
 #Instalar Interface grafica XFCE4
 apt install -y xorg
-apt install -y xfce4*
+apt install xfce4-terminal
+apt install -y xfce4-goodies
+apt install -y xfce4
 apt install -y lightdm
 apt install -y lightdm-gtk-greeter-settings
 apt install -y python3-gi
@@ -75,5 +77,8 @@ plymouth-set-default-theme -R bgrt
 #Theme Panel XFCE
 mv -n W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
 update-grub2
+apt autoremove
+apt autoclean
+apt clean
 #Reinicia o sistema
 reboot
