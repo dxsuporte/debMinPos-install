@@ -9,7 +9,10 @@ apt update && apt -y upgrade
 update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
 #Instalar Interface grafica XFCE4
-apt install -y xorg xfce4* lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings python3-gi menulibre mugshot
+apt install -y xorg
+apt install -y xfce4 xfce4-*
+apt install -y lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+apt install -y python3-gi menulibre mugshot
 #Instalar gerenciador de rede, usuários, impressora e software para X.
 apt install -y network-manager network-manager-gnome gnome-system-tools system-config-printer software-properties-gtk
 #Instalar Fonts
