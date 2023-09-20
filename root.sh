@@ -11,7 +11,7 @@ update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
 #Instalar Interface grafica XFCE4
 apt install -y xorg
-apt install xfce4-terminal
+apt install -y xfce4-terminal
 apt install -y xfce4-goodies
 apt install -y xfce4-panel
 apt install -y xfce4-panel-profiles
@@ -23,6 +23,7 @@ apt install -y python3-gi
 apt install -y python3-psutil
 apt install -y menulibre
 apt install -y mugshot
+apt install -y bash-completion
 #Instalar gerenciador de rede, usuários, impressora e software para X.
 apt install -y network-manager
 apt install -y network-manager-gnome
@@ -62,7 +63,7 @@ apt install -y atril
 apt install -y mate-calc
 apt install -y zip
 apt install -y p7zip*
-apt install -y p7zip*
+apt install -y unrar*
 #Aplicar Theme no terminal bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
 sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
