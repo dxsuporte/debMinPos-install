@@ -24,22 +24,23 @@ apt install -y python3-psutil
 apt install -y menulibre
 apt install -y mugshot
 apt install -y bash-completion
-#Instalar gerenciador de rede, usuários, impressora e software para X.
-apt install -y network-manager
-apt install -y network-manager-gnome
-apt install -y gnome-system-tools
-apt install -y system-config-printer
-apt install -y software-properties-gtk
 #Instalar Fonts
 apt install -y fonts-noto
 apt install -y fonts-powerline
 #Instalar Theme
 apt install -y plymouth
 apt install -y plymouth-themes
-apt install -y elementary-xfce-icon-theme
+apt install -y gnome-brave-icon-theme
 apt install -y orchis-gtk-theme
 apt install -y greybird-gtk-theme
+apt install -y elementary-xfce-icon-theme
 apt install -y breeze-cursor-theme
+#Instalar gerenciador de rede, usuários, impressora e software para X.
+apt install -y network-manager
+apt install -y network-manager-gnome
+apt install -y gnome-system-tools
+apt install -y system-config-printer
+apt install -y software-properties-gtk
 #Instalar Ferramentas do Sistema
 apt install -y synaptic
 apt install -y gparted
@@ -60,7 +61,7 @@ apt install -y firefox-esr
 apt install -y curl
 apt install -y wget
 apt install -y atril
-apt install -y mate-calc
+apt install -y galculator
 apt install -y zip
 apt install -y p7zip*
 apt install -y unrar*
@@ -82,6 +83,7 @@ plymouth-set-default-theme -R bgrt
 #Theme Panel XFCE
 mv -n W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
 update-grub2
+apt remove -y xterm
 apt autoremove
 apt autoclean
 apt clean
