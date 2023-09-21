@@ -45,7 +45,8 @@ apt install -y software-properties-gtk
 apt install -y synaptic
 apt install -y gparted
 apt install -y neofetch
-apt install -y gdebi
+apt install -y parole
+apt install -y clementine
 apt install -y gufw
 apt install -y blueman
 #Instalar Complementos do sistema
@@ -54,8 +55,10 @@ apt install -y xdg-user-dirs-gtk
 apt install -y optipng
 #Instalar Compartilhamento de rede
 apt install -y samba
+apt install -y smbclient
 apt install -y wsdd
 apt install -y wsdd2
+apt install -y gvfs-backends
 #Instalar outro programas
 apt install -y firefox-esr
 apt install -y curl
@@ -84,8 +87,5 @@ plymouth-set-default-theme -R bgrt
 mv -n W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
 update-grub2
 apt remove -y xterm
-apt autoremove
-apt autoclean
-apt clean
 #Reinicia o sistema
 reboot
