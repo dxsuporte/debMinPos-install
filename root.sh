@@ -9,6 +9,11 @@ apt update && apt -y upgrade
 #Mudar lingual do Sistema
 update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
+#Configurar instalar e aplicar tema no terminal bash
+apt install -y bash-completion curl wget
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
+sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
+source ~/.bashrc
 #Instalar Interface grafica XFCE4
 apt install -y xorg
 apt install -y xfce4-terminal
@@ -23,7 +28,6 @@ apt install -y python3-gi
 apt install -y python3-psutil
 apt install -y menulibre
 apt install -y mugshot
-apt install -y bash-completion
 #Instalar Fonts
 apt install -y fonts-noto
 apt install -y fonts-powerline
@@ -61,16 +65,11 @@ apt install -y wsdd2
 apt install -y gvfs-backends
 #Instalar outro programas
 apt install -y firefox-esr
-apt install -y curl
-apt install -y wget
 apt install -y atril
 apt install -y galculator
 apt install -y zip
 apt install -y p7zip*
 apt install -y unrar*
-#Aplicar Theme no terminal bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
-sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
 #Substituir o arquivo inface para network-manager ter controle da rede no X
 cp -f interfaces /etc/network/interfaces
 #Substituir o arquivo xfce settings manager menu
