@@ -13,15 +13,12 @@ locale-gen --purge pt_BR.UTF-8
 apt install -y bash-completion curl wget
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
 sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
-source ~/.bashrc
 #Instalar Interface grafica XFCE4
-apt install -y xorg
 apt install -y xfce4-terminal
-apt install -y xfce4-goodies
-apt install -y xfce4-panel
-apt install -y xfce4-panel-profiles
-apt install -y xfce4-session
+apt install -y xorg
 apt install -y xfce4
+apt install -y xfce4-goodies
+apt install -y xfce4-*
 apt install -y lightdm
 apt install -y lightdm-gtk-greeter-settings
 apt install -y python3-gi
@@ -30,6 +27,7 @@ apt install -y menulibre
 apt install -y mugshot
 #Instalar Fonts
 apt install -y fonts-noto
+apt install -y fonts-noto-core
 apt install -y fonts-powerline
 #Instalar Theme
 apt install -y plymouth
