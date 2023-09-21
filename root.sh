@@ -61,6 +61,9 @@ apt install -y smbclient
 apt install -y wsdd
 apt install -y wsdd2
 apt install -y gvfs-backends
+#Instalar Software Impressora HP
+apt install -y hplip
+apt install -y printer-driver-all
 #Instalar outro programas
 apt install -y firefox-esr
 apt install -y atril
@@ -71,7 +74,7 @@ apt install -y unrar*
 #Substituir o arquivo inface para network-manager ter controle da rede no X
 cp -f interfaces /etc/network/interfaces
 #Substituir o arquivo xfce settings manager menu
-cp -f xfce-settings-manager.menu /etc/xdg/menus/xfce-settings-manager.menu
+cp -f menu/* /etc/xdg/menus
 cp -f xfce/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
 cp -f dx-logo.svg /usr/share/icons/hicolor/scalable/apps
 #Habilitar Mostra usuario no login
