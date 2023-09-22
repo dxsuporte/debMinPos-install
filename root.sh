@@ -16,13 +16,8 @@ nala install -y firmware-linux
 nala install -y intel-microcode
 nala install -y amd64-microcode
 nala install -y linux-headers-$(uname -r)
-#Instalar e configurar tema no bash do root
+#Ferramenta
 nala install -y bash-completion curl wget software-properties-common apt-transport-https
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended || echo 'OK'
-sed -i 's/OSH_THEME="font"/OSH_THEME="rjorgenson"/g' /root/.bashrc
-#Instalar e configurar tema no bash do 1º usuario
-runuser -l $(id 1000 -u -n) -c 'bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended' || echo 'OK'
-sed -i 's/OSH_THEME="font"/OSH_THEME="powerline-light"/g' /home/$(id 1000 -u -n)/.bashrc
 #Instalar Interface grafica XFCE4
 nala install -y xfce4-terminal
 nala install -y xorg
@@ -68,18 +63,24 @@ nala install -y ffmpeg faad lame sox twolame vorbis-tools
 nala install -y libavcodec-extra* libavdevice60 libgstreamer1.0-0
 nala install -y gstreamer1.0-fdkaac gstreamer1.0-libav gstreamer1.0-vaapi gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 #Programas de terceiros
+#Instalar e configurar tema no bash do root
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended || echo 'OK'
+sed -i 's/OSH_THEME="font"/OSH_THEME="rjorgenson"/g' /root/.bashrc
+#Instalar e configurar tema no bash do 1º usuario
+runuser -l $(id 1000 -u -n) -c 'bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended' || echo 'OK'
+sed -i 's/OSH_THEME="font"/OSH_THEME="powerline-light"/g' /home/$(id 1000 -u -n)/.bashrc
 #Edge e VSCode
 bash -c "echo 'deb https://packages.microsoft.com/repos/edge stable main' >> /etc/apt/sources.list.d/microsoft-edge.list"
 bash -c "echo 'deb https://packages.microsoft.com/repos/vscode stable main' >> /etc/apt/sources.list.d/microsoft-vscode.list"
 wget -q -O https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
 #Chrome
-bash -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+bash -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub -O- | apt-key add -
 #AnyDesk
-echo "deb http://deb.anydesk.com all main" >/etc/apt/sources.list.d/anydesk-stable.list
+echo "deb http://deb.anydesk.com/ all main" >/etc/apt/sources.list.d/anydesk-stable.list
 wget -q -O - https://keys.anydesk.com/repos/DEB-GPG-KEY -O- | apt-key add -
 #TeamViewer
-bash -c "echo 'deb https://linux.teamviewer.com/deb stable main' >> /etc/apt/sources.list.d/teamviewer.list"
+bash -c "echo 'deb http://linux.teamviewer.com/deb stable main' >> /etc/apt/sources.list.d/teamviewer.list"
 wget -q -O https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc -O- | apt-key add -
 nala update
 nala install -y microsoft-edge-stable
