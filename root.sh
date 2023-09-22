@@ -61,17 +61,17 @@ nala install -y zip p7zip* unrar*
 sh -c "echo 'deb https://packages.microsoft.com/repos/edge stable main' >> /etc/apt/sources.list.d/microsoft-edge.list"
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
 nala update
-nala -y install microsoft-edge-stable
+nala install -y microsoft-edge-stable
 #Chrome
 bash -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
 nala update
-nala -y install google-chrome-stable
+nala install -y google-chrome-stable
 #AnyDesk
 echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list
 wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | apt-key add -
 nala update
-nala install anydesk
+nala install -y anydesk
 #TeamViewer
 sh -c "echo 'deb http://linux.teamviewer.com/deb stable main' >> /etc/apt/sources.list.d/teamviewer.list"
 wget -q https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc -O- | apt-key add -
@@ -81,7 +81,7 @@ nala install teamviewer
 sh -c "echo 'deb https://packages.microsoft.com/repos/vscode stable main' >> /etc/apt/sources.list.d/vscode.list"
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
 nala update
-nala -y install code
+nala install -y code
 #Substituir o arquivo inface para network-manager ter controle da rede no X
 cp -f config/interfaces /etc/network/interfaces
 #Configuração da tela de login
