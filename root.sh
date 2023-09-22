@@ -7,7 +7,7 @@ sed -i 's/main non-free-firmware/main non-free-firmware contrib non-free/g' /etc
 #Instala interface para APT
 apt install -y nala
 #Atualizar sistema
-nala update && nala -y upgrade
+nala update && nala upgrade -y
 #Mudar lingual do Sistema
 update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
