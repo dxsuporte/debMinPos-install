@@ -151,6 +151,7 @@
                 <Filename>xfce4-web-browser.desktop</Filename>
                 <Filename>xfce-settings-manager.desktop</Filename>
                 <Filename>xfce4-terminal-settings.desktop</Filename>
+                <Filename>xfce4-settings-editor.desktop</Filename>
             </Or>
         </Exclude>
     </Menu>
@@ -167,7 +168,9 @@
         <Exclude>
             <And>
                 <Category>Settings</Category>
-                <Not><Category>PackageManager</Category></Not>
+                <Not>
+                    <Category>PackageManager</Category>
+                </Not>
             </And>
             <Or>
                 <Filename>xfce4-session-logout.desktop</Filename>

@@ -69,7 +69,9 @@
       <And>
         <Category>Settings</Category>
         <Category>HardwareSettings</Category>
-        <Not><Category>System</Category></Not>
+        <Not>
+          <Category>System</Category>
+        </Not>
       </And>
       <Filename>nm-connection-editor.desktop</Filename>
       <Filename>system-config-printer.desktop</Filename>
@@ -89,7 +91,9 @@
       <And>
         <Category>Settings</Category>
         <Category>System</Category>
-        <Not><Category>PackageManager</Category></Not>
+        <Not>
+          <Category>PackageManager</Category>
+        </Not>
       </And>
       <Filename>software-properties-gtk.desktop</Filename>
     </Include>
@@ -116,10 +120,10 @@
             <Filename>software-properties-gtk.desktop</Filename>
             <Filename>xscreensaver-properties.desktop</Filename>
             <Filename>xfce-settings-manager.desktop</Filename>
+            <Filename>xfce4-settings-editor.desktop</Filename>
           </Or>
         </Not>
       </And>
-      <Filename>xfce4-settings-editor.desktop</Filename>
     </Include>
   </Menu>
 

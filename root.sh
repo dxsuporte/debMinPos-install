@@ -6,76 +6,80 @@ sed -i 's/deb-src/#deb-src/g' /etc/apt/sources.list
 sed -i 's/main non-free-firmware/main non-free-firmware contrib non-free/g' /etc/apt/sources.list
 #Atualizar sistema
 apt update && apt -y upgrade
+apt install -y nala
 #Mudar lingual do Sistema
 update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
-#Configurar instalar e aplicar tema no terminal bash
-apt install -y bash-completion curl wget
+#Instalar e configurar tema no bash do root
+nala install -y bash-completion curl wget
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
-sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
+sed -i 's/OSH_THEME="font"/OSH_THEME="rjorgenson"/g' /root/.bashrc
+#Instalar e configurar tema no bash do 1º usuario
+runuser -l $(id 1000 -u -n) -c 'bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended'
+sed -i 's/OSH_THEME="font"/OSH_THEME="powerline-light"/g' /home/$(id 1000 -u -n)/.bashrc
 #Instalar Interface grafica XFCE4
-apt install -y xfce4-terminal
-apt install -y xorg
-apt install -y xfce4
-apt install -y xfce4-goodies
-apt install -y xfce4-*
-apt install -y lightdm
-apt install -y lightdm-gtk-greeter-settings
-apt install -y python3-gi
-apt install -y python3-psutil
-apt install -y menulibre
-apt install -y mugshot
+nala install -y xfce4-terminal
+nala install -y xorg
+nala install -y xfce4
+nala install -y xfce4-goodies
+nala install -y xfce4-*
+nala install -y lightdm
+nala install -y lightdm-gtk-greeter-settings
+nala install -y python3-gi
+nala install -y python3-psutil
+nala install -y menulibre
+nala install -y mugshot
 #Instalar Fonts
-apt install -y fonts-noto
-apt install -y fonts-noto-core
-apt install -y fonts-powerline
+nala install -y fonts-noto
+nala install -y fonts-noto-core
+nala install -y fonts-powerline
 #Instalar Theme
-apt install -y plymouth
-apt install -y plymouth-themes
-apt install -y gnome-brave-icon-theme
-apt install -y orchis-gtk-theme
-apt install -y greybird-gtk-theme
-apt install -y elementary-xfce-icon-theme
-apt install -y breeze-cursor-theme
+nala install -y plymouth
+nala install -y plymouth-themes
+nala install -y gnome-brave-icon-theme
+nala install -y orchis-gtk-theme
+nala install -y greybird-gtk-theme
+nala install -y elementary-xfce-icon-theme
+nala install -y breeze-cursor-theme
 #Instalar gerenciador de rede, usuários, impressora e software para X.
-apt install -y network-manager
-apt install -y network-manager-gnome
-apt install -y gnome-system-tools
-apt install -y system-config-printer
-apt install -y software-properties-gtk
+nala install -y network-manager
+nala install -y network-manager-gnome
+nala install -y gnome-system-tools
+nala install -y system-config-printer
+nala install -y software-properties-gtk
 #Instalar Ferramentas do Sistema
-apt install -y synaptic
-apt install -y gparted
-apt install -y neofetch
-apt install -y parole
-apt install -y clementine
-apt install -y gufw
-apt install -y blueman
+nala install -y synnalaic
+nala install -y gparted
+nala install -y neofetch
+nala install -y parole
+nala install -y clementine
+nala install -y gufw
+nala install -y blueman
 #Instalar Complementos do sistema
-apt install -y firmware-linux
-apt install -y xdg-user-dirs-gtk
-apt install -y optipng
+nala install -y firmware-linux
+nala install -y xdg-user-dirs-gtk
+nala install -y optipng
 #Instalar Compartilhamento de rede
-apt install -y samba
-apt install -y smbclient
-apt install -y wsdd
-apt install -y wsdd2
-apt install -y gvfs-backends
+nala install -y samba
+nala install -y smbclient
+nala install -y wsdd wsdd2
+nala install -y gvfs-backends gvfs-fuse
 #Instalar Software Impressora HP
-apt install -y hplip
-apt install -y printer-driver-all
+nala install -y hplip
+nala install -y printer-driver-all
 #Instalar outro programas
-apt install -y firefox-esr
-apt install -y atril
-apt install -y galculator
-apt install -y zip
-apt install -y p7zip*
-apt install -y unrar*
+nala install -y firefox-esr thunar-dropbox-plugin
+nala install -y inkscape gimp qbittorrent
+nala install -y galculator atril gigolo
+nala install -y zip p7zip* unrar*
 #Substituir o arquivo inface para network-manager ter controle da rede no X
-cp -f interfaces /etc/network/interfaces
-#Substituir o arquivo xfce settings manager menu
+cp -f config/interfaces /etc/network/interfaces
+#Configuração da tela de login
+cp -f config/lightdm-gtk-greeter.conf /etc/lightdm
+#Menu e painel de configuraçães do xfce
 cp -f menu/* /etc/xdg/menus
 cp -f xfce/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
+#Icones
 cp -f dx-logo.svg /usr/share/icons/hicolor/scalable/apps
 #Habilitar Mostra usuario no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
@@ -86,6 +90,5 @@ plymouth-set-default-theme -R bgrt
 #Theme Panel XFCE
 mv -n W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
 update-grub2
-apt remove -y xterm
 #Reinicia o sistema
 reboot

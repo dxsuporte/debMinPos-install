@@ -14,5 +14,6 @@
     <property name="show-panel-label" type="int" value="0"/>
     <property name="inactivity-sleep-mode-on-ac" type="int" value="1"/>
     <property name="inactivity-sleep-mode-on-battery" type="int" value="1"/>
+    <property name="power-button-action" type="uint" value="4"/>
   </property>
 </channel>
