@@ -12,8 +12,8 @@ nala update && nala upgrade -y
 update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
 #Instalar e configurar tema no bash do root
-nala install -y bash-completion curl wget
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended  || echo 'OK'
+nala install -y bash-completion curl wget software-properties-common apt-transport-https ca-certificates gpg
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended || echo 'OK'
 sed -i 's/OSH_THEME="font"/OSH_THEME="rjorgenson"/g' /root/.bashrc
 #Instalar e configurar tema no bash do 1º usuario
 runuser -l $(id 1000 -u -n) -c 'bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended' || echo 'OK'
@@ -24,24 +24,15 @@ nala install -y xorg
 nala install -y xfce4
 nala install -y xfce4-goodies
 nala install -y xfce4-*
-nala install -y lightdm
-nala install -y lightdm-gtk-greeter-settings
-nala install -y python3-gi
-nala install -y python3-psutil
-nala install -y menulibre
-nala install -y mugshot
+nala install -y lightdm lightdm-gtk-greeter-settings
+nala install -y python3-gi python3-psutil
+nala install -y menulibre mugshot
 #Instalar Fonts
-nala install -y fonts-noto
-nala install -y fonts-noto-core
-nala install -y fonts-powerline
+nala install -y fonts-noto fonts-noto-core fonts-firacode fonts-powerline
 #Instalar Theme
-nala install -y plymouth
-nala install -y plymouth-themes
-nala install -y gnome-brave-icon-theme
-nala install -y orchis-gtk-theme
-nala install -y greybird-gtk-theme
-nala install -y elementary-xfce-icon-theme
-nala install -y breeze-cursor-theme
+nala install -y plymouth plymouth-themes
+nala install -y orchis-gtk-theme greybird-gtk-theme
+nala install -y elementary-xfce-icon-theme breeze-cursor-theme
 #Instalar gerenciador de rede, usuários, impressora e software para X.
 nala install -y network-manager
 nala install -y network-manager-gnome
@@ -49,30 +40,48 @@ nala install -y gnome-system-tools
 nala install -y system-config-printer
 nala install -y software-properties-gtk
 #Instalar Ferramentas do Sistema
-nala install -y synaptic
-nala install -y gparted
-nala install -y neofetch
-nala install -y parole
-nala install -y clementine
-nala install -y gufw
-nala install -y blueman
+nala install -y synaptic gparted gufw
+nala install -y neofetch blueman
+nala install -y parole clementine
 #Instalar Complementos do sistema
 nala install -y firmware-linux
-nala install -y xdg-user-dirs-gtk
-nala install -y optipng
+nala install -y xdg-user-dirs-gtk optipng
 #Instalar Compartilhamento de rede
-nala install -y samba
-nala install -y smbclient
-nala install -y wsdd wsdd2
+nala install -y samba smbclient wsdd wsdd2
 nala install -y gvfs-backends gvfs-fuse
 #Instalar Software Impressora HP
-nala install -y hplip
-nala install -y printer-driver-all
+nala install -y hplip printer-driver-all
 #Instalar outro programas
 nala install -y firefox-esr thunar-dropbox-plugin
 nala install -y inkscape gimp qbittorrent
 nala install -y galculator atril gigolo
 nala install -y zip p7zip* unrar*
+#Programas de terceiros
+#Edge
+sh -c "echo 'deb https://packages.microsoft.com/repos/edge stable main' >> /etc/apt/sources.list.d/microsoft-edge.list"
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
+nala update
+nala -y install microsoft-edge-stable
+#Chrome
+bash -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+nala update
+nala -y install google-chrome-stable
+#AnyDesk
+echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list
+wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | apt-key add -
+nala update
+nala install anydesk
+#TeamViewer
+sh -c "echo 'deb http://linux.teamviewer.com/deb stable main' >> /etc/apt/sources.list.d/teamviewer.list"
+wget -q https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc -O- | apt-key add -
+nala update
+nala install teamviewer
+#VSCode
+sh -c "echo 'deb https://packages.microsoft.com/repos/vscode stable main' >> /etc/apt/sources.list.d/vscode.list"
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
+nala update
+nala -y install code
 #Substituir o arquivo inface para network-manager ter controle da rede no X
 cp -f config/interfaces /etc/network/interfaces
 #Configuração da tela de login
@@ -88,11 +97,13 @@ sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lig
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/g' /etc/default/grub
 sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/g' /etc/default/grub
 plymouth-set-default-theme -R bgrt
+#Backgrounds
+mv -n backgrounds/* /usr/share/backgrounds
 #Theme Panel XFCE
 mv -n theme/W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
 update-grub2
 #Remove interface para APT
-apt remove -y nala
+nala remove -y nala --remove-essential
 #Limpeza no apt
 apt autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
