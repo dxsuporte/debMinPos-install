@@ -13,10 +13,10 @@ update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
 #Instalar e configurar tema no bash do root
 nala install -y bash-completion curl wget
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended  || echo 'OK'
 sed -i 's/OSH_THEME="font"/OSH_THEME="rjorgenson"/g' /root/.bashrc
 #Instalar e configurar tema no bash do 1º usuario
-runuser -l $(id 1000 -u -n) -c 'bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended'
+runuser -l $(id 1000 -u -n) -c 'bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended' || echo 'OK'
 sed -i 's/OSH_THEME="font"/OSH_THEME="powerline-light"/g' /home/$(id 1000 -u -n)/.bashrc
 #Instalar Interface grafica XFCE4
 nala install -y xfce4-terminal
@@ -49,7 +49,7 @@ nala install -y gnome-system-tools
 nala install -y system-config-printer
 nala install -y software-properties-gtk
 #Instalar Ferramentas do Sistema
-nala install -y synnalaic
+nala install -y synaptic
 nala install -y gparted
 nala install -y neofetch
 nala install -y parole
@@ -94,6 +94,6 @@ update-grub2
 #Remove interface para APT
 apt remove -y nala
 #Limpeza no apt
-apt autoremove && apt autoclean && apt clean
+apt autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
 reboot
