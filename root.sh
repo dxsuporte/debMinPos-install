@@ -4,9 +4,10 @@ set -e
 sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
 sed -i 's/deb-src/#deb-src/g' /etc/apt/sources.list
 sed -i 's/main non-free-firmware/main non-free-firmware contrib non-free/g' /etc/apt/sources.list
-#Atualizar sistema
-apt update && apt -y upgrade
+#Instala interface para APT
 apt install -y nala
+#Atualizar sistema
+nala update && nala -y upgrade
 #Mudar lingual do Sistema
 update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
@@ -90,5 +91,9 @@ plymouth-set-default-theme -R bgrt
 #Theme Panel XFCE
 mv -n W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
 update-grub2
+#Remove interface para APT
+apt remove -y nala
+#Limpeza no apt
+apt autoremove && apt autoclean && apt clean
 #Reinicia o sistema
 reboot
