@@ -11,6 +11,11 @@ add-apt-repository -y contrib non-free
 #Mudar lingual do Sistema
 update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
+#Ultilitario de Terminal
+nala install -y bash-completion
+nala install -y neofetch
+nala install -y curl
+nala install -y wget
 #Atualizar sistema
 nala update && nala upgrade -y
 #Drives
@@ -58,11 +63,6 @@ nala install -y gigolo
 nala install -y system-config-printer
 nala install -y hplip
 nala install -y printer-driver-all
-#Ultilitario de Terminal
-nala install -y neofetch
-nala install -y bash-completion
-nala install -y curl
-nala install -y wget
 #Instalar Fonts
 nala install -y fonts-noto
 nala install -y fonts-noto-core
