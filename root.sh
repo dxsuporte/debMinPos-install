@@ -3,7 +3,7 @@ set -e
 #Desativar CDROM, codigo font e Habilitar Repositorio extras Debian
 sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
 sed -i 's/deb-src/#deb-src/g' /etc/apt/sources.list
-sed -i 's/main non-free-firmware/main non-free-firmware contrib non-free/g' /etc/apt/sources.list
+apt-add-repository contrib non-free
 #Mudar lingual do Sistema
 update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
