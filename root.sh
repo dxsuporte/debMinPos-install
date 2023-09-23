@@ -68,6 +68,10 @@ nala install -y fonts-noto
 nala install -y fonts-noto-core
 nala install -y fonts-firacode
 nala install -y fonts-powerline
+#Programas de Básicos
+nala install -y parole
+nala install -y galculator
+nala install -y atril
 #Instalar Theme
 nala install -y orchis-gtk-theme
 nala install -y greybird-gtk-theme
