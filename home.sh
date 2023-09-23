@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 #Atualizar sistema
 add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib non-free"
 nala update && nala upgrade -y

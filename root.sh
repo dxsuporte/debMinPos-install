@@ -1,14 +1,16 @@
 #!/bin/sh
 set -e
+#Interface para APT
+apt install -y nala
+nala install -y software-properties-common
+nala install -y apt-transport-https
 #Desativar CDROM, codigo font e Habilitar Repositorio extras Debian
 sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
 sed -i 's/deb-src/#deb-src/g' /etc/apt/sources.list
-apt-add-repository contrib non-free
+add-apt-repository -y contrib non-free
 #Mudar lingual do Sistema
 update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
-#Interface para APT
-apt install -y nala
 #Atualizar sistema
 nala update && nala upgrade -y
 #Drives
@@ -61,8 +63,6 @@ nala install -y neofetch
 nala install -y bash-completion
 nala install -y curl
 nala install -y wget
-nala install -y software-properties-common
-nala install -y apt-transport-https
 #Instalar Fonts
 nala install -y fonts-noto
 nala install -y fonts-noto-core
