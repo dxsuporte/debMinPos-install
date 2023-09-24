@@ -72,6 +72,8 @@ nala install -y fonts-powerline
 nala install -y parole
 nala install -y galculator
 nala install -y atril
+nala install -y mintstick
+nala install -y simple-scan
 #Instalar Theme
 nala install -y orchis-gtk-theme
 nala install -y greybird-gtk-theme

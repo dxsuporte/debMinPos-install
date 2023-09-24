@@ -7,7 +7,11 @@ add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib 
 nala update && nala upgrade -y
 #Otimizar bateria do notebook
 nala install -y tlp
+nala install -y cheese
 #Programas de Escritório
+#nala install -y libreoffice
+#nala install -y libreoffice-l10n-pt-br
+#nala install -y libreoffice-gtk3
 #Programas de Gráficos
 nala install -y inkscape
 nala install -y gimp
@@ -17,8 +21,13 @@ nala install -y qbittorrent
 nala install -y thunar-dropbox-plugin
 nala install -y chromium
 nala install -y chromium-l10n
+nala install -y sqlite3
+nala install -y sqlitebrowser
+nala install -y gnome-software
+nala install -y nextcloud-desktop
 #Programas de Multimídia
 nala install -y clementine
+nala install -y vlc
 #Mega
 wget -c https://mega.nz/linux/repo/Debian_"$RELEASE"/amd64/megasync-Debian_"$RELEASE"_amd64.deb
 wget -c https://mega.nz/linux/repo/Debian_"$RELEASE"/amd64/thunar-megasync-Debian_"$RELEASE"_amd64.deb
@@ -56,4 +65,23 @@ add-apt-repository -y "deb http://dl.google.com/linux/chrome/deb/ stable main"
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub -O- | apt-key add -
 nala update
 nala install -y google-chrome-stable
-apt autoremove -y && apt autoclean && apt clean
+#VSCodium
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor -o /etc/apt/keyrings/vscodium-archive-keyring.gpg
+echo 'deb [ signed-by=/etc/apt/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' | tee /etc/apt/sources.list.d/vscodium.list
+nala update
+nala install -y codium
+#Node JS
+wget -qO - https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+NODE_MAJOR=20
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
+nala update
+nala install -y nodejs
+#
+nala autoremove -y && apt autoclean && nala clean
+
+
+
+
+
+
+
