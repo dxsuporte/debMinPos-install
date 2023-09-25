@@ -1,4 +1,5 @@
 #!/bin/sh
+#Stop the script if any command fails. || #Interromper o script se algum comando falhar.
 set -e
 #Versão do Debian
 [ $(lsb_release -rs) = "n/a" ] && { RELEASE="testing" || RELEASE=$(lsb_release -rs); }

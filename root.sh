@@ -1,4 +1,5 @@
 #!/bin/sh
+#Stop the script if any command fails. || #Interromper o script se algum comando falhar.
 set -e
 #Interface para APT
 apt install -y nala
