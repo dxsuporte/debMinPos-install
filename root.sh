@@ -98,6 +98,7 @@ cp -f dx-logo.svg /usr/share/icons/hicolor/scalable/apps
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Backgrounds
 mv -n backgrounds/* /usr/share/backgrounds
+mv -n links/* /usr/share/backgrounds
 #Modelo Thema Panel XFCE
 mv -n theme/W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
 #Habilitar theme de carregamento do sistemax

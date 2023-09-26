@@ -1,5 +1,0 @@
-#!/bin/bash
-
-APP_PATH="/opt/lampp/manager-linux-x64.run"
-
-pkexec "${APP_PATH}" "$@"

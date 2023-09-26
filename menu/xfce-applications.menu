@@ -52,6 +52,9 @@
                 <Filename>info.desktop</Filename>
                 <Category>Settings</Category>
                 <Category>System</Category>
+                <Filename>xfburn.desktop</Filename>
+                <Filename>sqlitebrowser.desktop</Filename>
+		<Filename>com.nextcloud.desktopclient.nextcloud.desktop</Filename>
             </Or>
         </Exclude>
 
@@ -122,6 +125,7 @@
         <Directory>xfce-network.directory</Directory>
         <Include>
             <Category>Network</Category>
+	    <Filename>com.nextcloud.desktopclient.nextcloud.desktop</Filename>
         </Include>
         <Exclude>
             <Or>
@@ -175,6 +179,7 @@
             <Or>
                 <Filename>xfce4-session-logout.desktop</Filename>
                 <Filename>org.gnome.Software.desktop</Filename>
+                <Filename>megasync.desktop</Filename>
             </Or>
         </Exclude>
     </Menu>
