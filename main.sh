@@ -133,4 +133,5 @@ nala autoremove -y
 apt autoclean
 nala clean
 #Reinicia o sistema
+read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
 reboot
