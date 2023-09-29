@@ -7,37 +7,38 @@ set -e
 add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib non-free"
 #Atualizar sistema
 nala update && nala upgrade -y
+######################################################################
+read -r -p "Gostaria de otimizar a bateria do notebook? [y] " TLP
+read -r -p "Instalar o Software para WebCam? [y] " CHEESE
+read -r -p "Instalar o Inkscape? [y] " INKSCAPE
+read -r -p "Instalar o GIMP? [y] " GIMP
+read -r -p "Instalar o Player de Música Clementine? [y] " CLEMENTINE
+read -r -p "Instalar o VLC Media Player? [y] " VLC
+read -r -p "Instalar o LibreOffice? [y] " LIBREOFFICE
+read -r -p "Instalar o OnlyOffice? [y] " ONLYOFFICE
+read -r -p "Instalar o Microsoft Edge? [y] " EDGE
+read -r -p "Instalar o Google Chrome? [y] " CHROME
+read -r -p "Instalar o Chromium Browser? [y] " CHROMIUM
+read -r -p "Instalar o DropBox? [y] " DROPBOX
+read -r -p "Instalar o MegaSync? [y] " MEGASYNC
+read -r -p "Instalar o NextCloud? [y] " NEXTCLOUD
+read -r -p "Instalar o acesso remoto TeamViewer? [y] " TEAMVIEWER
+read -r -p "Instalar o acesso remoto AnyDesk? [y] " ANYDESK
+read -r -p "Instalar o VSCode? [y] " VSCODE
+read -r -p "Instalar o VSCodium? [y] " VSCODIUM
+read -r -p "Instalar o Node JS? [y] " NODEJS
+read -r -p "Instalar o SQLite? [y] " SQLITE
+read -r -p "Instalar o Antares SQL? [y] " ANTARESSQL
+read -r -p "Instalar o DWService? [y] " DWSERVICE
+read -r -p "Instalar a loja de Software? [y] " SOFTWAREDEB
+######################################################################
 #Otimizar bateria do notebook
-#nala install -y tlp
-#nala install -y cheese
-############################################################
-read -r -p "Instalar a loja de Software? [y/n] " SOFTWAREDEB
-read -r -p "Instalar o Inkscape? [y/n] " INKSCAPE
-read -r -p "Instalar o GIMP? [y/n] " GIMP
-read -r -p "Instalar o Player de Música Clementine? [y/n] " CLEMENTINE
-read -r -p "Instalar o VLC Media Player? [y/n] " VLC
-read -r -p "Instalar o LibreOffice? [y/n] " LIBREOFFICE
-read -r -p "Instalar o OnlyOffice? [y/n] " ONLYOFFICE
-read -r -p "Instalar o Microsoft Edge? [y/n] " EDGE
-read -r -p "Instalar o Google Chrome? [y/n] " CHROME
-read -r -p "Instalar o Chromium Browser? [y/n] " CHROMIUM
-read -r -p "Instalar o DropBox? [y/n] " DROPBOX
-read -r -p "Instalar o MegaSync? [y/n] " MEGASYNC
-read -r -p "Instalar o NextCloud? [y/n] " NEXTCLOUD
-read -r -p "Instalar o acesso remoto TeamViewer? [y/n] " TEAMVIEWER
-read -r -p "Instalar o acesso remoto AnyDesk? [y/n] " ANYDESK
-read -r -p "Instalar o VSCode? [y/n] " VSCODE
-read -r -p "Instalar o VSCodium? [y/n] " VSCODIUM
-read -r -p "Instalar o Node JS? [y/n] " NODEJS
-read -r -p "Instalar o SQLite? [y/n] " SQLITE
-read -r -p "Instalar o Antares SQL? [y/n] " ANTARESSQL
-read -r -p "Instalar o DWService? [y/n] " DWSERVICE
-############################################################
-#Software DEB
-if [ "$SOFTWAREDEB" = "y" ]; then
-    nala install -y gnome-software
-else
-    nala install -y deepin-deb-installer
+if [ "$TLP" = "y" ]; then
+    nala install -y tlp
+fi
+#Cheese webcam
+if [ "$CHEESE" = "y" ]; then
+    nala install -y cheese
 fi
 #Inkscape
 if [ "$INKSCAPE" = "y" ]; then
@@ -161,6 +162,12 @@ if [ "$DWSERVICE" = "y" ]; then
     wget -cO - https://node213098.dwservice.net/getAgentFile.dw?name=dwagent.sh >dwagent.sh
     chmod +x dwagent.sh && sh dwagent.sh
     rm -R ./dwagent.sh
+fi
+#Software DEB
+if [ "$SOFTWAREDEB" = "y" ]; then
+    nala install -y gnome-software
+else
+    nala install -y deepin-deb-installer
 fi
 #Limpeza no apt
 nala autoremove -y

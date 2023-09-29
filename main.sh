@@ -95,8 +95,25 @@ cp -f menu/* /etc/xdg/menus/
 cp -f xfce/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
 #Tema da tela de login
 cp -f config/lightdm-gtk-greeter.conf /etc/lightdm
+#Aplicativos Padrão
+sed -i 's/debian-sensible-browser/firefox/g' /etc/xdg/xfce4/helpers.rc
 #Habilitar Mostra usuario no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
+#Samba config
+sed -i 's/;   bind interfaces only = yes/bind interfaces only = yes/g' /etc/samba/smb.conf
+echo "[public]" | tee -a /etc/samba/smb.conf
+echo "path = /home/samba/public" | tee -a /etc/samba/smb.conf
+echo "public = yes" | tee -a /etc/samba/smb.conf
+echo "guest only = yes" | tee -a /etc/samba/smb.conf
+echo "writable = yes" | tee -a /etc/samba/smb.conf
+echo "force create mode = 0666" | tee -a /etc/samba/smb.conf
+echo "force directory mode = 0777" | tee -a /etc/samba/smb.conf
+echo "browseable = yes" | tee -a /etc/samba/smb.conf
+mkdir /home/samba/public
+chmod -R ugo+w /home/samba/public
+touch /etc/xdg/autostart/samba-public.desktop
+echo '[Desktop Entry]' | tee -a /etc/xdg/autostart/samba-public.desktop
+echo 'Exec=sh -c "gio mount smb://localhost/public -a; [ ! -d "$HOME/share" ] && { ln -s /home/samba/public $HOME/share; }"' | tee -a /etc/xdg/autostart/samba-public.desktop
 #Icones
 cp -f icons/dx-logo.svg /usr/share/icons/hicolor/scalable/apps
 #Backgrounds
