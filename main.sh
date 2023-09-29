@@ -18,14 +18,18 @@ sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
 sed -i 's/deb-src/#deb-src/g' /etc/apt/sources.list
 add-apt-repository -y contrib non-free
 #Atualizar sistema
-nala update
-nala upgrade -y
+nala update && nala upgrade -y
 #Drives
-#nala install -y intel-microcode
-#nala install -y amd64-microcode
+if [ $(lscpu | grep -c -i 'amd') != 0 ]; then
+    nala install -y amd64-microcode
+    nala install -y amdgcn-tools
+fi
+if [ $(lscpu | grep -c -i 'intel') != 0 ]; then
+    nala install -y intel-microcode
+    nala install -y intel-gpu-tools
+fi
 nala install -y firmware-linux
 nala install -y linux-headers-$(uname -r)
-nala install -y intel-gpu-tools
 #Interface grafica XFCE4
 nala install -y xfce4-terminal
 nala install -y xorg
@@ -48,10 +52,11 @@ nala install -y lightdm-gtk-greeter-settings
 nala install -y plymouth
 nala install -y plymouth-themes
 #Ferramenta do Sistema
+nala install -y xdg-user-dirs-gtk
 nala install -y gnome-system-tools
 nala install -y gufw
 nala install -y gparted
-nala install -y xdg-user-dirs-gtk
+nala install -y mintstick
 nala install -y menulibre
 nala install -y mugshot
 nala install -y python3-gi
@@ -69,7 +74,6 @@ nala install -y qbittorrent
 nala install -y parole
 nala install -y galculator
 nala install -y atril
-nala install -y mintstick
 #Instalar Software Impressora HP
 nala install -y system-config-printer
 nala install -y hplip
@@ -83,8 +87,8 @@ nala install -y ffmpeg faad lame sox twolame vorbis-tools libavcodec-extra* gstr
 #Gerenciar Rede modo grafico
 cp -f config/interfaces /etc/network/interfaces
 #Menu e configuraçães do xfce
-cp -f menu/* /etc/xdg/menus/
-cp -f xfce/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
+cp -f xfce/menu/* /etc/xdg/menus/
+cp -f xfce/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
 #Tema da tela de login
 cp -f config/lightdm-gtk-greeter.conf /etc/lightdm
 #Aplicativos Padrão
@@ -112,7 +116,7 @@ ln -s /usr/share/desktop-base/moonlight-theme/login/background-nologo.svg /usr/s
 ln -s /usr/share/desktop-base/softwaves-theme/login/background-nologo.svg /usr/share/backgrounds/14.svg
 ln -s /usr/share/plymouth/themes/emerald/Emerald_plymouth.svg /usr/share/backgrounds/15.svg
 #Modelo Thema Panel XFCE
-mv -n theme/W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
+mv -n xfce/theme/W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
 #Habilitar theme de carregamento do sistemax
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/g' /etc/default/grub
 sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/g' /etc/default/grub

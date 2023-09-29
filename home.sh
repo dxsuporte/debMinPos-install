@@ -66,7 +66,7 @@ if [ "$LIBREOFFICE" = "y" ]; then
     nala install -y libreoffice-l10n-pt-br
     wget -c https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBR3215AOC.oxt
     unopkg add --shared VeroptBR3215AOC.oxt
-    cp -f libreoffice/* /etc/libreoffice/registry/
+    cp -f config/libreoffice/* /etc/libreoffice/registry/
 fi
 #OnlyOffice
 if [ "$ONLYOFFICE" = "y" ]; then
@@ -174,4 +174,6 @@ nala autoremove -y
 apt autoclean
 nala clean
 #Reinicia o sistema
+read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [y] " REBOOT
+echo $REBOOT
 reboot
