@@ -70,14 +70,6 @@ nala install -y parole
 nala install -y galculator
 nala install -y atril
 nala install -y mintstick
-#Instalar Compartilhamento de rede
-nala install -y samba
-nala install -y smbclient
-nala install -y wsdd
-nala install -y wsdd2
-nala install -y gvfs-backends
-nala install -y gvfs-fuse
-nala install -y gigolo
 #Instalar Software Impressora HP
 nala install -y system-config-printer
 nala install -y hplip
@@ -99,22 +91,6 @@ cp -f config/lightdm-gtk-greeter.conf /etc/lightdm
 sed -i 's/debian-sensible-browser/firefox/g' /etc/xdg/xfce4/helpers.rc
 #Habilitar Mostra usuario no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
-#Samba config
-sed -i 's/;   bind interfaces only = yes/bind interfaces only = yes/g' /etc/samba/smb.conf
-echo -e "
-[public]
-path = /home/samba/public
-public = yes
-guest only = yes
-writable = yes
-force create mode = 0666
-force directory mode = 0777
-browseable = yes
-" | tee -a /etc/samba/smb.conf
-mkdir -p /home/samba/public
-chmod -R ugo+w /home/samba/public
-touch /etc/xdg/autostart/samba-public.desktop
-echo -e '[Desktop Entry] \n Exec=sh -c "gio mount smb://localhost/public -a"' | tee -a /etc/xdg/autostart/samba-public.desktop
 #Icones
 cp -f icons/dx-logo.svg /usr/share/icons/hicolor/scalable/apps
 #Backgrounds
