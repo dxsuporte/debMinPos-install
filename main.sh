@@ -87,8 +87,14 @@ nala install -y ffmpeg faad lame sox twolame vorbis-tools libavcodec-extra* gstr
 #Gerenciar Rede modo grafico
 cp -f config/interfaces /etc/network/interfaces
 #Menu e configuraçães do xfce
+cp -f xfce/mimeapps.list /etc/xdg/
+cp -f xfce/xfce-mimeapps.list /etc/xdg/
 cp -f xfce/menu/* /etc/xdg/menus/
-cp -f xfce/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
+cp -f xfce/terminator/* /etc/xdg/terminator/
+cp -f xfce/Thunar/* /etc/xdg/Thunar/
+cp -f xfce/xfce4/terminal/ /etc/xdg/xfce4/terminal/
+cp -f xfce/xfce4/whiskermenu/* /etc/xdg/xfce4/whiskermenu/
+cp -f xfce/xfce4/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
 #Tema da tela de login
 cp -f config/lightdm-gtk-greeter.conf /etc/lightdm
 #Aplicativos Padrão

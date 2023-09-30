@@ -1,0 +1,6 @@
+[Default Applications]
+text/html=default-browser.desktop
+x-scheme-handles/about=default-browser.desktop
+x-scheme-handles/http=default-browser.desktop
+x-scheme-handles/https=default-browser.desktop
+x-scheme-handles/unknown=default-browser.desktop
