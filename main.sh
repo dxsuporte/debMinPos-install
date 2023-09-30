@@ -130,8 +130,9 @@ runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.co
 sed -i 's/OSH_THEME="font"/OSH_THEME="mairan"/g' /home/$(id 1000 -u -n)/.bashrc
 #Limpeza no apt
 nala autoremove -y
-apt autoclean
 nala clean
+apt autoclean
+apt clean
 #Reinicia o sistema
 read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
 reboot
