@@ -10,10 +10,10 @@ nala update && nala upgrade -y
 ######################################################################
 read -r -p "Gostaria de otimizar a bateria do notebook? [y|n] " TLP
 read -r -p "Instalar o Software para WebCam? [y|n] " CHEESE
-read -r -p "Instalar o Inkscape? [y|n] " INKSCAPE
-read -r -p "Instalar o GIMP? [y|n] " GIMP
-read -r -p "Instalar o Player de Música Clementine? [y/n] " CLEMENTINE
-read -r -p "Instalar o VLC Media Player? [y|n] " VLC
+read -r -p "Instalar o Inkscape - Design gráfico? [y|n] " INKSCAPE
+read -r -p "Instalar o Gimp - Editor de imagem? [y|n] " GIMP
+read -r -p "Instalar o Clementine - Player de Música? [y/n] " CLEMENTINE
+read -r -p "Instalar o VLC - Media Player? [y|n] " VLC
 read -r -p "Instalar o LibreOffice? [y|n] " LIBREOFFICE
 read -r -p "Instalar o OnlyOffice? [y|n] " ONLYOFFICE
 read -r -p "Instalar o Microsoft Edge? [y|n] " EDGE
@@ -22,8 +22,8 @@ read -r -p "Instalar o Chromium Browser? [y|n] " CHROMIUM
 read -r -p "Instalar o DropBox? [y|n] " DROPBOX
 read -r -p "Instalar o MegaSync? [y|n] " MEGASYNC
 read -r -p "Instalar o NextCloud? [y|n] " NEXTCLOUD
-read -r -p "Instalar o acesso remoto TeamViewer? [y|n] " TEAMVIEWER
-read -r -p "Instalar o acesso remoto AnyDesk? [y|n] " ANYDESK
+read -r -p "Instalar o TeamViewer - Acesso remoto? [y|n] " TEAMVIEWER
+read -r -p "Instalar o AnyDesk - Acesso remoto ? [y|n] " ANYDESK
 read -r -p "Instalar o VSCode? [y|n] " VSCODE
 read -r -p "Instalar o VSCodium? [y|n] " VSCODIUM
 read -r -p "Instalar o Node JS? [y|n] " NODEJS
@@ -43,19 +43,19 @@ fi
 if [ "$CHEESE" = "y" ]; then
     nala install -y cheese
 fi
-#Inkscape
+#Inkscape - Design gráfico
 if [ "$INKSCAPE" = "y" ]; then
     nala install -y inkscape
 fi
-#GIMP
+#Gimp - Editor de imagem
 if [ "$GIMP" = "y" ]; then
     nala install -y gimp
 fi
-#Player de Música Clementine
+#Clementine - Player de Música 
 if [ "$CLEMENTINE" = "y" ]; then
     nala install -y clementine
 fi
-#VLC Media Player
+#VLC - Media Player
 if [ "$VLC" = "y" ]; then
     nala install -y vlc
 fi
