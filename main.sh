@@ -39,8 +39,8 @@ nala install -y xfce4-*
 #Instalar Theme
 nala install -y orchis-gtk-theme
 nala install -y greybird-gtk-theme
+nala install -y materia-gtk-theme
 nala install -y elementary-xfce-icon-theme
-nala install -y breeze-cursor-theme
 #Instalar Fonts
 nala install -y fonts-noto
 nala install -y fonts-noto-core
@@ -74,6 +74,8 @@ nala install -y qbittorrent
 nala install -y parole
 nala install -y galculator
 nala install -y atril
+#nala install -y evince
+#nala install -y gnome-disks
 #Instalar Software Impressora HP
 nala install -y system-config-printer
 nala install -y hplip
@@ -90,10 +92,11 @@ cp -f config/interfaces /etc/network/interfaces
 cp -f xfce/mimeapps.list /etc/xdg/
 cp -f xfce/xfce-mimeapps.list /etc/xdg/
 cp -f xfce/menu/* /etc/xdg/menus/
+mkdir -p /etc/xdg/terminator/
 cp -f xfce/terminator/* /etc/xdg/terminator/
 cp -f xfce/Thunar/* /etc/xdg/Thunar/
-cp -f xfce/xfce4/terminal/ /etc/xdg/xfce4/terminal/
-cp -f xfce/xfce4/whiskermenu/* /etc/xdg/xfce4/whiskermenu/
+mkdir -p /etc/xdg/xfce4/terminal/
+cp -f xfce/xfce4/terminal/* /etc/xdg/xfce4/terminal/
 cp -f xfce/xfce4/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
 #Tema da tela de login
 cp -f config/lightdm-gtk-greeter.conf /etc/lightdm
