@@ -112,7 +112,7 @@ cp -f config/lightdm-gtk-greeter.conf /etc/lightdm
 #Habilitar Mostra usuario no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Icones
-cp -f icons/dx-logo.svg /usr/share/icons/hicolor/scalable/apps
+cp -f icons/* /usr/share/icons/
 #Backgrounds
 mv -n backgrounds/* /usr/share/backgrounds
 ln -s /usr/share/backgrounds/xfce/* /usr/share/backgrounds/
