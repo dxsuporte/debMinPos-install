@@ -2,7 +2,7 @@
 #Stop the script if any command fails. || #Interromper o script se algum comando falhar.
 set -e
 #Versão do Debian
-[ $(lsb_release -rs 2>/deb/null) = "n/a" ] && { RELEASE="testing" || RELEASE=$(lsb_release -rs 2>/deb/null); }
+[ "$(lsb_release -rs 2>/deb/null)" = "n/a" ] && { RELEASE="testing" || RELEASE=$(lsb_release -rs 2>/deb/null); }
 #Adicionar Repositorio Debian oldstable
 add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib non-free"
 #Atualizar sistema

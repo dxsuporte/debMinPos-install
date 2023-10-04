@@ -35,7 +35,15 @@ nala install -y xfce4-terminal
 nala install -y xorg
 nala install -y xfce4
 nala install -y xfce4-goodies
+nala install -y menulibre
+nala install -y mugshot
+nala install -y gigolo
 nala install -y xfce4-*
+#XFCE Plugin
+nala install -y gvfs-backends
+nala install -y gvfs-fuse
+nala install -y python3-gi
+nala install -y python3-psutil
 #Instalar Theme
 nala install -y orchis-gtk-theme
 nala install -y greybird-gtk-theme
@@ -57,10 +65,6 @@ nala install -y gnome-system-tools
 nala install -y gufw
 nala install -y gparted
 nala install -y mintstick
-nala install -y menulibre
-nala install -y mugshot
-nala install -y python3-gi
-nala install -y python3-psutil
 #Gerenciador de software.
 nala install -y software-properties-gtk
 nala install -y synaptic
