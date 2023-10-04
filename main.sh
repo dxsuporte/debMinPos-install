@@ -103,6 +103,8 @@ mkdir -p /etc/xdg/xfce4/terminal/
 cp -f xfce/xfce4/terminal/* /etc/xdg/xfce4/terminal/
 cp -f xfce/xfce4/whiskermenu/* /etc/xdg/xfce4/whiskermenu/
 cp -f xfce/xfce4/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
+#Img Grub
+cp -f grub/* /usr/share/desktop-base/emerald-theme/grub/
 #Aplicativos Padrão
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
 #Tema da tela de login
