@@ -2,7 +2,11 @@
 #Stop the script if any command fails. || #Interromper o script se algum comando falhar.
 set -e
 #Versão do Debian
-[ "$(lsb_release -rs 2>/deb/null)" = "n/a" ] && { RELEASE="testing" || RELEASE=$(lsb_release -rs 2>/deb/null); }
+if [ "$(lsb_release -rs 2>/deb/null)" = "n/a" ]; then
+    RELEASE="testing"
+else
+    RELEASE="$(lsb_release -rs 2>/deb/null)"
+fi
 #Adicionar Repositorio Debian oldstable
 add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib non-free"
 #Atualizar sistema
@@ -51,7 +55,7 @@ fi
 if [ "$GIMP" = "y" ]; then
     nala install -y gimp
 fi
-#Clementine - Player de Música 
+#Clementine - Player de Música
 if [ "$CLEMENTINE" = "y" ]; then
     nala install -y clementine
 fi
