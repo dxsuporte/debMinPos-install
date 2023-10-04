@@ -69,6 +69,7 @@ if [ "$LIBREOFFICE" = "y" ]; then
     nala install -y libreoffice-l10n-pt-br
     wget -c https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBR3215AOC.oxt
     unopkg add --shared VeroptBR3215AOC.oxt
+    rm -R ./VeroptBR*.oxt
     cp -f config/libreoffice/* /etc/libreoffice/registry/
 fi
 #OnlyOffice
