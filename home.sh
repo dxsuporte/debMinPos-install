@@ -2,7 +2,7 @@
 #Stop the script if any command fails. || #Interromper o script se algum comando falhar.
 set -e
 #Versão do Debian
-[ $(lsb_release -rs) = "n/a" ] && { RELEASE="testing" || RELEASE=$(lsb_release -rs); }
+[ $(lsb_release -rs 2>/deb/null) = "n/a" ] && { RELEASE="testing" || RELEASE=$(lsb_release -rs 2>/deb/null); }
 #Adicionar Repositorio Debian oldstable
 add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib non-free"
 #Atualizar sistema
@@ -176,7 +176,7 @@ if [ "$SOFTWAREDEB" = "y" ]; then
     nala install -y gnome-software
 else
     nala install -y deepin-deb-installer
-    nala install -y gnome-package-updater
+    nala install -y gnome-packagekit
 fi
 #Limpeza no apt
 nala autoremove -y

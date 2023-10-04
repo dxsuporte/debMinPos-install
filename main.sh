@@ -97,11 +97,12 @@ cp -f xfce/terminator/* /etc/xdg/terminator/
 cp -f xfce/Thunar/* /etc/xdg/Thunar/
 mkdir -p /etc/xdg/xfce4/terminal/
 cp -f xfce/xfce4/terminal/* /etc/xdg/xfce4/terminal/
+cp -f xfce/xfce4/whiskermenu/* /etc/xdg/xfce4/whiskermenu/
 cp -f xfce/xfce4/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
+#Aplicativos Padrão
+sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
 #Tema da tela de login
 cp -f config/lightdm-gtk-greeter.conf /etc/lightdm
-#Aplicativos Padrão
-sed -i 's/debian-sensible-browser/firefox/g' /etc/xdg/xfce4/helpers.rc
 #Habilitar Mostra usuario no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Icones
@@ -137,7 +138,7 @@ sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
 #Bash User First Home
 runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended' || echo 'OK'
 sed -i 's/OSH_THEME="font"/OSH_THEME="mairan"/g' /home/$(id 1000 -u -n)/.bashrc
-#Limpeza no apt
+#Limpeza no apt e nala
 nala autoremove -y
 nala clean
 apt autoclean
