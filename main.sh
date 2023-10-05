@@ -35,10 +35,10 @@ nala install -y xfce4-terminal
 nala install -y xorg
 nala install -y xfce4
 nala install -y xfce4-goodies
+nala install -y xfce4-*
 nala install -y menulibre
 nala install -y mugshot
 nala install -y gigolo
-nala install -y xfce4-*
 #XFCE Plugin
 nala install -y gvfs-backends
 nala install -y gvfs-fuse
@@ -107,8 +107,6 @@ mkdir -p /etc/xdg/xfce4/terminal/
 cp -f xfce/xfce4/terminal/* /etc/xdg/xfce4/terminal/
 cp -f xfce/xfce4/whiskermenu/* /etc/xdg/xfce4/whiskermenu/
 cp -f xfce/xfce4/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
-#Img Grub
-#cp -f grub/* /usr/share/desktop-base/emerald-theme/grub/
 #Aplicativos Padrão
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
 #Tema da tela de login
