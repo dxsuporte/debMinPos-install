@@ -92,6 +92,10 @@ nala install -y ffmpeg faad lame sox twolame vorbis-tools libavcodec-extra* gstr
 #-----------------------------Configurações do Sistema-----------------------------------------#
 #Gerenciar Rede modo grafico
 cp -f config/interfaces /etc/network/interfaces
+#Desktop Theme
+tar -xvf config/dx-theme.tar.xz -C /usr/share/desktop-base/
+unlink /etc/alternatives/desktop-theme
+ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
 #Menu e configuraçães do xfce
 cp -f xfce/mimeapps.list /etc/xdg/
 cp -f xfce/xfce-mimeapps.list /etc/xdg/
@@ -104,7 +108,7 @@ cp -f xfce/xfce4/terminal/* /etc/xdg/xfce4/terminal/
 cp -f xfce/xfce4/whiskermenu/* /etc/xdg/xfce4/whiskermenu/
 cp -f xfce/xfce4/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
 #Img Grub
-cp -f grub/* /usr/share/desktop-base/emerald-theme/grub/
+#cp -f grub/* /usr/share/desktop-base/emerald-theme/grub/
 #Aplicativos Padrão
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
 #Tema da tela de login
