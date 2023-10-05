@@ -118,6 +118,7 @@ tar -xvf config/icons.tar.xz -C /usr/share/icons/
 #Backgrounds
 tar -xvf config/backgrounds.tar.xz -C /usr/share/backgrounds
 ln -s /usr/share/backgrounds/xfce/* /usr/share/backgrounds/
+ln -s /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
 ln -s /usr/share/desktop-base/emerald-theme/login/background.svg /usr/share/backgrounds/01.svg
 ln -s /usr/share/desktop-base/futureprototype-theme/login/background.svg /usr/share/backgrounds/02.svg
 ln -s /usr/share/desktop-base/homeworld-theme/login/background.svg /usr/share/backgrounds/03.svg
