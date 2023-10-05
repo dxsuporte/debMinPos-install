@@ -49,6 +49,7 @@ nala install -y orchis-gtk-theme
 nala install -y greybird-gtk-theme
 nala install -y materia-gtk-theme
 nala install -y elementary-xfce-icon-theme
+nala install -y bibata-cursor-theme
 #Instalar Fonts
 nala install -y fonts-noto
 nala install -y fonts-noto-core
