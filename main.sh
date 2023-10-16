@@ -108,25 +108,25 @@ sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lig
 tar -xvf config/icons.tar.xz -C /usr/share/icons/
 #Backgrounds
 tar -xvf config/backgrounds.tar.xz -C /usr/share/backgrounds
-ln -s /usr/share/backgrounds/xfce/* /usr/share/backgrounds/
-ln -s /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
-ln -s /usr/share/desktop-base/emerald-theme/login/background.svg /usr/share/backgrounds/01.svg
-ln -s /usr/share/desktop-base/futureprototype-theme/login/background.svg /usr/share/backgrounds/02.svg
-ln -s /usr/share/desktop-base/homeworld-theme/login/background.svg /usr/share/backgrounds/03.svg
-ln -s /usr/share/desktop-base/joy-theme/login/background.svg /usr/share/backgrounds/04.svg
-ln -s /usr/share/desktop-base/lines-theme/login/background.svg /usr/share/backgrounds/05.svg
-ln -s /usr/share/desktop-base/moonlight-theme/login/background.svg /usr/share/backgrounds/06.svg
-ln -s /usr/share/desktop-base/softwaves-theme/login/background.svg /usr/share/backgrounds/07.svg
-ln -s /usr/share/desktop-base/spacefun-theme/login/background.svg /usr/share/backgrounds/08.svg
-ln -s /usr/share/desktop-base/emerald-theme/login/background-nologo.svg /usr/share/backgrounds/09.svg
-ln -s /usr/share/desktop-base/futureprototype-theme/login/background-nologo.svg /usr/share/backgrounds/10.svg
-ln -s /usr/share/desktop-base/homeworld-theme/login/background-nologo.svg /usr/share/backgrounds/11.svg
-ln -s /usr/share/desktop-base/lines-theme/login/background-nologo.svg /usr/share/backgrounds/12.svg
-ln -s /usr/share/desktop-base/moonlight-theme/login/background-nologo.svg /usr/share/backgrounds/13.svg
-ln -s /usr/share/desktop-base/softwaves-theme/login/background-nologo.svg /usr/share/backgrounds/14.svg
-ln -s /usr/share/plymouth/themes/emerald/Emerald_plymouth.svg /usr/share/backgrounds/15.svg
+ln -sf /usr/share/backgrounds/xfce/* /usr/share/backgrounds/
+ln -sf /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
+ln -sf /usr/share/desktop-base/emerald-theme/login/background.svg /usr/share/backgrounds/01.svg
+ln -sf /usr/share/desktop-base/futureprototype-theme/login/background.svg /usr/share/backgrounds/02.svg
+ln -sf /usr/share/desktop-base/homeworld-theme/login/background.svg /usr/share/backgrounds/03.svg
+ln -sf /usr/share/desktop-base/joy-theme/login/background.svg /usr/share/backgrounds/04.svg
+ln -sf /usr/share/desktop-base/lines-theme/login/background.svg /usr/share/backgrounds/05.svg
+ln -sf /usr/share/desktop-base/moonlight-theme/login/background.svg /usr/share/backgrounds/06.svg
+ln -sf /usr/share/desktop-base/softwaves-theme/login/background.svg /usr/share/backgrounds/07.svg
+ln -sf /usr/share/desktop-base/spacefun-theme/login/background.svg /usr/share/backgrounds/08.svg
+ln -sf /usr/share/desktop-base/emerald-theme/login/background-nologo.svg /usr/share/backgrounds/09.svg
+ln -sf /usr/share/desktop-base/futureprototype-theme/login/background-nologo.svg /usr/share/backgrounds/10.svg
+ln -sf /usr/share/desktop-base/homeworld-theme/login/background-nologo.svg /usr/share/backgrounds/11.svg
+ln -sf /usr/share/desktop-base/lines-theme/login/background-nologo.svg /usr/share/backgrounds/12.svg
+ln -sf /usr/share/desktop-base/moonlight-theme/login/background-nologo.svg /usr/share/backgrounds/13.svg
+ln -sf /usr/share/desktop-base/softwaves-theme/login/background-nologo.svg /usr/share/backgrounds/14.svg
+ln -sf /usr/share/plymouth/themes/emerald/Emerald_plymouth.svg /usr/share/backgrounds/15.svg
 #Modelo Thema Panel XFCE
-mv -n xfce/theme/W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
+cp -f xfce/theme/W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
 #Habilitar theme de carregamento do sistemax
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/g' /etc/default/grub
 sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/g' /etc/default/grub
