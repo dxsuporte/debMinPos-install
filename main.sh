@@ -4,92 +4,82 @@ set -e
 #Mudar lingual do Sistema
 update-locale LANG=pt_BR.UTF-8
 locale-gen --purge pt_BR.UTF-8
-#Interface para APT
-apt install -y nala
-#Ultilitario de Terminal
-nala install -y software-properties-common
-nala install -y apt-transport-https
-nala install -y bash-completion
-nala install -y neofetch
-nala install -y curl
-nala install -y wget
 #Desativar CDROM, codigo font e Habilitar Repositorio extras Debian
 sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
 sed -i 's/deb-src/#deb-src/g' /etc/apt/sources.list
+apt install -y software-properties-common
 add-apt-repository -y contrib non-free
 #Atualizar sistema
-nala update && nala upgrade -y
+apt update && apt upgrade -y
 #Drives
 if [ $(lscpu | grep -c -i 'amd') != 0 ]; then
-    nala install -y amd64-microcode
-    nala install -y amdgcn-tools
+    apt install -y amd64-microcode
+    apt install -y amdgcn-tools
 fi
 if [ $(lscpu | grep -c -i 'intel') != 0 ]; then
-    nala install -y intel-microcode
-    nala install -y intel-gpu-tools
+    apt install -y intel-microcode
+    apt install -y intel-gpu-tools
 fi
-nala install -y firmware-linux
-nala install -y linux-headers-$(uname -r)
+apt install -y firmware-linux
+apt install -y linux-headers-$(uname -r)
 #Interface grafica XFCE4
-nala install -y xfce4-terminal
-nala install -y xorg
-nala install -y xfce4
-nala install -y xfce4-goodies
-nala install -y xfce4-*
-nala install -y menulibre
-nala install -y mugshot
-nala install -y gigolo
-#XFCE Plugin
-nala install -y gvfs-backends
-nala install -y gvfs-fuse
-nala install -y python3-gi
-nala install -y python3-psutil
+apt install -y xfce4-terminal
+apt install -y xorg
+apt install -y xfce4
+apt install -y xfce4-goodies
+apt install -y xfce4-panel-profiles
+apt install -y menulibre
+apt install -y mugshot
+apt install -y gigolo
+apt install -y gvfs-*
+apt install -y xdg-user-dirs-gtk
 #Instalar Theme
-nala install -y orchis-gtk-theme
-nala install -y greybird-gtk-theme
-nala install -y materia-gtk-theme
-nala install -y elementary-xfce-icon-theme
-nala install -y bibata-cursor-theme
+apt install -y orchis-gtk-theme
+apt install -y greybird-gtk-theme
+apt install -y materia-gtk-theme
+apt install -y elementary-xfce-icon-theme
+apt install -y bibata-cursor-theme
 #Instalar Fonts
-nala install -y fonts-noto
-nala install -y fonts-noto-core
-nala install -y fonts-firacode
-nala install -y fonts-powerline
+apt install -y fonts-noto*
+apt install -y fonts-firacode
+apt install -y fonts-powerline
 #Interface Carregamento do X
-nala install -y lightdm
-nala install -y lightdm-gtk-greeter-settings
-nala install -y plymouth
-nala install -y plymouth-themes
+apt install -y lightdm
+apt install -y lightdm-gtk-greeter-settings
+apt install -y plymouth
+apt install -y plymouth-themes
 #Ferramenta do Sistema
-nala install -y xdg-user-dirs-gtk
-nala install -y gnome-system-tools
-nala install -y gufw
-nala install -y gparted
-nala install -y mintstick
+apt install -y gnome-system-tools
+apt install -y gufw
+apt install -y gparted
+apt install -y mintstick
 #Gerenciador de software.
-nala install -y software-properties-gtk
-nala install -y synaptic
+apt install -y software-properties-gtk
+apt install -y synaptic
 #Gerenciador de rede.
-nala install -y network-manager
-nala install -y network-manager-gnome
-nala install -y blueman
+apt install -y network-manager
+apt install -y network-manager-gnome
+apt install -y blueman
 #Programas de Básicos
-nala install -y firefox-esr
-nala install -y qbittorrent
-nala install -y parole
-nala install -y galculator
-nala install -y atril
-#nala install -y evince
-#nala install -y gnome-disks
+apt install -y firefox-esr
+apt install -y qbittorrent
+apt install -y parole
+apt install -y galculator
+apt install -y atril
+#apt install -y evince
+#apt install -y gnome-disks
 #Instalar Software Impressora HP
-nala install -y system-config-printer
-nala install -y hplip
-nala install -y printer-driver-all
-nala install -y simple-scan
+apt install -y system-config-printer
+apt install -y hplip
+apt install -y printer-driver-all
+apt install -y simple-scan
 #Codecs para descompaquitar arquivos
-nala install -y zip p7zip* unrar* rar arc arj cabextract lhasa unace xz-utils
+apt install -y zip p7zip* unrar* rar arc arj cabextract lhasa unace* xz-utils
 #Codecs de audio e video
-nala install -y ffmpeg faad lame sox twolame vorbis-tools libavcodec-extra* gstreamer1.0-fdkaac
+apt install -y ffmpeg faad lame sox twolame vorbis-tools libavcodec-extra* gstreamer1.0-fdkaac
+#Ultilitario de Terminal
+apt install -y bash-completion
+apt install -y neofetch
 #-----------------------------Configurações do Sistema-----------------------------------------#
 #Gerenciar Rede modo grafico
 cp -f config/interfaces /etc/network/interfaces
@@ -143,14 +133,14 @@ sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/g' /etc/default/grub
 plymouth-set-default-theme -R bgrt
 update-grub2
 #Bash User Root
+apt install -y wget
 bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended || echo 'OK'
 sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
 #Bash User First Home
 runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended' || echo 'OK'
 sed -i 's/OSH_THEME="font"/OSH_THEME="mairan"/g' /home/$(id 1000 -u -n)/.bashrc
-#Limpeza no apt e nala
-nala autoremove -y
-nala clean
+#Limpeza no apt
+apt autoremove -y
 apt autoclean
 apt clean
 #Reinicia o sistema
