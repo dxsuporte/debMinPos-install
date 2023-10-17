@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Default values for the X settings registry as described in
-  http://www.freedesktop.org/wiki/Specifications/XSettingsRegistry
--->
-
 <channel name="xsettings" version="1.0">
   <property name="Net" type="empty">
     <property name="ThemeName" type="string" value="Orchis-Dark"/>
@@ -23,7 +18,6 @@
     <property name="Hinting" type="int" value="1"/>
     <property name="HintStyle" type="string" value="hintslight"/>
     <property name="RGBA" type="string" value="rgb"/>
-    <!-- <property name="Lcdfilter" type="string" value="none"/> -->
   </property>
   <property name="Gtk" type="empty">
     <property name="CanChangeAccels" type="bool" value="false"/>
@@ -34,15 +28,12 @@
     <property name="KeyThemeName" type="string" value=""/>
     <property name="ToolbarStyle" type="string" value="icons"/>
     <property name="ToolbarIconSize" type="int" value="3"/>
-    <!-- <property name="IMPreeditStyle" type="string" value=""/> -->
-    <!-- <property name="IMStatusStyle" type="string" value=""/> -->
-    <!-- <property name="IMModule" type="string" value=""/> -->
     <property name="MenuImages" type="bool" value="true"/>
     <property name="ButtonImages" type="bool" value="true"/>
     <property name="MenuBarAccel" type="string" value="F10"/>
     <property name="CursorThemeName" type="string" value="Adwaita"/>
     <property name="CursorThemeSize" type="int" value="24"/>
-    <property name="DecorationLayout" type="string" value="minimize,maximize,close"/>
+    <property name="DecorationLayout" type="string" value="menu:minimize,maximize,close"/>
     <property name="DialogsUseHeader" type="bool" value="false"/>
     <property name="TitlebarMiddleClick" type="string" value="lower"/>
   </property>
