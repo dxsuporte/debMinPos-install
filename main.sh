@@ -48,6 +48,8 @@ apt install -y plymouth plymouth-themes
 apt install -y gnome-system-tools
 apt install -y synaptic
 apt install -y gparted
+apt install -y gnome-disks*
+apt install -y baobad
 apt install -y gufw
 apt install -y mintstick
 #Gerenciador de rede.
@@ -57,12 +59,12 @@ apt install -y blueman
 apt install -y firefox-esr
 apt install -y qbittorrent
 apt install -y parole
-apt install -y galculator
+apt install -y gnome-calculator
+apt install -y gnome-sound-recorder
 apt install -y atril
 apt install -y neofetch
 apt install -y bash-completion
 #apt install -y evince
-#apt install -y gnome-disks
 #Codecs para descompaquitar arquivos
 apt install -y zip p7zip* unrar* rar arc arj cabextract lhasa unace* xz-utils
 #Codecs de audio e video
