@@ -117,7 +117,7 @@ ln -sf /usr/share/plymouth/themes/emerald/Emerald_plymouth.svg /usr/share/backgr
 #Modelo Thema Panel XFCE
 cp -f xfce/theme/W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
 #Habilitar theme de carregamento do sistemax
-sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/g' /etc/default/grub
+sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash modprobe.blacklist=pcspkr"/g' /etc/default/grub
 sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/g' /etc/default/grub
 plymouth-set-default-theme -R bgrt && update-grub2
 #Limpeza no apt
