@@ -25,14 +25,32 @@ apt install -y linux-headers-$(uname -r)
 #Interface grafica XFCE4
 apt install -y xfce4-terminal
 apt install -y xorg
-apt install -y xfce4
-apt install -y xfce4-goodies
+apt install -y xfce4-session
+apt install -y xfce4-panel
 apt install -y xfce4-panel-profiles
+apt install -y xfce4-power-manager
+apt install -y xfce4-taskmanager
+apt install -y xfce4-notifyd
+apt install -y xfce4-appfinder
+apt install -y xfce4-clipman
+apt install -y xfce4-screenshooter
+apt install -y xfce4-whiskermenu-plugin
+apt install -y xfce4-pulseaudio-plugin
+#apt install -y xfce4-goodies
+apt install -y thunar
+apt install -y thunar-archive-plugin
+apt install -y thunar-media-tags-plugin
+apt install -y mousepad
+apt install -y ristretto
+apt install -y python3-gi
 apt install -y menulibre
 apt install -y mugshot
 apt install -y gigolo
 apt install -y gvfs-*
-apt install -y xdg-user-dirs-gtk
+#apt install -y xdg-user-dirs-gtk
+#Interface Carregamento do X
+apt install -y lightdm lightdm-gtk-greeter-settings
+apt install -y plymouth plymouth-themes
 #Instalar Theme
 apt install -y orchis-gtk-theme
 apt install -y greybird-gtk-theme
@@ -41,9 +59,6 @@ apt install -y elementary-xfce-icon-theme
 apt install -y bibata-cursor-theme
 #Instalar Fonts
 apt install -y fonts-noto* fonts-firacode fonts-powerline
-#Interface Carregamento do X
-apt install -y lightdm lightdm-gtk-greeter-settings
-apt install -y plymouth plymouth-themes
 #Ferramenta do Sistema
 apt install -y gnome-system-tools
 apt install -y synaptic
