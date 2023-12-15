@@ -62,7 +62,7 @@ sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet s
 #Habilitar Usuário no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Tema padrão XFCE
-cp -f default/xfce4/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
+cp -f default/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
 rm -R /usr/share/icons/elementary-xfce-darke*
 #Navegador Padrão
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
