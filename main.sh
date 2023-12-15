@@ -64,7 +64,7 @@ sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lig
 #Tema padrão XFCE
 #sed -i 's/Xfce/Adwaita/g' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 #sed -i 's/Tango/elementary-xfce-dark/g' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
-rm -R /usr/share/elementary-xfce-darke*
+rm -R /usr/share/icons/elementary-xfce-darke*
 #Navegador Padrão
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
 #Gerenciar Rede modo grafico
