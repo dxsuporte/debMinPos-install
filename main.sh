@@ -31,6 +31,7 @@ apt install -y xfce4-panel xfce4-panel-profiles
 apt install -y xfce4-power-manager xfce4-taskmanager
 apt install -y xfce4-notifyd xfce4-screenshooter xfce4-appfinder
 apt install -y xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin
+apt install -y xfce4-weather-plugin xfce4-cpugraph-plugin
 #Software extras XFCE
 apt install -y menulibre mugshot
 apt install -y thunar thunar-archive-plugin thunar-media-tags-plugin
