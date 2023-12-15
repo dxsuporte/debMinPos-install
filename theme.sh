@@ -6,7 +6,6 @@ set -e
 #Instalar Theme
 apt install -y greybird-gtk-theme
 apt install -y orchis-gtk-theme
-apt install -y elementary-xfce-icon-theme
 apt install -y bibata-cursor-theme
 #-----------------------------Configurações do Sistema-----------------------------------------#
 #export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11
@@ -30,6 +29,10 @@ cp -f xfce/xfce4/whiskermenu/* /etc/xdg/xfce4/whiskermenu/
 cp -f xfce/xfce4/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
 #Tema da tela de login
 cp -f config/lightdm-gtk-greeter.conf /etc/lightdm
+#Modelo Thema Panel XFCE
+cp -f xfce/theme/W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
+#Icones
+tar -xvf config/icons.tar.xz -C /usr/share/icons/
 #Backgrounds
 tar -xvf config/backgrounds.tar.xz -C /usr/share/backgrounds
 ln -sf /usr/share/backgrounds/xfce/* /usr/share/backgrounds/

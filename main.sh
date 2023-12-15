@@ -22,16 +22,14 @@ apt install -y intel-microcode intel-gpu-tools
 apt install -y amd64-microcode amdgcn-tools
 #INTEL e AMD
 apt install -y mesa-vulkan-drivers mesa-utils
-apt install -y libglapi-mesa libgles2-mesa
-apt install -y libegl1-mesa libgl1-mesa-dri libgl1-mesa-glx
+apt install -y libglapi-mesa libgl1-mesa-dri libgles2 libegl1
 #Interface grafica XFCE4
 apt install -y xfce4-terminal
 apt install -y xorg
 apt install -y xfce4-session
 apt install -y xfce4-panel xfce4-panel-profiles
 apt install -y xfce4-power-manager xfce4-taskmanager
-apt install -y xfce4-clipman xfce4-notifyd
-apt install -y xfce4-screenshooter xfce4-appfinder
+apt install -y xfce4-notifyd xfce4-screenshooter xfce4-appfinder
 apt install -y xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin
 #Software extras XFCE
 apt install -y menulibre mugshot
@@ -40,6 +38,7 @@ apt install -y gigolo gvfs-*
 apt install -y parole ristretto
 apt install -y mousepad xarchiver
 apt install -y xdg-user-dirs xdg-user-dirs-gtk
+apt install -y elementary-xfce-icon-theme
 #Fonts Padrão
 
 #Software Padrão
@@ -62,14 +61,14 @@ sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/g' /etc/default/grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash modprobe.blacklist=pcspkr"/g' /etc/default/grub
 #Habilitar Usuário no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
+#Tema padrão XFCE
+#sed -i 's/Xfce/Adwaita/g' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+#sed -i 's/Tango/elementary-xfce-dark/g' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+rm -R /usr/share/elementary-xfce-darke*
 #Navegador Padrão
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
 #Gerenciar Rede modo grafico
 cp -f config/interfaces /etc/network/interfaces
-#Modelo Thema Panel XFCE
-cp -f xfce/theme/W7.tar.bz2 /usr/share/xfce4-panel-profiles/layouts/
-#Icones
-tar -xvf config/icons.tar.xz -C /usr/share/icons/
 #Aplicar Thema do Boot e Atualizar Boot
 plymouth-set-default-theme -R bgrt && update-grub2
 #Limpeza no apt
