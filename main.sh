@@ -61,6 +61,9 @@ sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/g' /etc/default/grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash modprobe.blacklist=pcspkr"/g' /etc/default/grub
 #Habilitar Usuário no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
+#Tema Login
+sed -i 's/#theme-name=/theme-name=Adwaita-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
+sed -i 's/#icon-theme-name=/theme-name=elementary-xfce-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
 #Tema padrão XFCE
 cp -f default/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
 rm -R /usr/share/icons/elementary-xfce-darke*
