@@ -20,10 +20,10 @@
         <value type="int" value="21"/>
         <value type="int" value="2"/>
         <value type="int" value="3"/>
-        <value type="int" value="1"/>
-        <value type="int" value="5"/>
         <value type="int" value="6"/>
+        <value type="int" value="5"/>
         <value type="int" value="8"/>
+        <value type="int" value="9"/>
         <value type="int" value="10"/>
         <value type="int" value="11"/>
         <value type="int" value="12"/>
@@ -53,7 +53,6 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
-        <value type="string" value="miniaplicativo gerenciador de redes"/>
         <value type="string" value="conexão de rede ethernet “conexão cabeada 1” ativa"/>
       </property>
       <property name="icon-size" type="int" value="0"/>
@@ -62,7 +61,7 @@
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="show-notifications" type="bool" value="true"/>
     </property>
-    <property name="plugin-9" type="empty"/>
+    <property name="plugin-9" type="string" value="power-manager-plugin"/>
     <property name="plugin-10" type="string" value="notification-plugin"/>
     <property name="plugin-11" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
@@ -81,17 +80,17 @@
     </property>
     <property name="plugin-18" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="17026532352.desktop"/>
+        <value type="string" value="xfce4-terminal-emulator.desktop"/>
       </property>
     </property>
     <property name="plugin-19" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="17026532353.desktop"/>
+        <value type="string" value="xfce4-file-manager.desktop"/>
       </property>
     </property>
     <property name="plugin-20" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="17026532351.desktop"/>
+        <value type="string" value="xfce4-web-browser.desktop"/>
       </property>
     </property>
     <property name="plugin-21" type="string" value="separator">
@@ -109,45 +108,6 @@
       <property name="hover-switch-category" type="bool" value="true"/>
       <property name="sort-categories" type="bool" value="true"/>
       <property name="show-command-restart" type="bool" value="true"/>
-      <property name="recent" type="array">
-        <value type="string" value="xfce4-terminal-emulator.desktop"/>
-        <value type="string" value="panel-preferences.desktop"/>
-      </property>
-    </property>
-    <property name="plugin-1" type="string" value="weather">
-      <property name="location" type="empty">
-        <property name="name" type="string" value="Palmas, Brazil"/>
-        <property name="latitude" type="string" value="-10.168300"/>
-        <property name="longitude" type="string" value="-48.326400"/>
-      </property>
-      <property name="msl" type="int" value="273"/>
-      <property name="timezone" type="string" value="America/Araguaina"/>
-      <property name="offset" type="string" value="-03:00"/>
-      <property name="cache-max-age" type="int" value="172800"/>
-      <property name="power-saving" type="bool" value="true"/>
-      <property name="units" type="empty">
-        <property name="temperature" type="int" value="0"/>
-        <property name="pressure" type="int" value="0"/>
-        <property name="windspeed" type="int" value="0"/>
-        <property name="precipitation" type="int" value="0"/>
-        <property name="altitude" type="int" value="0"/>
-        <property name="apparent-temperature" type="int" value="0"/>
-      </property>
-      <property name="round" type="bool" value="true"/>
-      <property name="single-row" type="bool" value="true"/>
-      <property name="tooltip-style" type="int" value="1"/>
-      <property name="forecast" type="empty">
-        <property name="layout" type="int" value="1"/>
-        <property name="days" type="int" value="5"/>
-      </property>
-      <property name="theme-dir" type="string" value="/usr/share/xfce4/weather/icons/liquid"/>
-      <property name="scrollbox" type="empty">
-        <property name="show" type="bool" value="true"/>
-        <property name="animate" type="bool" value="true"/>
-        <property name="lines" type="int" value="1"/>
-        <property name="color" type="string" value="rgba(0,0,0,0)"/>
-        <property name="use-color" type="bool" value="false"/>
-      </property>
     </property>
   </property>
 </channel>

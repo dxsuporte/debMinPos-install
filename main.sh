@@ -55,7 +55,7 @@ apt install -y bash-completion command-not-found
 apt install -y zip p7zip* unrar* unzip rar arc arj cabextract lhasa unace* xz-utils sharutils uudeview mpack
 #Codecs de audio e video
 apt install -y ffmpeg mencoder faad lame sox twolame vorbis-tools libavcodec-extra* gstreamer1.0-fdkaac gstreamer1.0-plugins-ugly
-#-----------------------------Configurações do Sistema-----------------------------------------#
+
 #Habilitar Theme Grub
 sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/g' /etc/default/grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash modprobe.blacklist=pcspkr"/g' /etc/default/grub
@@ -63,7 +63,7 @@ sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet s
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Tema Login
 sed -i 's/#theme-name=/theme-name=Adwaita-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
-sed -i 's/#icon-theme-name=/theme-name=elementary-xfce-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
+sed -i 's/#icon-theme-name=/icon-theme-name=elementary-xfce-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
 #Tema padrão XFCE
 cp -f default/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
 rm -R /usr/share/icons/elementary-xfce-darke*
@@ -72,9 +72,15 @@ sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/help
 #Gerenciar Rede modo grafico
 cp -f config/interfaces /etc/network/interfaces
 #Aplicar Thema do Boot e Atualizar Boot
-plymouth-set-default-theme -R bgrt && update-grub2
+plymouth-set-default-theme -R bgrt
+update-grub2
 #Limpeza no apt
-apt autoremove -y && apt autoclean && apt clean
+apt autoremove -y
+apt autoclean
+apt clean
+
+source utilities.sh
+
 #Reinicia o sistema
 read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
 reboot
