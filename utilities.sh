@@ -13,8 +13,6 @@ read -r -p "Instalar Bluetooth? [y|n] " BLUETOOTH
 read -r -p "Instalar Gravador de Som simples - SoundRecorder? [y|n] " SOUNDRECORDER
 read -r -p "Instalar WebCam? [y|n] " CHEESE
 read -r -p "Instalar Impressoras? [y|n] " IMP
-read -r -p "Instalar CD/DVD? [y|n] " DVD
-read -r -p "Instalar Otimizador de bateria laptop? [y|n] " TLP
 read -r -p "Instalar Loja de Software? [y|n] " SOFTWAREDEB
 read -r -p "Instalar Tema Personalizado? [y|n] " THEME
 ######################################################################
@@ -63,6 +61,7 @@ fi
 #Cheese webcam
 if [ "$CHEESE" = "y" ]; then
     apt install -y cheese
+    apt install -y tlp
 fi
 #Impressoras
 if [ "$IMP" = "y" ]; then
@@ -74,15 +73,6 @@ if [ "$IMP" = "y" ]; then
     apt install -y hplip hp-ppd
     apt install -y openprinting-ppds
     apt install -y simple-scan
-fi
-#DVD
-if [ "$DVD" = "y" ]; then
-    apt install -y libdvd-pkg
-fi
-#Otimizador de bateria laptop
-if [ "$TLP" = "y" ]; then
-    apt install -y tlp
-    apt install -y laptop-mode-tools
 fi
 #Software DEB
 if [ "$SOFTWAREDEB" = "y" ]; then
