@@ -15,7 +15,7 @@ read -r -p "Instalar WebCam? [y|n] " CHEESE
 read -r -p "Instalar Impressoras? [y|n] " IMP
 read -r -p "Instalar CD/DVD? [y|n] " DVD
 read -r -p "Instalar Otimizador de bateria laptop? [y|n] " TLP
-read -r -p "Instalar a loja de Software? [y|n] " SOFTWAREDEB
+read -r -p "Instalar Loja de Software? [y|n] " SOFTWAREDEB
 read -r -p "Instalar Tema Personalizado? [y|n] " THEME
 ######################################################################
 #TERMINAL
@@ -81,7 +81,8 @@ if [ "$DVD" = "y" ]; then
 fi
 #Otimizador de bateria laptop
 if [ "$TLP" = "y" ]; then
-    apt install -y tlp laptop-mode-tools
+    apt install -y tlp
+    apt install -y laptop-mode-tools
 fi
 #Software DEB
 if [ "$SOFTWAREDEB" = "y" ]; then
