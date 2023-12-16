@@ -69,6 +69,7 @@ sed -i 's/#theme-name=/theme-name=Adwaita-dark/g' /etc/lightdm/lightdm-gtk-greet
 sed -i 's/#icon-theme-name=/icon-theme-name=elementary-xfce-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
 #Tema padrão XFCE
 cp -f default/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
+ln -sf /usr/share/backgrounds/xfce/* /usr/share/backgrounds/
 rm -R /usr/share/icons/elementary-xfce-darke*
 #Navegador Padrão
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
