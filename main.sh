@@ -67,8 +67,9 @@ sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lig
 #Tema Login
 sed -i 's/#theme-name=/theme-name=Adwaita-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
 sed -i 's/#icon-theme-name=/icon-theme-name=elementary-xfce-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
+#XDG Config
+cp -f config/xdg/* /etc/xdg/
 #Tema padrão XFCE
-cp -f default/xfconf/* /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
 ln -sf /usr/share/backgrounds/xfce/* /usr/share/backgrounds/
 rm -R /usr/share/icons/elementary-xfce-darke*
 #Navegador Padrão
