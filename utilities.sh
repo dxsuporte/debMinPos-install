@@ -102,6 +102,8 @@ if [ "$THEME" = "y" ]; then
     tar -xvf config/icons/icons.tar.xz -C /usr/share/icons/
     #Backgrounds
     tar -xvf config/backgrounds/backgrounds.tar.xz -C /usr/share/backgrounds
+    #Atualizar Boot
+    update-grub2
 fi
 #Limpeza no apt
 apt autoremove -y
