@@ -6,7 +6,6 @@ read -r -p "Instalar Utilitários de Terminal? [y|n] " TERMINAL
 read -r -p "Instalar Firewall? [y|n] " FIREWALL
 read -r -p "Instalar Gerenciador de Pacotes Synaptic? [y|n] " SYNAPTIC
 read -r -p "Instalar Gerenciador de Partições GParted? [y|n] " GPARTED
-read -r -p "Instalar Analisador de Uso de Disco? [y|n] " BAOBAB
 read -r -p "Instalar Utilitário de discos Gnome Disk? [y|n] " GNOMEDISK
 read -r -p "Instalar Cliente BitTorrent? [y|n] " TORRENT
 read -r -p "Instalar Bluetooth? [y|n] " BLUETOOTH
@@ -14,6 +13,7 @@ read -r -p "Instalar Gravador de Som simples - SoundRecorder? [y|n] " SOUNDRECOR
 read -r -p "Instalar WebCam? [y|n] " CHEESE
 read -r -p "Instalar Impressoras? [y|n] " IMP
 read -r -p "Instalar Loja de Software? [y|n] " SOFTWAREDEB
+read -r -p "Instalar Monitor de Sistema? [y|n] " CONKY
 read -r -p "Instalar Tema Personalizado? [y|n] " THEME
 ######################################################################
 #TERMINAL
@@ -38,13 +38,10 @@ fi
 if [ "$GPARTED" = "y" ]; then
     apt install -y gparted
 fi
-#BAOBAB
-if [ "$BAOBAB" = "y" ]; then
-    apt install -y baobab
-fi
 #GNOMEDISK
 if [ "$GNOMEDISK" = "y" ]; then
     apt install -y gnome-disk-utility
+    apt install -y baobab
 fi
 #TORRENT
 if [ "$TORRENT" = "y" ]; then
@@ -80,6 +77,12 @@ if [ "$SOFTWAREDEB" = "y" ]; then
 else
     apt install -y deepin-deb-installer
     apt install -y package-update-indicator
+fi
+#CONKY
+if [ "$CONKY" = "y" ]; then
+    apt install -y conky-all
+    cp -f -r config/conky/conky.conf /etc/conky/
+    cp -f -r config/conky/conky.desktop /etc/xdg/autostart
 fi
 #THEME
 if [ "$THEME" = "y" ]; then
