@@ -41,6 +41,7 @@ fi
 #GNOMEDISK
 if [ "$GNOMEDISK" = "y" ]; then
     apt install -y gnome-disk-utility
+    apt install -y gnome-calculator
     apt install -y baobab
 fi
 #TORRENT

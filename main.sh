@@ -45,7 +45,7 @@ apt install -y elementary-xfce-icon-theme
 #Fonts Padrão
 #apt install -y fonts-noto* fonts-powerline fonts-firacode
 #Software Padrão
-apt install -y firefox-esr atril gnome-calculator
+apt install -y firefox-esr atril deepin-calculator
 #Gerenciador Login
 apt install -y lightdm-gtk-greeter-settings
 #Gerenciador Boot
