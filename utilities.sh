@@ -92,10 +92,6 @@ if [ "$THEME" = "y" ]; then
     unlink /etc/alternatives/desktop-theme
     ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
     ln -sf /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
-    #Icones
-    tar -xvf config/icons/icons.tar.xz -C /usr/share/icons/
-    #Backgrounds
-    tar -xvf config/backgrounds/backgrounds.tar.xz -C /usr/share/backgrounds
     #Atualizar Boot
     update-grub2
 fi

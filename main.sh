@@ -45,7 +45,7 @@ apt install -y elementary-xfce-icon-theme
 #Fonts Padrão
 #apt install -y fonts-noto* fonts-powerline fonts-firacode
 #Software Padrão
-apt install -y firefox-esr atril deepin-calculator
+apt install -y firefox-esr atril galculator deepin-screen-recorder
 #Gerenciador Login
 apt install -y lightdm-gtk-greeter-settings
 #Gerenciador Boot
@@ -67,15 +67,17 @@ sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lig
 #Tema Login
 sed -i 's/#theme-name=/theme-name=Adwaita-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
 sed -i 's/#icon-theme-name=/icon-theme-name=elementary-xfce-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
-#XDG Config
+#Copy XDG, Icones, Backgrounds
 cp -f -r config/xdg/* /etc/xdg/
+cp -f -r config/icons/* /usr/share/icons/
+cp -f -r config/backgrounds/* /usr/share/backgrounds/
 #Tema padrão XFCE
 ln -sf /usr/share/backgrounds/xfce/* /usr/share/backgrounds/
 rm -R /usr/share/icons/elementary-xfce-darke*
 #Navegador Padrão
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
 #Gerenciar Rede modo grafico
-cp -f config/interfaces /etc/network/interfaces
+cp -f -r config/interfaces /etc/network/interfaces
 #Aplicar Thema do Boot e Atualizar Boot
 plymouth-set-default-theme -R bgrt
 update-grub2
