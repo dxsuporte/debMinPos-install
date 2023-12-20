@@ -85,6 +85,14 @@ if [ "$CONKY" = "y" ]; then
     apt install -y fonts-font-awesome
     cp -f -r config/conky/conky.conf /etc/conky/
     cp -f -r config/conky/conky.desktop /etc/xdg/autostart
+    ETH="$(lshw -c network | grep 'logical' | grep -m1 en | awk {'print $3'})"
+    WTH="$(lshw -c network | grep 'logical' | grep -m1 wl | awk {'print $3'})"
+    if [ $ETH ]; then
+        sed -i "s|ETH|$ETH|g" /etc/conky/conky.conf
+    fi
+    if [ $WTH ]; then
+        sed -i "s|WTH|$WTH|g" /etc/conky/conky.conf
+    fi
 fi
 #THEME
 if [ "$THEME" = "y" ]; then
