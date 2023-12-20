@@ -82,6 +82,7 @@ fi
 #CONKY
 if [ "$CONKY" = "y" ]; then
     apt install -y conky-all
+    apt install -y fonts-font-awesome
     cp -f -r config/conky/conky.conf /etc/conky/
     cp -f -r config/conky/conky.desktop /etc/xdg/autostart
 fi

@@ -78,6 +78,8 @@ rm -R /usr/share/icons/elementary-xfce-darke*
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
 #Gerenciar Rede modo grafico
 cp -f -r config/interfaces /etc/network/interfaces
+#Configurações Extras
+sed -i '4i Name[pt_BR]=Calculadora' /usr/share/applications/galculator.desktop
 #Aplicar Thema do Boot e Atualizar Boot
 plymouth-set-default-theme -R bgrt
 update-grub2
