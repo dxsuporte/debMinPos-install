@@ -66,8 +66,8 @@ sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lig
 sed -i 's/#theme-name=/theme-name=Adwaita-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
 sed -i 's/#icon-theme-name=/icon-theme-name=elementary-xfce-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
 #Copy Files Configs
-cp -f -r config/etc/ /etc/
-cp -f -r config/usr/ /usr/
+cp -f -r config/etc/* /etc/
+cp -f -r config/usr/* /usr/
 #Tema padrão XFCE
 ln -sf /usr/share/backgrounds/xfce/* /usr/share/backgrounds/
 rm -f -r /usr/share/icons/elementary-xfce-darke*
