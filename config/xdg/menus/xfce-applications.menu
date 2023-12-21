@@ -8,46 +8,32 @@
     <DefaultDirectoryDirs/>
 
     <Include>
-        <Category>X-Xfce-Toplevel</Category>
+        <Filename>xfce4-web-browser.desktop</Filename>
+        <Filename>xfce4-mail-reader.desktop</Filename>
+        <Filename>xfce-settings-manager.desktop</Filename>
+        <Filename>org.gnome.Software.desktop</Filename>
+        <Filename>xfhelp4.desktop</Filename>
+        <Filename>xubuntu-website.desktop</Filename>
+        <Filename>xubuntu-contribute.desktop</Filename>
+        <Filename>xfce4-about.desktop</Filename>
+        <Filename>xfce4-session-logout.desktop</Filename>
     </Include>
 
     <Layout>
-        <Filename>xfce4-run.desktop</Filename>
-        <Separator/>
-        <Filename>xfce4-terminal-emulator.desktop</Filename>
-        <Filename>xfce4-file-manager.desktop</Filename>
-        <Filename>xfce4-mail-reader.desktop</Filename>
         <Filename>xfce4-web-browser.desktop</Filename>
+        <Filename>xfce4-mail-reader.desktop</Filename>
         <Separator/>
-        <Menuname>Settings</Menuname>
+        <Filename>xfce-settings-manager.desktop</Filename>
         <Separator/>
-        <Merge type="all"/>
+        <Merge type="menus"/>
+        <Merge type="files"/>
         <Separator/>
+        <Filename>org.gnome.Software.desktop</Filename>
+        <Separator/>
+        <Filename>xfhelp4.desktop</Filename>
         <Filename>xfce4-about.desktop</Filename>
         <Filename>xfce4-session-logout.desktop</Filename>
     </Layout>
-
-    <Menu>
-        <Name>Settings</Name>
-        <Directory>xfce-settings.directory</Directory>
-        <Include>
-            <Category>Settings</Category>
-        </Include>
-
-        <Layout>
-            <Filename>xfce-settings-manager.desktop</Filename>
-            <Separator/>
-            <Merge type="all"/>
-        </Layout>
-
-        <Menu>
-            <Name>Screensavers</Name>
-            <Directory>xfce-screensavers.directory</Directory>
-            <Include>
-                <Category>Screensaver</Category>
-            </Include>
-        </Menu>
-    </Menu>
 
     <Menu>
         <Name>Accessories</Name>
@@ -62,12 +48,23 @@
         </Include>
         <Exclude>
             <Or>
-                <Filename>xfce4-file-manager.desktop</Filename>
-                <Filename>xfce4-terminal-emulator.desktop</Filename>
                 <Filename>xfce4-about.desktop</Filename>
-                <Filename>xfce4-run.desktop</Filename>
+                <Filename>info.desktop</Filename>
+                <Category>Settings</Category>
+                <Category>System</Category>
+                <Filename>xfburn.desktop</Filename>
+                <Filename>sqlitebrowser.desktop</Filename>
+                <Filename>com.nextcloud.desktopclient.nextcloud.desktop</Filename>
             </Or>
         </Exclude>
+
+        <Layout>
+            <Filename>xfce4-run.desktop</Filename>
+            <Filename>xfce4-appfinder.desktop</Filename>
+            <Separator/>
+            <Merge type="menus"/>
+            <Merge type="files"/>
+        </Layout>
     </Menu>
 
     <Menu>
@@ -100,6 +97,12 @@
         <Include>
             <Category>Graphics</Category>
         </Include>
+        <Exclude>
+            <Or>
+                <Filename>display-im6.q16.desktop</Filename>
+                <Filename>display-im6.desktop</Filename>
+            </Or>
+        </Exclude>
     </Menu>
 
     <Menu>
@@ -110,6 +113,11 @@
             <Category>Video</Category>
             <Category>AudioVideo</Category>
         </Include>
+        <Exclude>
+            <Or>
+                <Filename>pavucontrol.desktop</Filename>
+            </Or>
+        </Exclude>
     </Menu>
 
     <Menu>
@@ -117,6 +125,7 @@
         <Directory>xfce-network.directory</Directory>
         <Include>
             <Category>Network</Category>
+            <Filename>com.nextcloud.desktopclient.nextcloud.desktop</Filename>
         </Include>
         <Exclude>
             <Or>
@@ -135,11 +144,20 @@
     </Menu>
 
     <Menu>
-        <Name>Science</Name>
-        <Directory>xfce-science.directory</Directory>
+        <Name>Settings</Name>
+        <Directory>xfce-settings.directory</Directory>
         <Include>
-            <Category>Science</Category>
+            <Category>Settings</Category>
         </Include>
+        <Exclude>
+            <Or>
+                <Filename>xfce4-mail-reader.desktop</Filename>
+                <Filename>xfce4-web-browser.desktop</Filename>
+                <Filename>xfce-settings-manager.desktop</Filename>
+                <Filename>xfce4-terminal-settings.desktop</Filename>
+                <Filename>xfce4-settings-editor.desktop</Filename>
+            </Or>
+        </Exclude>
     </Menu>
 
     <Menu>
@@ -152,8 +170,17 @@
             </Or>
         </Include>
         <Exclude>
+            <And>
+                <Category>Settings</Category>
+                <Not>
+                    <Category>PackageManager</Category>
+                </Not>
+            </And>
             <Or>
                 <Filename>xfce4-session-logout.desktop</Filename>
+                <Filename>org.gnome.Software.desktop</Filename>
+                <Filename>megasync.desktop</Filename>
+                <Filename>conky.desktop</Filename>
             </Or>
         </Exclude>
     </Menu>
@@ -165,6 +192,11 @@
         <Include>
             <All/>
         </Include>
+        <Exclude>
+            <Category>Settings</Category>
+            <Category>Screensaver</Category>
+            <Category>X-Xfce-Toplevel</Category>
+        </Exclude>
     </Menu>
     <DefaultMergeDirs/>
 

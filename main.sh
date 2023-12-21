@@ -42,8 +42,6 @@ apt install -y parole ristretto
 apt install -y mousepad xarchiver
 apt install -y xdg-user-dirs xdg-user-dirs-gtk
 apt install -y elementary-xfce-icon-theme
-#Fonts Padrão
-#apt install -y fonts-noto* fonts-powerline fonts-firacode
 #Software Padrão
 apt install -y firefox-esr atril galculator deepin-screen-recorder
 #Gerenciador Login
