@@ -65,17 +65,14 @@ sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lig
 #Tema Login
 sed -i 's/#theme-name=/theme-name=Adwaita-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
 sed -i 's/#icon-theme-name=/icon-theme-name=elementary-xfce-dark/g' /etc/lightdm/lightdm-gtk-greeter.conf
-#Copy XDG, Icones, Backgrounds
-cp -f -r config/xdg/* /etc/xdg/
-cp -f -r config/icons/* /usr/share/icons/
-cp -f -r config/backgrounds/* /usr/share/backgrounds/
+#Copy Files Configs
+cp -f -r config/etc/ /etc/
+cp -f -r config/usr/ /usr/
 #Tema padrão XFCE
 ln -sf /usr/share/backgrounds/xfce/* /usr/share/backgrounds/
-rm -R /usr/share/icons/elementary-xfce-darke*
+rm -f -r /usr/share/icons/elementary-xfce-darke*
 #Navegador Padrão
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
-#Gerenciar Rede modo grafico
-cp -f -r config/interfaces /etc/network/interfaces
 #Configurações Extras
 sed -i '4i Name[pt_BR]=Calculadora' /usr/share/applications/galculator.desktop
 #Aplicar Thema do Boot e Atualizar Boot
@@ -83,14 +80,12 @@ plymouth-set-default-theme -R bgrt
 update-grub2
 #Reiniciar ou Software Extra
 read -r -p "Deseta instalar os programas complementares? [y|n] " SOFTWARE
-if [ "$SOFTWARE" = "n" ]; then
+if [ "$SOFTWARE" = "y" ]; then
+    sh utilities.sh
+else
     #Limpeza no apt
-    apt autoremove -y
-    apt autoclean
-    apt clean
+    apt autoremove -y && apt autoclean && apt clean
     #Reinicia o sistema
     read -r -p "Instalação concluida! O sistema será reinicializado! [Enter] " REBOOT
     reboot
-else
-    sh utilities.sh
 fi

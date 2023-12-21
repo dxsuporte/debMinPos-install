@@ -89,12 +89,12 @@ if [ "$CONKY" = "y" ]; then
     cp -f -r config/conky/conky.conf /etc/conky/
     cp -f -r config/conky/conky.desktop /etc/xdg/autostart
     #REDE
-    ETH="$(nmcli -t -f DEVICE device | grep -m1 en)"
+    ETH="$(lshw -c network | grep 'logical' | grep -m1 en | awk {'print $3'})"
     if [ $ETH ]; then
         sed -i "s|ETH|$ETH|g" /etc/conky/conky.conf
     fi
-    #WI-fi
-    WTH="$(nmcli -t -f DEVICE device | grep -m1 wl)"
+    #WI-FI
+    WTH="$(lshw -c network | grep 'logical' | grep -m1 wl | awk {'print $3'})"
     if [ $WTH ]; then
         sed -i "s|WTH|$WTH|g" /etc/conky/conky.conf
     fi
@@ -107,8 +107,6 @@ if [ "$THEME" = "y" ]; then
     ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
     ln -sf /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
     #apt install -y greybird-gtk-theme orchis-gtk-theme bibata-cursor-theme
-    #Modelo Painel XFCE
-    cp -f -r config/xfce4-panel-profiles/ /usr/share/xfce4-panel-profiles/
     #Atualizar Boot
     update-grub2
 fi
