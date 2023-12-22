@@ -78,9 +78,6 @@ fi
 #Software DEB
 if [ "$SOFTWAREDEB" = "y" ]; then
     apt install -y gnome-software
-else
-    apt install -y deepin-deb-installer
-    apt install -y package-update-indicator
 fi
 #CONKY
 if [ "$CONKY" = "y" ]; then

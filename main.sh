@@ -50,6 +50,7 @@ apt install -y lightdm-gtk-greeter-settings
 apt install -y plymouth plymouth-themes
 #Gerenciador de sistema.
 apt install -y network-manager network-manager-gnome gnome-system-tools
+apt install -y deepin-deb-installer package-update-indicator
 #Programas de Shell
 apt install -y bash-completion command-not-found
 #Codecs para descompaquitar arquivos
