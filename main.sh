@@ -41,7 +41,7 @@ apt install -y gigolo gvfs-*
 apt install -y parole ristretto
 apt install -y mousepad xarchiver
 apt install -y xdg-user-dirs xdg-user-dirs-gtk
-apt install -y elementary-xfce-icon-theme
+apt install -y elementary-xfce-icon-theme bibata-cursor-theme
 #Software Padrão
 apt install -y firefox-esr atril galculator deepin-screen-recorder
 #Gerenciador Login
@@ -72,6 +72,9 @@ cp -f -r config/usr/* /usr/
 #Tema padrão XFCE
 ln -sf /usr/share/backgrounds/xfce/* /usr/share/backgrounds/
 rm -f -r /usr/share/icons/elementary-xfce-darke*
+rm -f -r /usr/share/themes/Daloa*
+rm -f -r /usr/share/themes/Kokodi*
+rm -f -r /usr/share/themes/Moheli*
 #Navegador Padrão
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
 #Configurações Extras
