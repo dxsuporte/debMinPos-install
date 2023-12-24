@@ -41,7 +41,7 @@ apt install -y gigolo gvfs-*
 apt install -y parole ristretto
 apt install -y mousepad xarchiver
 apt install -y xdg-user-dirs xdg-user-dirs-gtk
-apt install -y elementary-xfce-icon-theme bibata-cursor-theme
+apt install -y elementary-xfce-icon-theme
 #Software Padrão
 apt install -y firefox-esr atril galculator deepin-screen-recorder
 #Gerenciador Login

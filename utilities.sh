@@ -103,7 +103,8 @@ if [ "$THEME" = "y" ]; then
     unlink /etc/alternatives/desktop-theme
     ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
     ln -sf /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
-    #apt install -y greybird-gtk-theme orchis-gtk-theme
+    apt install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
+    apt install -y arc-theme orchis-gtk-theme bibata-cursor-theme
     #Atualizar Boot
     update-grub2
 fi
