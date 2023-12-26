@@ -75,9 +75,12 @@ if [ "$IMP" = "y" ]; then
     apt install -y openprinting-ppds
     apt install -y simple-scan
 fi
-#Software DEB
+#Gnome Software
 if [ "$SOFTWAREDEB" = "y" ]; then
     apt install -y gnome-software
+    apt install -y flatpak
+    apt install -y gnome-software-plugin-flatpak
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 fi
 #CONKY
 if [ "$CONKY" = "y" ]; then
@@ -125,9 +128,7 @@ ln -sf /usr/share/desktop-base/moonlight-theme/login/background-nologo.svg /usr/
 ln -sf /usr/share/desktop-base/softwaves-theme/login/background-nologo.svg /usr/share/backgrounds/14.svg
 ln -sf /usr/share/plymouth/themes/emerald/Emerald_plymouth.svg /usr/share/backgrounds/15.svg
 #Limpeza no apt
-apt autoremove -y
-apt autoclean
-apt clean
+apt autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
 read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
 reboot
