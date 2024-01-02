@@ -9,6 +9,8 @@ sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
 #Habilitar Repositorio extras Debian
 apt install -y software-properties-common software-properties-gtk
 add-apt-repository -y contrib non-free
+#Adicionar Repositorio Debian oldstable
+add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib non-free"
 #Atualizar sistema
 apt update && apt upgrade -y
 #Drives
