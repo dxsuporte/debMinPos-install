@@ -49,7 +49,7 @@ if [ "$GNOMEDISK" = "y" ]; then
 fi
 #TORRENT
 if [ "$TORRENT" = "y" ]; then
-    apt install -y qbittorrent
+    apt install -y deluge
 fi
 #BLUETOOTH
 if [ "$BLUETOOTH" = "y" ]; then
