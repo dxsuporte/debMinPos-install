@@ -86,8 +86,7 @@ fi
 if [ "$CONKY" = "y" ]; then
     apt install -y conky-all
     apt install -y fonts-font-awesome
-    #cp -f -r config/conky/conky.conf /etc/conky/
-    #cp -f -r config/conky/conky.desktop /etc/xdg/autostart
+    cp -f -r /etc/conky/conky.bkp.conf /etc/conky/conky.conf
     #REDE
     ETH="$(lshw -c network | grep 'logical' | grep -m1 en | awk {'print $3'})"
     if [ $ETH ]; then
