@@ -1,0 +1,13 @@
+{
+    "KPlugin": {
+        "Name": "DX Suporte",
+        "Id": "DXSuporte",
+        "License": "GPLv2+",
+        "Authors": [
+            {
+                "Name": "Danilo Xavier",
+                "Email": "dxsuporteti@gmail.com"
+            }
+        ]
+    }
+}

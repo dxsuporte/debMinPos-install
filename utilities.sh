@@ -102,12 +102,9 @@ fi
 #THEME
 if [ "$THEME" = "y" ]; then
     #Desktop Base
-    tar -xvf config/desktop-base/dx-theme.tar.xz -C /usr/share/desktop-base/
     unlink /etc/alternatives/desktop-theme
     ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
     ln -sf /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
-    apt install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
-    apt install -y arc-theme orchis-gtk-theme bibata-cursor-theme
     #Atualizar Boot
     update-grub2
 fi

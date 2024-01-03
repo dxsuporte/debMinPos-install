@@ -45,6 +45,9 @@ apt install -y parole ristretto
 apt install -y mousepad xarchiver
 apt install -y xdg-user-dirs xdg-user-dirs-gtk
 apt install -y elementary-xfce-icon-theme
+#Themes
+apt install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
+apt install -y arc-theme orchis-gtk-theme bibata-cursor-theme
 #Software Padrão
 apt install -y firefox-esr atril galculator deepin-screen-recorder
 #Gerenciador Login
