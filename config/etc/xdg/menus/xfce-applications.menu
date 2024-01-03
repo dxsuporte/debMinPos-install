@@ -149,6 +149,19 @@
         <Include>
             <Category>Settings</Category>
         </Include>
+
+        <Layout>
+            <Filename>xfce-settings-manager.desktop</Filename>
+            <Separator/>
+            <Merge type="all"/>
+        </Layout>
+
+        <Menu>
+            <Name>Screensavers</Name>
+            <Directory>xfce-screensavers.directory</Directory>
+            <Include>
+                <Category>Screensaver</Category>
+            </Include>
         <Exclude>
             <Or>
                 <Filename>xfce4-mail-reader.desktop</Filename>
@@ -158,6 +171,7 @@
                 <Filename>xfce4-settings-editor.desktop</Filename>
             </Or>
         </Exclude>
+        </Menu>
     </Menu>
 
     <Menu>
