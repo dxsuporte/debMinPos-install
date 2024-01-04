@@ -16,11 +16,11 @@ read -r -p "Instalar Monitor de Sistema? [y|n] " CONKY
 ######################################################################
 #FIREWALL
 if [ "$FIREWALL" = "y" ]; then
-    apt install -y gufw
+    $PRG install -y gufw
 fi
 #SYNAPTIC
 if [ "$SYNAPTIC" = "y" ]; then
-    apt install -y synaptic
+    $PRG install -y synaptic
 fi
 #GPARTED
 if [ "$GPARTED" = "y" ]; then
@@ -28,49 +28,49 @@ if [ "$GPARTED" = "y" ]; then
 fi
 #GNOMEDISK
 if [ "$GNOMEDISK" = "y" ]; then
-    apt install -y gnome-disk-utility
-    apt install -y gnome-calculator
-    apt install -y baobab
+    $PRG install -y gnome-disk-utility
+    $PRG install -y gnome-calculator
+    $PRG install -y baobab
 fi
 #TORRENT
 if [ "$TORRENT" = "y" ]; then
-    apt install -y deluge
+    $PRG install -y deluge
 fi
 #BLUETOOTH
 if [ "$BLUETOOTH" = "y" ]; then
-    apt install -y bluez blueman pulseaudio-module-bluetooth
+    $PRG install -y bluez blueman pulseaudio-module-bluetooth
 fi
 #SOUNDRECORDER
 if [ "$SOUNDRECORDER" = "y" ]; then
-    apt install -y gnome-sound-recorder
+    $PRG install -y gnome-sound-recorder
 fi
 #Cheese webcam
 if [ "$CHEESE" = "y" ]; then
-    apt install -y cheese
-    apt install -y tlp
+    $PRG install -y cheese
+    $PRG install -y tlp
 fi
 #Impressoras
 if [ "$IMP" = "y" ]; then
-    apt install -y system-config-printer
-    apt install -y printer-driver-all
-    apt install -y printer-driver-escpr
-    apt install -y printer-driver-gutenprint
-    apt install -y cups
-    apt install -y hplip hp-ppd
-    apt install -y openprinting-ppds
-    apt install -y simple-scan
+    $PRG install -y system-config-printer
+    $PRG install -y printer-driver-all
+    $PRG install -y printer-driver-escpr
+    $PRG install -y printer-driver-gutenprint
+    $PRG install -y cups
+    $PRG install -y hplip hp-ppd
+    $PRG install -y openprinting-ppds
+    $PRG install -y simple-scan
 fi
 #Gnome Software
 if [ "$SOFTWAREDEB" = "y" ]; then
-    apt install -y gnome-software
-    apt install -y flatpak
-    apt install -y gnome-software-plugin-flatpak
+    $PRG install -y gnome-software
+    $PRG install -y flatpak
+    $PRG install -y gnome-software-plugin-flatpak
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 fi
 #CONKY
 if [ "$CONKY" = "y" ]; then
-    apt install -y conky-all
-    apt install -y fonts-font-awesome
+    $PRG install -y conky-all
+    $PRG install -y fonts-font-awesome
     cp -f -r /etc/conky/conky.bkp.conf /etc/conky/conky.conf
     #REDE
     ETH="$(lshw -c network | grep 'logical' | grep -m1 en | awk {'print $3'})"
@@ -108,7 +108,7 @@ runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.co
 sed -i 's/OSH_THEME="font"/OSH_THEME="mairan"/g' /home/$(id 1000 -u -n)/.bashrc
 #----------End----------#
 #Atualizar Grub, Limpeza apt
-update-grub2 && apt autoremove -y && apt autoclean && apt clean
+update-grub2 && $PRG autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
 read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
 if [ "$REBOOT" = "y" ]; then

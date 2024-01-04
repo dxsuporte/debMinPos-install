@@ -1,66 +1,75 @@
 #!/bin/sh
 #Interromper o script se algum comando falhar.
 set -e
+#Desativar CDROM
+sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
+#APT or NALA
+read -r -p "Instalar como o thema NALA para APT ? [y|n] " NALA
+if [ "$NALA" = "y" ]; then
+    apt install -y nala
+    PRG="nala"
+else
+    PRG="apt"
+fi
 #Mudar lingual do Sistema
 update-locale LANG=pt_BR.UTF-8 && locale-gen --purge pt_BR.UTF-8
-#-----Repositorio-----# #Desativar CDROM, Habilitar Extra, oldstable
-sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
-apt install -y software-properties-common software-properties-gtk
+#Habilitar repositorios extra e oldstable
+$PRG install -y software-properties-common software-properties-gtk
 add-apt-repository -y contrib non-free
 add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib non-free"
-apt update && apt upgrade -y
+$PRG update && $PRG upgrade -y
 #firmware Drives
-apt install -y linux-headers-$(uname -r)
-apt install -y firmware-linux
-apt install -y firmware-amd-graphics
-apt install -y firmware-iwlwifi
-apt install -y firmware-atheros
-apt install -y firmware-realtek
-apt install -y firmware-b43legacy-installer
-apt install -y firmware-b43-installer
-apt install -y intel-microcode intel-gpu-tools
-apt install -y amd64-microcode amdgcn-tools
-apt install -y mesa-vulkan-drivers mesa-utils
-apt install -y libglapi-mesa libgl1-mesa-dri libgles2 libegl1
+$PRG install -y linux-headers-$(uname -r)
+$PRG install -y firmware-linux
+$PRG install -y firmware-amd-graphics
+$PRG install -y firmware-iwlwifi
+$PRG install -y firmware-atheros
+$PRG install -y firmware-realtek
+$PRG install -y firmware-b43legacy-installer
+$PRG install -y firmware-b43-installer
+$PRG install -y intel-microcode intel-gpu-tools
+$PRG install -y amd64-microcode amdgcn-tools
+$PRG install -y mesa-vulkan-drivers mesa-utils
+$PRG install -y libglapi-mesa libgl1-mesa-dri libgles2 libegl1
 #Interface grafica XFCE4
-apt install -y xfce4-terminal
-apt install -y xorg
-apt install -y xfce4-session
-apt install -y xfce4-panel xfce4-panel-profiles
-apt install -y xfce4-power-manager xfce4-taskmanager
-apt install -y xfce4-notifyd xfce4-screenshooter xfce4-appfinder
-apt install -y xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin
-apt install -y xfce4-weather-plugin xfce4-cpugraph-plugin
+$PRG install -y xfce4-terminal
+$PRG install -y xorg
+$PRG install -y xfce4-session
+$PRG install -y xfce4-panel xfce4-panel-profiles
+$PRG install -y xfce4-power-manager xfce4-taskmanager
+$PRG install -y xfce4-notifyd xfce4-screenshooter xfce4-appfinder
+$PRG install -y xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin
+$PRG install -y xfce4-weather-plugin xfce4-cpugraph-plugin
 #Software extras XFCE
-apt install -y menulibre mugshot
-apt install -y thunar thunar-archive-plugin thunar-media-tags-plugin
-apt install -y gigolo gvfs-*
-apt install -y parole ristretto
-apt install -y mousepad xarchiver
-apt install -y xdg-user-dirs xdg-user-dirs-gtk
+$PRG install -y menulibre mugshot
+$PRG install -y thunar thunar-archive-plugin thunar-media-tags-plugin
+$PRG install -y gigolo gvfs-*
+$PRG install -y parole ristretto
+$PRG install -y mousepad xarchiver
+$PRG install -y xdg-user-dirs xdg-user-dirs-gtk
 apt install -y elementary-xfce-icon-theme
 #Themes
-apt install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
-apt install -y arc-theme orchis-gtk-theme bibata-cursor-theme
+$PRG install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
+$PRG install -y arc-theme orchis-gtk-theme bibata-cursor-theme
 #Software Padrão
-apt install -y firefox-esr atril galculator deepin-screen-recorder
+$PRG install -y firefox-esr atril galculator deepin-screen-recorder
 #Gerenciador Login
-apt install -y lightdm-gtk-greeter-settings
+$PRG install -y lightdm-gtk-greeter-settings
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Gerenciador Boot
-apt install -y plymouth plymouth-themes grub-theme-starfield
+$PRG install -y plymouth plymouth-themes grub-theme-starfield
 plymouth-set-default-theme -R bgrt
 #Gerenciador de sistema.
-apt install -y network-manager network-manager-gnome gnome-system-tools
-apt install -y deepin-deb-installer package-update-indicator
+$PRG install -y network-manager network-manager-gnome gnome-system-tools
+$PRG install -y deepin-deb-installer package-update-indicator
 #Programas de Shell e Config Net-tools
-apt install -y bash-completion net-tools command-not-found neofetch arping
+$PRG install -y bash-completion net-tools command-not-found neofetch arping
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 #Codecs para descompaquitar arquivos
-apt install -y zip p7zip* unrar* unzip rar arc arj cabextract lhasa unace* xz-utils sharutils uudeview mpack
+$PRG install -y zip p7zip* unrar* unzip rar arc arj cabextract lhasa unace* xz-utils sharutils uudeview mpack
 #Codecs de audio e video
-apt install -y ffmpeg mencoder faad lame sox twolame vorbis-tools libavcodec-extra* gstreamer1.0-fdkaac gstreamer1.0-plugins-ugly
+$PRG install -y ffmpeg mencoder faad lame sox twolame vorbis-tools libavcodec-extra* gstreamer1.0-fdkaac gstreamer1.0-plugins-ugly
 ####Config####
 #Grub
 sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/g' /etc/default/grub
