@@ -72,6 +72,9 @@ sed -i 's/starfield.png/\/usr\/share\/images\/desktop-base\/desktop-grub.png/g' 
 grub-mkconfig -o /boot/grub/grub.cfg
 #Habilitar Usuário no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
+#Desktop Base
+unlink /etc/alternatives/desktop-theme
+ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
 #Copy Files Configs
 cp -f -r config/etc/* /etc/
 cp -f -r config/usr/* /usr/

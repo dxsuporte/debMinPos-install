@@ -14,7 +14,6 @@ read -r -p "Instalar WebCam? [y|n] " CHEESE
 read -r -p "Instalar Impressoras? [y|n] " IMP
 read -r -p "Instalar Loja de Software? [y|n] " SOFTWAREDEB
 read -r -p "Instalar Monitor de Sistema? [y|n] " CONKY
-read -r -p "Instalar Tema Personalizado? [y|n] " THEME
 ######################################################################
 #TERMINAL
 if [ "$TERMINAL" = "y" ]; then
@@ -98,14 +97,8 @@ if [ "$CONKY" = "y" ]; then
         sed -i "s|WTH|$WTH|g" /etc/conky/conky.conf
     fi
 fi
-#THEME
-if [ "$THEME" = "y" ]; then
-    #Desktop Base
-    unlink /etc/alternatives/desktop-theme
-    ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
-    ln -sf /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
-fi
 #Backgrounds Links
+ln -sf /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
 ln -sf /usr/share/desktop-base/emerald-theme/login/background.svg /usr/share/backgrounds/01.svg
 ln -sf /usr/share/desktop-base/futureprototype-theme/login/background.svg /usr/share/backgrounds/02.svg
 ln -sf /usr/share/desktop-base/homeworld-theme/login/background.svg /usr/share/backgrounds/03.svg
