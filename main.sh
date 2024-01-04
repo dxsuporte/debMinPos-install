@@ -82,14 +82,13 @@ rm -f -r /usr/share/themes/Moheli*
 sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
 #Configurações Extras
 sed -i '4i Name[pt_BR]=Calculadora' /usr/share/applications/galculator.desktop
-#Aplicar Thema do Boot e Atualizar Boot
-plymouth-set-default-theme -R bgrt
-update-grub2
 #Reiniciar ou Software Extra
 read -r -p "Deseta instalar os programas complementares? [y|n] " SOFTWARE
 if [ "$SOFTWARE" = "y" ]; then
     sh utilities.sh
 else
+    #Atualizar Grub
+    update-grub2
     #Limpeza no apt
     apt autoremove -y && apt autoclean && apt clean
     #Reinicia o sistema

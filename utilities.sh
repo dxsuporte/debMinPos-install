@@ -104,8 +104,6 @@ if [ "$THEME" = "y" ]; then
     unlink /etc/alternatives/desktop-theme
     ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
     ln -sf /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
-    #Atualizar Boot
-    update-grub2
 fi
 #Backgrounds Links
 ln -sf /usr/share/desktop-base/emerald-theme/login/background.svg /usr/share/backgrounds/01.svg
@@ -123,6 +121,8 @@ ln -sf /usr/share/desktop-base/lines-theme/login/background-nologo.svg /usr/shar
 ln -sf /usr/share/desktop-base/moonlight-theme/login/background-nologo.svg /usr/share/backgrounds/13.svg
 ln -sf /usr/share/desktop-base/softwaves-theme/login/background-nologo.svg /usr/share/backgrounds/14.svg
 ln -sf /usr/share/plymouth/themes/emerald/Emerald_plymouth.svg /usr/share/backgrounds/15.svg
+#Atualizar Grub
+update-grub2
 #Limpeza no apt
 apt autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
