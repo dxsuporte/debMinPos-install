@@ -47,7 +47,7 @@ $PRG install -y gigolo gvfs-*
 $PRG install -y parole ristretto
 $PRG install -y mousepad xarchiver
 $PRG install -y xdg-user-dirs xdg-user-dirs-gtk
-apt install -y elementary-xfce-icon-theme
+$PRG install -y elementary-xfce-icon-theme
 #Themes
 $PRG install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
 $PRG install -y arc-theme orchis-gtk-theme bibata-cursor-theme
