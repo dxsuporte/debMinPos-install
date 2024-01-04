@@ -53,10 +53,10 @@ $PRG install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
 $PRG install -y arc-theme orchis-gtk-theme bibata-cursor-theme
 #Software Padrão
 $PRG install -y firefox-esr atril galculator deepin-screen-recorder
-#Gerenciador Login
+#Gerenciador Login Lightdm
 $PRG install -y lightdm-gtk-greeter-settings
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
-#Gerenciador Boot
+#Gerenciador Boot Plymouth
 $PRG install -y plymouth plymouth-themes grub-theme-starfield
 plymouth-set-default-theme -R bgrt
 #Gerenciador de sistema.
@@ -93,4 +93,4 @@ rm -f -r /usr/share/themes/Moheli*
 #Configurações Extras
 sed -i '4i Name[pt_BR]=Calculadora' /usr/share/applications/galculator.desktop
 #Software Extra
-sh utilities.sh
+sh utilities.sh $PRG

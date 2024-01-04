@@ -1,6 +1,8 @@
 #!/bin/sh
 #Interromper o script se algum comando falhar.
 set -e
+#APT or NALA
+PRG="$1"
 ######################################################################
 read -r -p "Instalar Firewall? [y|n] " FIREWALL
 read -r -p "Instalar Gerenciador de Pacotes Synaptic? [y|n] " SYNAPTIC
