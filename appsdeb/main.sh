@@ -75,7 +75,7 @@ if [ "$LIBREOFFICE" = "y" ]; then
 fi
 #OnlyOffice
 if [ "$ONLYOFFICE" = "y" ]; then
-    $PRG install ttf-mscorefonts-installer && fc-cache -f -v
+    $PRG install -y ttf-mscorefonts-installer && fc-cache -f -v
     wget -c https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb
     $PRG install -y ./onlyoffice*.deb
     rm -R ./onlyoffice*.deb
