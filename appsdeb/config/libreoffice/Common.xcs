@@ -1,0 +1,9 @@
+<oor:component-data xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" oor:name="Common" oor:package="org.openoffice.Office">
+<node oor:name="Save">
+ <node oor:name="Document">
+ <prop oor:name="WarnAlienFormat" oor:type="xs:boolean">
+  <value>false</value>
+ </prop>
+</node>
+</node>
+</oor:component-data>
