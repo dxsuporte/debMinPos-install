@@ -53,7 +53,7 @@ apt install -y firefox-esr atril galculator deepin-screen-recorder
 #Gerenciador Login
 apt install -y lightdm-gtk-greeter-settings
 #Gerenciador Boot
-apt install -y plymouth plymouth-themes
+apt install -y plymouth plymouth-themes grub-theme-starfield
 #Gerenciador de sistema.
 apt install -y network-manager network-manager-gnome gnome-system-tools
 apt install -y deepin-deb-installer package-update-indicator
@@ -67,6 +67,9 @@ apt install -y ffmpeg mencoder faad lame sox twolame vorbis-tools libavcodec-ext
 #Habilitar Theme Grub
 sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/g' /etc/default/grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash modprobe.blacklist=pcspkr"/g' /etc/default/grub
+sed -i '11i GRUB_THEME="/usr/share/grub/themes/starfield/theme.txt"' /etc/default/grub
+sed -i 's/starfield.png/\/usr\/share\/images\/desktop-base\/desktop-grub.png/g' /usr/share/grub/themes/starfield/theme.txt
+grub-mkconfig -o /boot/grub/grub.cfg
 #Habilitar Usuário no login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Copy Files Configs
