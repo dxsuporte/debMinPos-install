@@ -2,7 +2,6 @@
 #Interromper o script se algum comando falhar.
 set -e
 ######################################################################
-read -r -p "Instalar Utilitários de Terminal? [y|n] " TERMINAL
 read -r -p "Instalar Firewall? [y|n] " FIREWALL
 read -r -p "Instalar Gerenciador de Pacotes Synaptic? [y|n] " SYNAPTIC
 read -r -p "Instalar Gerenciador de Partições GParted? [y|n] " GPARTED
@@ -15,19 +14,6 @@ read -r -p "Instalar Impressoras? [y|n] " IMP
 read -r -p "Instalar Loja de Software? [y|n] " SOFTWAREDEB
 read -r -p "Instalar Monitor de Sistema? [y|n] " CONKY
 ######################################################################
-#TERMINAL
-if [ "$TERMINAL" = "y" ]; then
-    apt install -y neofetch net-tools arping
-    #Config Net-tools
-    export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11
-    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
-    #Bash User Root
-    bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended || echo 'OK'
-    sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
-    #Bash User First Home
-    runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended' || echo 'OK'
-    sed -i 's/OSH_THEME="font"/OSH_THEME="mairan"/g' /home/$(id 1000 -u -n)/.bashrc
-fi
 #FIREWALL
 if [ "$FIREWALL" = "y" ]; then
     apt install -y gufw
@@ -114,10 +100,19 @@ ln -sf /usr/share/desktop-base/lines-theme/login/background-nologo.svg /usr/shar
 ln -sf /usr/share/desktop-base/moonlight-theme/login/background-nologo.svg /usr/share/backgrounds/13.svg
 ln -sf /usr/share/desktop-base/softwaves-theme/login/background-nologo.svg /usr/share/backgrounds/14.svg
 ln -sf /usr/share/plymouth/themes/emerald/Emerald_plymouth.svg /usr/share/backgrounds/15.svg
-#Atualizar Grub
-update-grub2
-#Limpeza no apt
-apt autoremove -y && apt autoclean && apt clean
+#Theme Bash User Root
+bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended || echo 'OK'
+sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
+#Theme Bash User First Home
+runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended' || echo 'OK'
+sed -i 's/OSH_THEME="font"/OSH_THEME="mairan"/g' /home/$(id 1000 -u -n)/.bashrc
+#----------End----------#
+#Atualizar Grub, Limpeza apt
+update-grub2 && apt autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
 read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
-reboot
+if [ "$REBOOT" = "y" ]; then
+    reboot
+else
+    reboot
+fi
