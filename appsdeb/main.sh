@@ -7,6 +7,7 @@ if [ "$(dpkg -l nala 2>&- | grep -c ^ii)" = 1 ]; then
 else
     PRG="apt"
 fi
+#----------Start----------#
 #Versão do Debian
 if [ $(lsb_release -rs 2 | awk "{print}") = "n/a" ]; then
     RELEASE="testing"
@@ -60,25 +61,34 @@ if [ "$VLC" = "y" ]; then
     $PRG install -y vlc
     #$PRG install -y libdvd-pkg
 fi
+#Chromium Browser
+if [ "$CHROMIUM" = "y" ]; then
+    $PRG install -y chromium
+    $PRG install -y chromium-l10n
+fi
+#DropBox
+if [ "$DROPBOX" = "y" ]; then
+    #XFCE
+    if [ $XDG_CURRENT_DESKTOP = XFCE ]; then
+        $PRG install -y thunar-dropbox-plugin
+    fi
+fi
+#NextCloud
+if [ "$NEXTCLOUD" = "y" ]; then
+    $PRG install -y nextcloud-desktop
+fi
+#SQLite
+if [ "$SQLITE" = "y" ]; then
+    $PRG install -y sqlite3
+    $PRG install -y sqlitebrowser
+fi
 #LibreOffice
 if [ "$LIBREOFFICE" = "y" ]; then
-    $PRG install -y --no-install-recommends libreoffice-writer
-    $PRG install -y --no-install-recommends libreoffice-calc
-    $PRG install -y --no-install-recommends libreoffice-draw
-    $PRG install -y libreoffice-style-elementary
-    $PRG install -y libreoffice-gtk3
-    $PRG install -y libreoffice-l10n-pt-br
-    wget -c https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBR3215AOC.oxt
-    unopkg add --shared VeroptBR3215AOC.oxt
-    rm -R ./VeroptBR*.oxt
-    cp -f config/libreoffice/* /etc/libreoffice/registry/
+    sh libreoffice.sh $PRG
 fi
 #OnlyOffice
 if [ "$ONLYOFFICE" = "y" ]; then
-    $PRG install -y ttf-mscorefonts-installer && fc-cache -f -v
-    wget -c https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb
-    $PRG install -y ./onlyoffice*.deb
-    rm -R ./onlyoffice*.deb
+    sh onlyoffice.sh $PRG
 fi
 #Microsoft Edge
 if [ "$EDGE" = "y" ]; then
@@ -94,39 +104,23 @@ if [ "$CHROME" = "y" ]; then
     $PRG update
     $PRG install -y google-chrome-stable
 fi
-#Chromium Browser
-if [ "$CHROMIUM" = "y" ]; then
-    $PRG install -y chromium
-    $PRG install -y chromium-l10n
-fi
-#DropBox
-if [ "$DROPBOX" = "y" ]; then
-    #XFCE
-    if [ $XDG_CURRENT_DESKTOP = XFCE ]; then
-        $PRG install -y thunar-dropbox-plugin
-    fi
-fi
 #MegaSync
 if [ "$MEGASYNC" = "y" ]; then
     wget -c https://mega.nz/linux/repo/Debian_"$RELEASE"/amd64/megasync-Debian_"$RELEASE"_amd64.deb
     $PRG install -y ./megasync*.deb
-    rm -R ./megasync*.deb
+    rm -f -r ./megasync*.deb
     #XFCE
     if [ $XDG_CURRENT_DESKTOP = XFCE ]; then
         wget -c https://mega.nz/linux/repo/Debian_"$RELEASE"/amd64/thunar-megasync-Debian_"$RELEASE"_amd64.deb
         $PRG install -y ./thunar*.deb
-        rm -R ./thunar*.deb
+        rm -f -r ./thunar*.deb
     fi
-fi
-#NextCloud
-if [ "$NEXTCLOUD" = "y" ]; then
-    $PRG install -y nextcloud-desktop
 fi
 #TeamViewer
 if [ "$TEAMVIEWER" = "y" ]; then
     wget -c https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
     $PRG install -y ./teamviewer*.deb
-    rm -R ./teamviewer*.deb
+    rm -f -r ./teamviewer*.deb
 fi
 #AnyDesk
 if [ "$ANYDESK" = "y" ]; then
@@ -156,11 +150,6 @@ if [ "$NODEJS" = "y" ]; then
     $PRG update
     $PRG install -y nodejs
 fi
-#SQLite
-if [ "$SQLITE" = "y" ]; then
-    $PRG install -y sqlite3
-    $PRG install -y sqlitebrowser
-fi
 #Antares SQL
 if [ "$ANTARESSQL" = "y" ]; then
     add-apt-repository -y "deb https://antares-sql.github.io/antares-ppa ./"
@@ -172,10 +161,15 @@ fi
 if [ "$DWSERVICE" = "y" ]; then
     wget -cO - https://node213098.dwservice.net/getAgentFile.dw?name=dwagent.sh >dwagent.sh
     chmod +x dwagent.sh && sh dwagent.sh
-    rm -R ./dwagent.sh
+    rm -f -r ./dwagent.sh
 fi
-#Limpeza apt
-$PRG autoremove -y && apt autoclean && apt clean
+#----------End----------#
+#Atualizar Grub, Limpeza apt
+update-grub2 && $PRG autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
 read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
-reboot
+if [ "$REBOOT" = "y" ]; then
+    reboot
+else
+    reboot
+fi

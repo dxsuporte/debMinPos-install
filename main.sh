@@ -11,6 +11,7 @@ if [ "$NALA" = "y" ]; then
 else
     PRG="apt"
 fi
+#----------Start----------#
 #Mudar lingual do Sistema
 update-locale LANG=pt_BR.UTF-8 && locale-gen --purge pt_BR.UTF-8
 #Habilitar repositorios extra e oldstable
@@ -93,4 +94,4 @@ rm -f -r /usr/share/themes/Moheli*
 #Configurações Extras
 sed -i '4i Name[pt_BR]=Calculadora' /usr/share/applications/galculator.desktop
 #Software Extra
-sh utilities.sh $PRG
+sh utilities.sh
