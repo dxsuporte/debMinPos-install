@@ -18,7 +18,6 @@ update-locale LANG=pt_BR.UTF-8 && locale-gen --purge pt_BR.UTF-8
 $PRG install -y software-properties-common software-properties-gtk
 add-apt-repository -y contrib non-free
 add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib non-free"
-add-apt-repository -y "deb http://packages.linuxmint.com faye main upstream import backport"
 $PRG update && $PRG upgrade -y
 #firmware Drives
 $PRG install -y linux-headers-$(uname -r)

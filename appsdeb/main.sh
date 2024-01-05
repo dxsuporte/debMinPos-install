@@ -37,9 +37,6 @@ read -r -p "Instalar o AnyDesk - Acesso remoto ? [y|n] " ANYDESK
 read -r -p "Instalar o VSCode? [y|n] " VSCODE
 read -r -p "Instalar o VSCodium? [y|n] " VSCODIUM
 read -r -p "Instalar o Node JS? [y|n] " NODEJS
-if [ "$NODEJS" = "y" ]; then
-    read -r -p "Qual Versão do Node JS? [16|18|20] " NODEVERSION
-fi
 read -r -p "Instalar o SQLite? [y|n] " SQLITE
 read -r -p "Instalar o Antares SQL? [y|n] " ANTARESSQL
 read -r -p "Instalar o DWService? [y|n] " DWSERVICE
@@ -92,76 +89,43 @@ if [ "$ONLYOFFICE" = "y" ]; then
 fi
 #Microsoft Edge
 if [ "$EDGE" = "y" ]; then
-    add-apt-repository -y "deb https://packages.microsoft.com/repos/edge stable main"
-    wget -q -O - https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
-    $PRG update
-    $PRG install -y microsoft-edge-stable
+    sh edge.sh $PRG
 fi
 #Google Chrome
 if [ "$CHROME" = "y" ]; then
-    add-apt-repository -y "deb http://dl.google.com/linux/chrome/deb/ stable main"
-    wget -q -O - https://dl.google.com/linux/linux_signing_key.pub -O- | apt-key add -
-    $PRG update
-    $PRG install -y google-chrome-stable
+    sh chrome.sh $PRG
 fi
 #MegaSync
 if [ "$MEGASYNC" = "y" ]; then
-    wget -c https://mega.nz/linux/repo/Debian_"$RELEASE"/amd64/megasync-Debian_"$RELEASE"_amd64.deb
-    $PRG install -y ./megasync*.deb
-    rm -f -r ./megasync*.deb
-    #XFCE
-    if [ $XDG_CURRENT_DESKTOP = XFCE ]; then
-        wget -c https://mega.nz/linux/repo/Debian_"$RELEASE"/amd64/thunar-megasync-Debian_"$RELEASE"_amd64.deb
-        $PRG install -y ./thunar*.deb
-        rm -f -r ./thunar*.deb
-    fi
+    sh mega.sh $PRG
 fi
 #TeamViewer
 if [ "$TEAMVIEWER" = "y" ]; then
-    wget -c https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-    $PRG install -y ./teamviewer*.deb
-    rm -f -r ./teamviewer*.deb
+    sh teamviewer.sh $PRG
 fi
 #AnyDesk
 if [ "$ANYDESK" = "y" ]; then
-    add-apt-repository -y "deb http://deb.anydesk.com/ all main"
-    wget -q -O - https://keys.anydesk.com/repos/DEB-GPG-KEY -O- | apt-key add -
-    $PRG update
-    $PRG install -y anydesk
+    sh anydesk.sh $PRG
 fi
 #VSCode
 if [ "$VSCODE" = "y" ]; then
-    add-apt-repository -y "deb https://packages.microsoft.com/repos/vscode stable main"
-    wget -q -O - https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
-    $PRG update
-    $PRG install -y code
+    sh vscode.sh $PRG
 fi
 #VSCodium
 if [ "$VSCODIUM" = "y" ]; then
-    wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor -o /etc/apt/keyrings/vscodium-archive-keyring.gpg
-    echo 'deb [ signed-by=/etc/apt/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' | tee /etc/apt/sources.list.d/vscodium.list
-    $PRG update
-    $PRG install -y codium
+    sh vscodium.sh $PRG
 fi
 #Node JS
 if [ "$NODEJS" = "y" ]; then
-    wget -qO - https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODEVERSION.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
-    $PRG update
-    $PRG install -y nodejs
+    sh nodejs.sh $PRG
 fi
 #Antares SQL
 if [ "$ANTARESSQL" = "y" ]; then
-    add-apt-repository -y "deb https://antares-sql.github.io/antares-ppa ./"
-    wget -q -O - https://antares-sql.github.io/antares-ppa/key.gpg -O- | apt-key add -
-    $PRG update
-    $PRG install -y antares
+    sh antares.sh $PRG
 fi
 #DWService
 if [ "$DWSERVICE" = "y" ]; then
-    wget -cO - https://node213098.dwservice.net/getAgentFile.dw?name=dwagent.sh >dwagent.sh
-    chmod +x dwagent.sh && sh dwagent.sh
-    rm -f -r ./dwagent.sh
+    sh dwagent.sh $PRG
 fi
 #----------End----------#
 #Atualizar Grub, Limpeza apt
