@@ -6,3 +6,6 @@ git clone https://github.com/dxsuporte/debMinPos-install
 cd debMinPos-install
 chmod 777 root.sh home.sh theme.sh
 sudo sh root.x
+
+# appsdeb-install
+Instalação de programas debian
