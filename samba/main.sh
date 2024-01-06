@@ -4,22 +4,18 @@ set -e
 #Include
 . "$(pwd)/../myInclude.sh"
 #Atualizar sistema e Instalar Samba
-$myPRG update
-$myPRG install -y samba smbclient cifs-utils wsdd wsdd2
+$myPRG update && $myPRG install -y samba smbclient cifs-utils wsdd wsdd2
+#Criar Pasta public e private
+mkdir -m 777 -p /home/samba/public /home/samba/private
 #Samba config
 sed -i 's/;   bind interfaces only = yes/bind interfaces only = yes/g' /etc/samba/smb.conf
-if [ $(grep -c '/home/samba/public' /etc/samba/smb.conf) = 0 ]; then
-    cat public | tee -a /etc/samba/smb.conf
-fi
-if [ $(grep -c '/home/samba/private' /etc/samba/smb.conf) = 0 ]; then
-    cat private | tee -a /etc/samba/smb.conf
-fi
-mkdir -m 777 -p /home/samba/public /home/samba/private
-chgrp sambashare /home/samba/private
+#Criar configuração da Pasta public e private no samba
+grep -c '/home/samba/public' /etc/samba/smb.conf || cat public | tee -a /etc/samba/smb.conf
+grep -c '/home/samba/private' /etc/samba/smb.conf || cat private | tee -a /etc/samba/smb.conf
+#Adicionar Usuário, Senha do Usuário e Pasta private ao SambaShare
 usermod -aG sambashare $(id 1000 -u -n)
 smbpasswd -a $(id 1000 -u -n)
-#AutoStart
-cp -f -r samba-public.desktop /etc/xdg/autostart/
+chgrp sambashare /home/samba/private
 #----------End----------#
 #Atualizar Grub, Limpeza apt
 $myPRG autoremove -y && apt autoclean && apt clean

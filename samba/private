@@ -1,3 +1,4 @@
+#Private Folder
 [private]
 security = user
 path = /home/samba/private

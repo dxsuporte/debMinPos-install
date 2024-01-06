@@ -1,3 +1,4 @@
+#Public Folder
 [public]
 path = /home/samba/public
 writable = yes
