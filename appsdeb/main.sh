@@ -57,10 +57,7 @@ if [ "$CHROMIUM" = "y" ]; then
 fi
 #DropBox
 if [ "$DROPBOX" = "y" ]; then
-    #XFCE
-    if [ $XDG_CURRENT_DESKTOP = XFCE ]; then
-        $PRG install -y thunar-dropbox-plugin
-    fi
+    $PRG install -y thunar-dropbox-plugin
 fi
 #NextCloud
 if [ "$NEXTCLOUD" = "y" ]; then
