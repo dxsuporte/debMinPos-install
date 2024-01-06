@@ -1,0 +1,2 @@
+[Desktop Entry]
+Exec=sh -c "[ ! -d "$HOME/share" ] && { ln -s /home/samba $HOME/Compartilhado; }"

@@ -1,0 +1,10 @@
+[private]
+security = user
+path = /home/samba/private
+writable = yes
+guest ok = no
+valid users = @sambashare
+force group = sambashare
+force create mode = 770
+force directory mode = 770
+inherit permissions = yes
