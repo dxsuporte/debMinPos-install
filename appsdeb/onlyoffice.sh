@@ -5,6 +5,5 @@ set -e
 PRG="$1"
 #----------Start----------#
 $PRG install -y ttf-mscorefonts-installer && fc-cache -f -v
-wget -c https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb
-$PRG install -y ./onlyoffice*.deb
-rm -f -r ./onlyoffice*.deb
+wget -c https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb -O /tmp/onlyoffice-desktopeditors_amd64.deb
+$PRG install -y /tmp/onlyoffice-desktopeditors_amd64.deb
