@@ -2,7 +2,11 @@
 #Interromper o script se algum comando falhar.
 set -e
 #APT or NALA
-PRG="$1"
+if [ "$(dpkg -l nala 2>&- | grep -c ^ii)" = 1 ]; then
+    PRG="nala"
+else
+    PRG="apt"
+fi
 #Versão do Debian
 if [ $(lsb_release -rs 2 | awk "{print}") = "n/a" ]; then
     RELEASE="testing"

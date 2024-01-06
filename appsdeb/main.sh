@@ -73,51 +73,51 @@ if [ "$SQLITE" = "y" ]; then
 fi
 #LibreOffice
 if [ "$LIBREOFFICE" = "y" ]; then
-    sh libreoffice.sh $PRG
+    sh libreoffice.sh
 fi
 #OnlyOffice
 if [ "$ONLYOFFICE" = "y" ]; then
-    sh onlyoffice.sh $PRG
+    sh onlyoffice.sh
 fi
 #Microsoft Edge
 if [ "$EDGE" = "y" ]; then
-    sh edge.sh $PRG
+    sh edge.sh
 fi
 #Google Chrome
 if [ "$CHROME" = "y" ]; then
-    sh chrome.sh $PRG
+    sh chrome.sh
 fi
 #MegaSync
 if [ "$MEGASYNC" = "y" ]; then
-    sh mega.sh $PRG
+    sh mega.sh
 fi
 #TeamViewer
 if [ "$TEAMVIEWER" = "y" ]; then
-    sh teamviewer.sh $PRG
+    sh teamviewer.sh
 fi
 #AnyDesk
 if [ "$ANYDESK" = "y" ]; then
-    sh anydesk.sh $PRG
+    sh anydesk.sh
 fi
 #VSCode
 if [ "$VSCODE" = "y" ]; then
-    sh vscode.sh $PRG
+    sh vscode.sh
 fi
 #VSCodium
 if [ "$VSCODIUM" = "y" ]; then
-    sh vscodium.sh $PRG
+    sh vscodium.sh
 fi
 #Node JS
 if [ "$NODEJS" = "y" ]; then
-    sh nodejs.sh $PRG
+    sh nodejs.sh
 fi
 #Antares SQL
 if [ "$ANTARESSQL" = "y" ]; then
-    sh antares.sh $PRG
+    sh antares.sh
 fi
 #DWService
 if [ "$DWSERVICE" = "y" ]; then
-    sh dwagent.sh $PRG
+    sh dwagent.sh
 fi
 #----------End----------#
 #Atualizar Grub, Limpeza apt

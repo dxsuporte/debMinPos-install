@@ -2,7 +2,11 @@
 #Interromper o script se algum comando falhar.
 set -e
 #APT or NALA
-PRG="$1"
+if [ "$(dpkg -l nala 2>&- | grep -c ^ii)" = 1 ]; then
+    PRG="nala"
+else
+    PRG="apt"
+fi
 read -r -p "Qual Versão do Node JS? [16|18|20] " NODEJS
 if [ "$NODEJS" = "16" ] || [ "$NODEJS" = "18" ]; then
     VERSION="$NODEJS"
