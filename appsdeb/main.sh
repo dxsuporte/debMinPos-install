@@ -8,10 +8,9 @@ else
     PRG="apt"
 fi
 #----------Start----------#
-$PRG install -y apt-transport-https
-$PRG install -y wget
 #Atualizar sistema
 $PRG update && $PRG upgrade -y
+$PRG install -y apt-transport-https
 ######################################################################
 read -r -p "Instalar o Inkscape - Design gráfico? [y|n] " INKSCAPE
 read -r -p "Instalar o Gimp - Editor de imagem? [y|n] " GIMP

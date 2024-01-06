@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/shapt-transport
 #Interromper o script se algum comando falhar.
 set -e
 #Desativar CDROM
