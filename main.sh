@@ -1,4 +1,4 @@
-#!/bin/shapt-transport
+#!/bin/sh
 #Interromper o script se algum comando falhar.
 set -e
 #Desativar CDROM
@@ -64,7 +64,7 @@ plymouth-set-default-theme -R bgrt
 $PRG install -y network-manager network-manager-gnome gnome-system-tools
 $PRG install -y deepin-deb-installer package-update-indicator
 #Programas de Shell e Config Net-tools
-$PRG install -y bash-completion net-tools command-not-found neofetch arping
+$PRG install -y bash-completion wget net-tools command-not-found neofetch arping
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 #Codecs para descompaquitar arquivos

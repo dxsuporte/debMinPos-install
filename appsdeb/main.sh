@@ -6,12 +6,13 @@ set -e
 #----------Start----------#
 #Atualizar sistema
 $myPRG update && $myPRG upgrade -y
-$myPRG install -y apt-transport-https
+$myPRG install -y apt-transport-https curl
 ######################################################################
 read -r -p "Instalar o Inkscape - Design gráfico? [y|n] " INKSCAPE
 read -r -p "Instalar o Gimp - Editor de imagem? [y|n] " GIMP
 read -r -p "Instalar o Clementine - Player de Música? [y/n] " CLEMENTINE
 read -r -p "Instalar o VLC - Media Player? [y|n] " VLC
+read -r -p "Instalar o WinFF - Conversor de vídeos? [y|n] " WINFF
 read -r -p "Instalar o LibreOffice? [y|n] " LIBREOFFICE
 read -r -p "Instalar o OnlyOffice? [y|n] " ONLYOFFICE
 read -r -p "Instalar o Microsoft Edge? [y|n] " EDGE
@@ -36,6 +37,7 @@ fi
 #Gimp - Editor de imagem
 if [ "$GIMP" = "y" ]; then
     $myPRG install -y gimp
+    $myPRG install -y shotwell
 fi
 #Clementine - Player de Música
 if [ "$CLEMENTINE" = "y" ]; then
@@ -45,6 +47,10 @@ fi
 if [ "$VLC" = "y" ]; then
     $myPRG install -y vlc
     #$myPRG install -y libdvd-pkg
+fi
+#WinFF - Conversor de vídeos
+if [ "$WINFF" = "y" ]; then
+    $myPRG install -y winff
 fi
 #Chromium Browser
 if [ "$CHROMIUM" = "y" ]; then
