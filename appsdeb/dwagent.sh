@@ -4,6 +4,6 @@ set -e
 #APT or NALA
 PRG="$1"
 #----------Start----------#
-wget -cO - https://node213098.dwservice.net/getAgentFile.dw?name=dwagent.sh -O /tmp/dwagent.sh >dwagent.sh
+wget -cO - https://node213098.dwservice.net/getAgentFile.dw?name=dwagent.sh -O /tmp/dwagent.sh
 chmod +x /tmp/dwagent.sh
 sh /tmp/dwagent.sh
