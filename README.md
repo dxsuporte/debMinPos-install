@@ -38,10 +38,6 @@ Linux:\_\_ _Testado em sistema operacional (Debian 12)._
 sudo bash main.sh
 ```
 
-## Licença
-
-Lançado sob a licença [MIT license](LICENSE.md).
-
 # Script de automatização de instalação do XAMPP
 
 Script bash de instalação do xampp. Com painel de controle no menu e inicialização no boot do sistema.
