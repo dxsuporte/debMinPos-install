@@ -18,7 +18,7 @@ smbpasswd -a $(id 1000 -u -n)
 chgrp sambashare /home/Samba/Private
 #Criar Link e Atlaho gernciador de aquivo
 ln -sf /home/Samba/ /home/$(id 1000 -u -n)/Samba
-echo "file:///home/$(id 1000 -u -n)/Samba" | tee -a /home/$(id 1000 -u -n)/.configgtk-3.0/bookmarks
+echo "file:///home/$(id 1000 -u -n)/Samba" | tee -a /home/$(id 1000 -u -n)/.config/gtk-3.0/bookmarks
 #----------End----------#
 #Atualizar Grub, Limpeza apt
 $myPRG autoremove -y && apt autoclean && apt clean
