@@ -93,5 +93,7 @@ rm -f -r /usr/share/themes/Kokodi*
 rm -f -r /usr/share/themes/Moheli*
 #Configurações Extras
 sed -i '4i Name[pt_BR]=Calculadora' /usr/share/applications/galculator.desktop
+sed -i '2i Name[pt_BR]=Gerenciador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
+sed -i '4i GenericName[pt_BR]=Preferências do indicador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
 #Software Extra
 sh utilities.sh
