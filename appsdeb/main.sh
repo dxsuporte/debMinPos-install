@@ -8,13 +8,6 @@ else
     PRG="apt"
 fi
 #----------Start----------#
-#Versão do Debian
-if [ $(lsb_release -rs 2 | awk "{print}") = "n/a" ]; then
-    RELEASE="testing"
-else
-    RELEASE=$(lsb_release -rs 2 | awk "{print}")
-fi
-#
 $PRG install -y apt-transport-https
 $PRG install -y wget
 #Atualizar sistema

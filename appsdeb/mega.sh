@@ -3,6 +3,12 @@
 set -e
 #APT or NALA
 PRG="$1"
+#Versão do Debian
+if [ $(lsb_release -rs 2 | awk "{print}") = "n/a" ]; then
+    RELEASE="testing"
+else
+    RELEASE=$(lsb_release -rs 2 | awk "{print}")
+fi
 #----------Start----------#
 wget -c https://mega.nz/linux/repo/Debian_"$RELEASE"/amd64/megasync-Debian_"$RELEASE"_amd64.deb
 $PRG install -y ./megasync*.deb
