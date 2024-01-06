@@ -119,7 +119,7 @@ update-grub2 && $PRG autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
 read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
 if [ "$REBOOT" = "y" ]; then
-    reboot
+    rm -f -r /tmp/* && reboot
 else
-    reboot
+    rm -f -r /tmp/* && reboot
 fi
