@@ -1,16 +1,12 @@
 #!/bin/sh
 #Interromper o script se algum comando falhar.
 set -e
-#APT or NALA
-if [ "$(dpkg -l nala 2>&- | grep -c ^ii)" = 1 ]; then
-    PRG="nala"
-else
-    PRG="apt"
-fi
+#Include
+. "$(pwd)/../myInclude.sh"
 #----------Start----------#
 #Atualizar sistema
-$PRG update && $PRG upgrade -y
-$PRG install -y apt-transport-https
+$myPRG update && $myPRG upgrade -y
+$myPRG install -y apt-transport-https
 ######################################################################
 read -r -p "Instalar o Inkscape - Design gráfico? [y|n] " INKSCAPE
 read -r -p "Instalar o Gimp - Editor de imagem? [y|n] " GIMP
@@ -35,38 +31,38 @@ read -r -p "Instalar o DWService? [y|n] " DWSERVICE
 ######################################################################
 #Inkscape - Design gráfico
 if [ "$INKSCAPE" = "y" ]; then
-    $PRG install -y inkscape
+    $myPRG install -y inkscape
 fi
 #Gimp - Editor de imagem
 if [ "$GIMP" = "y" ]; then
-    $PRG install -y gimp
+    $myPRG install -y gimp
 fi
 #Clementine - Player de Música
 if [ "$CLEMENTINE" = "y" ]; then
-    $PRG install -y clementine
+    $myPRG install -y clementine
 fi
 #VLC - Media Player
 if [ "$VLC" = "y" ]; then
-    $PRG install -y vlc
-    #$PRG install -y libdvd-pkg
+    $myPRG install -y vlc
+    #$myPRG install -y libdvd-pkg
 fi
 #Chromium Browser
 if [ "$CHROMIUM" = "y" ]; then
-    $PRG install -y chromium
-    $PRG install -y chromium-l10n
+    $myPRG install -y chromium
+    $myPRG install -y chromium-l10n
 fi
 #DropBox
 if [ "$DROPBOX" = "y" ]; then
-    $PRG install -y thunar-dropbox-plugin
+    $myPRG install -y thunar-dropbox-plugin
 fi
 #NextCloud
 if [ "$NEXTCLOUD" = "y" ]; then
-    $PRG install -y nextcloud-desktop
+    $myPRG install -y nextcloud-desktop
 fi
 #SQLite
 if [ "$SQLITE" = "y" ]; then
-    $PRG install -y sqlite3
-    $PRG install -y sqlitebrowser
+    $myPRG install -y sqlite3
+    $myPRG install -y sqlitebrowser
 fi
 #LibreOffice
 if [ "$LIBREOFFICE" = "y" ]; then
@@ -118,7 +114,7 @@ if [ "$DWSERVICE" = "y" ]; then
 fi
 #----------End----------#
 #Atualizar Grub, Limpeza apt
-update-grub2 && $PRG autoremove -y && apt autoclean && apt clean
+update-grub2 && $myPRG autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
 read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
 if [ "$REBOOT" = "y" ]; then

@@ -1,12 +1,8 @@
 #!/bin/sh
 #Interromper o script se algum comando falhar.
 set -e
-#APT or NALA
-if [ "$(dpkg -l nala 2>&- | grep -c ^ii)" = 1 ]; then
-    PRG="nala"
-else
-    PRG="apt"
-fi
+#Include
+. "$(pwd)/myInclude.sh"
 #----------Start----------#
 ######################################################################
 read -r -p "Instalar Firewall? [y|n] " FIREWALL
@@ -23,11 +19,11 @@ read -r -p "Instalar Monitor de Sistema? [y|n] " CONKY
 ######################################################################
 #FIREWALL
 if [ "$FIREWALL" = "y" ]; then
-    $PRG install -y gufw
+    $myPRG install -y gufw
 fi
 #SYNAPTIC
 if [ "$SYNAPTIC" = "y" ]; then
-    $PRG install -y synaptic
+    $myPRG install -y synaptic
 fi
 #GPARTED
 if [ "$GPARTED" = "y" ]; then
@@ -35,49 +31,49 @@ if [ "$GPARTED" = "y" ]; then
 fi
 #GNOMEDISK
 if [ "$GNOMEDISK" = "y" ]; then
-    $PRG install -y gnome-disk-utility
-    $PRG install -y gnome-calculator
-    $PRG install -y baobab
+    $myPRG install -y gnome-disk-utility
+    $myPRG install -y gnome-calculator
+    $myPRG install -y baobab
 fi
 #TORRENT
 if [ "$TORRENT" = "y" ]; then
-    $PRG install -y deluge
+    $myPRG install -y deluge
 fi
 #BLUETOOTH
 if [ "$BLUETOOTH" = "y" ]; then
-    $PRG install -y bluez blueman pulseaudio-module-bluetooth
+    $myPRG install -y bluez blueman pulseaudio-module-bluetooth
 fi
 #SOUNDRECORDER
 if [ "$SOUNDRECORDER" = "y" ]; then
-    $PRG install -y gnome-sound-recorder
+    $myPRG install -y gnome-sound-recorder
 fi
 #Cheese webcam
 if [ "$CHEESE" = "y" ]; then
-    $PRG install -y cheese
-    $PRG install -y tlp
+    $myPRG install -y cheese
+    $myPRG install -y tlp
 fi
 #Impressoras
 if [ "$IMP" = "y" ]; then
-    $PRG install -y system-config-printer
-    $PRG install -y printer-driver-all
-    $PRG install -y printer-driver-escpr
-    $PRG install -y printer-driver-gutenprint
-    $PRG install -y cups
-    $PRG install -y hplip hp-ppd
-    $PRG install -y openprinting-ppds
-    $PRG install -y simple-scan
+    $myPRG install -y system-config-printer
+    $myPRG install -y printer-driver-all
+    $myPRG install -y printer-driver-escpr
+    $myPRG install -y printer-driver-gutenprint
+    $myPRG install -y cups
+    $myPRG install -y hplip hp-ppd
+    $myPRG install -y openprinting-ppds
+    $myPRG install -y simple-scan
 fi
 #Gnome Software
 if [ "$SOFTWAREDEB" = "y" ]; then
-    $PRG install -y gnome-software
-    $PRG install -y flatpak
-    $PRG install -y gnome-software-plugin-flatpak
+    $myPRG install -y gnome-software
+    $myPRG install -y flatpak
+    $myPRG install -y gnome-software-plugin-flatpak
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 fi
 #CONKY
 if [ "$CONKY" = "y" ]; then
-    $PRG install -y conky-all
-    $PRG install -y fonts-font-awesome
+    $myPRG install -y conky-all
+    $myPRG install -y fonts-font-awesome
     cp -f -r /etc/conky/conky.bkp.conf /etc/conky/conky.conf
     #REDE
     ETH="$(lshw -c network | grep 'logical' | grep -m1 en | awk {'print $3'})"
@@ -115,7 +111,7 @@ runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.co
 sed -i 's/OSH_THEME="font"/OSH_THEME="mairan"/g' /home/$(id 1000 -u -n)/.bashrc
 #----------End----------#
 #Atualizar Grub, Limpeza apt
-update-grub2 && $PRG autoremove -y && apt autoclean && apt clean
+update-grub2 && $myPRG autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
 read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
 if [ "$REBOOT" = "y" ]; then
