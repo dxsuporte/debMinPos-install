@@ -1,7 +1,7 @@
 #Private Folder
 [private]
 security = user
-path = /home/samba/private
+path = /home/Samba/Private
 writable = yes
 guest ok = no
 valid users = @sambashare
