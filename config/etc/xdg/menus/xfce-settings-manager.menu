@@ -96,6 +96,7 @@
         </Not>
       </And>
       <Filename>software-properties-gtk.desktop</Filename>
+      <Filename>org.guido-berhoerster.code.package-update-indicator.preferences.desktop</Filename>
     </Include>
     <Exclude>
       <Filename>system-config-printer.desktop</Filename>
@@ -121,6 +122,7 @@
             <Filename>xscreensaver-properties.desktop</Filename>
             <Filename>xfce-settings-manager.desktop</Filename>
             <Filename>xfce4-settings-editor.desktop</Filename>
+            <Filename>org.guido-berhoerster.code.package-update-indicator.preferences.desktop</Filename>
           </Or>
         </Not>
       </And>

@@ -55,7 +55,7 @@ $PRG install -y arc-theme orchis-gtk-theme bibata-cursor-theme
 #Software Padrão
 $PRG install -y firefox-esr atril galculator deepin-screen-recorder
 #Gerenciador Login Lightdm
-$PRG install -y lightdm-gtk-greeter-settings
+$PRG install -y lightdm lightdm-gtk-greeter
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Gerenciador Boot Plymouth
 $PRG install -y plymouth plymouth-themes grub-theme-starfield
@@ -93,7 +93,7 @@ rm -f -r /usr/share/themes/Kokodi*
 rm -f -r /usr/share/themes/Moheli*
 #Configurações Extras
 sed -i '4i Name[pt_BR]=Calculadora' /usr/share/applications/galculator.desktop
-sed -i '2i Name[pt_BR]=Gerenciador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
-sed -i '4i GenericName[pt_BR]=Preferências do indicador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
+sed -i '3i Name[pt_BR]=Gerenciador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
+sed -i '5i GenericName[pt_BR]=Preferências do indicador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
 #Software Extra
 sh utilities.sh
