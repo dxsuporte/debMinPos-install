@@ -32,8 +32,8 @@ fi
 #GNOMEDISK
 if [ "$GNOMEDISK" = "y" ]; then
     $myPRG install -y gnome-disk-utility
-    $myPRG install -y gnome-calculator
     $myPRG install -y baobab
+    #$myPRG install -y gnome-calculator
 fi
 #TORRENT
 if [ "$TORRENT" = "y" ]; then
@@ -50,7 +50,6 @@ fi
 #Cheese webcam
 if [ "$CHEESE" = "y" ]; then
     $myPRG install -y cheese
-    $myPRG install -y tlp
 fi
 #Impressoras
 if [ "$IMP" = "y" ]; then
