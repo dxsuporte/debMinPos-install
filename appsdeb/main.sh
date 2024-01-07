@@ -23,6 +23,7 @@ read -r -p "Instalar o MegaSync? [y|n] " MEGASYNC
 read -r -p "Instalar o NextCloud? [y|n] " NEXTCLOUD
 read -r -p "Instalar o TeamViewer - Acesso remoto? [y|n] " TEAMVIEWER
 read -r -p "Instalar o AnyDesk - Acesso remoto ? [y|n] " ANYDESK
+read -r -p "Instalar o RustDesk - Acesso remoto ? [y|n] " RUSTDESK
 read -r -p "Instalar o VSCode? [y|n] " VSCODE
 read -r -p "Instalar o VSCodium? [y|n] " VSCODIUM
 read -r -p "Instalar o Node JS? [y|n] " NODEJS
@@ -97,6 +98,10 @@ fi
 #AnyDesk
 if [ "$ANYDESK" = "y" ]; then
     sh anydesk.sh
+fi
+#RustDesk
+if [ "$RUSTDESK" = "y" ]; then
+    sh rustdesk.sh
 fi
 #VSCode
 if [ "$VSCODE" = "y" ]; then
