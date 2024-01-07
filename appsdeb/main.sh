@@ -13,6 +13,7 @@ read -r -p "Instalar o Gimp - Editor de imagem? [y|n] " GIMP
 read -r -p "Instalar o Clementine - Player de Música? [y/n] " CLEMENTINE
 read -r -p "Instalar o VLC - Media Player? [y|n] " VLC
 read -r -p "Instalar o WinFF - Conversor de vídeos? [y|n] " WINFF
+read -r -p "Instalar o Gerenciador de Virtualização - KVM? [y|n] " KVM
 read -r -p "Instalar o LibreOffice? [y|n] " LIBREOFFICE
 read -r -p "Instalar o OnlyOffice? [y|n] " ONLYOFFICE
 read -r -p "Instalar o Microsoft Edge? [y|n] " EDGE
@@ -54,6 +55,10 @@ fi
 #WinFF - Conversor de vídeos
 if [ "$WINFF" = "y" ]; then
     $myPRG install -y winff
+fi
+#KVM - Gerenciador de Virtualização
+if [ "$KVM" = "y" ]; then
+    $myPRG install -y virt-manager
 fi
 #Chromium Browser
 if [ "$CHROMIUM" = "y" ]; then
