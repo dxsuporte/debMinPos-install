@@ -17,6 +17,7 @@ read -r -p "Instalar o LibreOffice? [y|n] " LIBREOFFICE
 read -r -p "Instalar o OnlyOffice? [y|n] " ONLYOFFICE
 read -r -p "Instalar o Microsoft Edge? [y|n] " EDGE
 read -r -p "Instalar o Google Chrome? [y|n] " CHROME
+read -r -p "Instalar o Google Earth - Mapas do Google ? [y|n] " EARTH
 read -r -p "Instalar o Chromium Browser? [y|n] " CHROMIUM
 read -r -p "Instalar o DropBox? [y|n] " DROPBOX
 read -r -p "Instalar o MegaSync? [y|n] " MEGASYNC
@@ -87,6 +88,10 @@ fi
 #Google Chrome
 if [ "$CHROME" = "y" ]; then
     sh chrome.sh
+fi
+#Google Earth
+if [ "$EARTH" = "y" ]; then
+    sh earth.sh
 fi
 #MegaSync
 if [ "$MEGASYNC" = "y" ]; then
