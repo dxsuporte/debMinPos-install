@@ -12,6 +12,7 @@ read -r -p "Instalar o Inkscape - Design gráfico? [y|n] " INKSCAPE
 read -r -p "Instalar o Gimp - Editor de imagem? [y|n] " GIMP
 read -r -p "Instalar o Clementine - Player de Música? [y/n] " CLEMENTINE
 read -r -p "Instalar o VLC - Media Player? [y|n] " VLC
+read -r -p "Instalar o Jogos Nativos? [y|n] " JOGOS
 read -r -p "Instalar o WinFF - Conversor de vídeos? [y|n] " WINFF
 read -r -p "Instalar o Gerenciador de Virtualização - KVM? [y|n] " KVM
 read -r -p "Instalar o LibreOffice? [y|n] " LIBREOFFICE
@@ -51,6 +52,10 @@ fi
 if [ "$VLC" = "y" ]; then
     $myPRG install -y vlc
     #$myPRG install -y libdvd-pkg
+fi
+#JOGOS Nativos
+if [ "$JOGOS" = "y" ]; then
+    $myPRG install -y aisleriot
 fi
 #WinFF - Conversor de vídeos
 if [ "$WINFF" = "y" ]; then
