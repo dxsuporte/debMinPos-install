@@ -24,6 +24,7 @@ read -r -p "Instalar o NextCloud? [y|n] " NEXTCLOUD
 read -r -p "Instalar o TeamViewer - Acesso remoto? [y|n] " TEAMVIEWER
 read -r -p "Instalar o AnyDesk - Acesso remoto ? [y|n] " ANYDESK
 read -r -p "Instalar o RustDesk - Acesso remoto ? [y|n] " RUSTDESK
+read -r -p "Instalar o BalenaEtcher - Gravador ISO em USB ? [y|n] " BALENAETCHER
 read -r -p "Instalar o VSCode? [y|n] " VSCODE
 read -r -p "Instalar o VSCodium? [y|n] " VSCODIUM
 read -r -p "Instalar o Node JS? [y|n] " NODEJS
@@ -102,6 +103,10 @@ fi
 #RustDesk
 if [ "$RUSTDESK" = "y" ]; then
     sh rustdesk.sh
+fi
+#BalenaEtcher
+if [ "$BALENAETCHER" = "y" ]; then
+    sh balenaetcher.sh
 fi
 #VSCode
 if [ "$VSCODE" = "y" ]; then
