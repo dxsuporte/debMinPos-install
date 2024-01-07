@@ -14,7 +14,6 @@ read -r -p "Instalar Bluetooth? [y|n] " BLUETOOTH
 read -r -p "Instalar Gravador de Som simples - SoundRecorder? [y|n] " SOUNDRECORDER
 read -r -p "Instalar WebCam? [y|n] " CHEESE
 read -r -p "Instalar Impressoras? [y|n] " IMP
-read -r -p "Instalar Loja de Software? [y|n] " SOFTWAREDEB
 read -r -p "Instalar Monitor de Sistema? [y|n] " CONKY
 ######################################################################
 #FIREWALL
@@ -61,13 +60,6 @@ if [ "$IMP" = "y" ]; then
     $myPRG install -y hplip hp-ppd
     $myPRG install -y openprinting-ppds
     $myPRG install -y simple-scan
-fi
-#Gnome Software
-if [ "$SOFTWAREDEB" = "y" ]; then
-    $myPRG install -y gnome-software
-    $myPRG install -y flatpak
-    $myPRG install -y gnome-software-plugin-flatpak
-    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 fi
 #CONKY
 if [ "$CONKY" = "y" ]; then

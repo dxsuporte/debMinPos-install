@@ -62,7 +62,7 @@ $PRG install -y plymouth plymouth-themes grub-theme-starfield
 plymouth-set-default-theme -R bgrt
 #Gerenciador de sistema.
 $PRG install -y network-manager network-manager-gnome gnome-system-tools
-#$PRG install -y deepin-deb-installer package-update-indicator
+$PRG install -y deepin-deb-installer package-update-indicator
 #Programas de Shell e Config Net-tools
 $PRG install -y bash-completion wget net-tools command-not-found neofetch arping
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11
@@ -95,7 +95,7 @@ rm -f -r /usr/share/themes/Kokodi*
 rm -f -r /usr/share/themes/Moheli*
 #Configurações Extras
 sed -i '4i Name[pt_BR]=Calculadora' /usr/share/applications/galculator.desktop
-#sed -i '3i Name[pt_BR]=Gerenciador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
+sed -i '3i Name[pt_BR]=Gerenciador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
 sed -i '5i GenericName[pt_BR]=Preferências do indicador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
 #Software Extra
 sh utilities.sh

@@ -8,6 +8,7 @@ set -e
 $myPRG update && $myPRG upgrade -y
 $myPRG install -y apt-transport-https curl
 ######################################################################
+read -r -p "Instalar Loja de  Software? [y|n] " SOFTWAREDEB
 read -r -p "Instalar o Inkscape - Design gráfico? [y|n] " INKSCAPE
 read -r -p "Instalar o Gimp - Editor de imagem? [y|n] " GIMP
 read -r -p "Instalar o Clementine - Player de Música? [y/n] " CLEMENTINE
@@ -35,6 +36,14 @@ read -r -p "Instalar o SQLite? [y|n] " SQLITE
 read -r -p "Instalar o Antares SQL? [y|n] " ANTARESSQL
 read -r -p "Instalar o DWService? [y|n] " DWSERVICE
 ######################################################################
+if [ "$SOFTWAREDEB" = "y" ]; then
+    #$myPRG install -y gnome-software
+    #$myPRG install -y gnome-software-plugin-flatpak
+    #$myPRG install -y plasma-discover
+    #$myPRG install -y plasma-discover-backend-flatpak
+    #$myPRG install -y flatpak
+    #flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+fi
 #Inkscape - Design gráfico
 if [ "$INKSCAPE" = "y" ]; then
     $myPRG install -y inkscape
