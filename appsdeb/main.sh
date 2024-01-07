@@ -8,7 +8,7 @@ set -e
 $myPRG update && $myPRG upgrade -y
 $myPRG install -y apt-transport-https curl
 ######################################################################
-read -r -p "Instalar Loja de  Software? [y|n] " SOFTWAREDEB
+#read -r -p "Instalar Loja de  Software? [y|n] " SOFTWAREDEB
 read -r -p "Instalar o Inkscape - Design gráfico? [y|n] " INKSCAPE
 read -r -p "Instalar o Gimp - Editor de imagem? [y|n] " GIMP
 read -r -p "Instalar o Clementine - Player de Música? [y/n] " CLEMENTINE
