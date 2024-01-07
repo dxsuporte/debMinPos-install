@@ -36,14 +36,14 @@ read -r -p "Instalar o SQLite? [y|n] " SQLITE
 read -r -p "Instalar o Antares SQL? [y|n] " ANTARESSQL
 read -r -p "Instalar o DWService? [y|n] " DWSERVICE
 ######################################################################
-if [ "$SOFTWAREDEB" = "y" ]; then
-    #$myPRG install -y gnome-software
-    #$myPRG install -y gnome-software-plugin-flatpak
-    #$myPRG install -y plasma-discover
-    #$myPRG install -y plasma-discover-backend-flatpak
-    #$myPRG install -y flatpak
-    #flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-fi
+#if [ "$SOFTWAREDEB" = "y" ]; then
+#$myPRG install -y gnome-software
+#$myPRG install -y gnome-software-plugin-flatpak
+#$myPRG install -y plasma-discover
+#$myPRG install -y plasma-discover-backend-flatpak
+#$myPRG install -y flatpak
+#flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+#fi
 #Inkscape - Design gráfico
 if [ "$INKSCAPE" = "y" ]; then
     $myPRG install -y inkscape
