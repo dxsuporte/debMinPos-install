@@ -75,7 +75,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 #Codecs para descompaquitar arquivos
 $PRG install -y zip p7zip* unrar* unzip rar arc arj cabextract lhasa unace* xz-utils sharutils uudeview mpack
 #Codecs de audio e video
-$PRG install -y ffmpeg mencoder faad lame sox twolame vorbis-tools libavcodec-extra* gstreamer1.0-fdkaac gstreamer1.0-plugins-ugly
+$PRG install -y ffmpeg mencoder faad lame sox twolame vorbis-tools libavcodec-extra gstreamer1.0-fdkaac gstreamer1.0-plugins-ugly
 ####Config####
 #Grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash modprobe.blacklist=pcspkr"/g' /etc/default/grub
