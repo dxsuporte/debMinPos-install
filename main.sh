@@ -1,8 +1,6 @@
 #!/bin/sh
 #Interromper o script se algum comando falhar.
 set -e
-#Include
-. "$(pwd)/myInclude.sh"
 #Desativar CDROM
 sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
 #APT or NALA
@@ -21,12 +19,12 @@ update-locale LANG=pt_BR.UTF-8 && locale-gen --purge pt_BR.UTF-8
 $PRG install -y software-properties-common software-properties-gtk wget
 add-apt-repository -y contrib non-free
 add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib non-free"
-if [ "$myRELEASE" = "testing" ]; then
-    add-apt-repository -y "deb http://deb.debian.org/debian/ bookworm main contrib non-free"
-fi
+
+#echo 'deb https://www.deb-multimedia.org "$(lsb_release -sc)" main non-free' | tee /etc/apt/sources.list.d/deb-multimedia.list
 add-apt-repository -y "deb https://www.deb-multimedia.org "$(lsb_release -sc)" main non-free"
 wget -c https://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb -O /tmp/deb-multimedia.deb
-$PRG install -y /tmp/deb-multimedia.deb
+$myPRG install -y /tmp/deb-multimedia.deb
+
 $PRG update && $PRG upgrade -y
 #firmware Drives
 $PRG install -y linux-headers-$(uname -r)
@@ -79,7 +77,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 #Codecs para descompaquitar arquivos
 $PRG install -y zip p7zip* unrar* unzip rar arc arj cabextract lhasa unace* xz-utils sharutils uudeview mpack
 #Codecs de audio e video
-$PRG install -y ffmpeg mencoder faad lame sox twolame vorbis-tools libavcodec-extra gstreamer1.0-fdkaac gstreamer1.0-plugins-ugly
+$PRG install -y ffmpeg mencoder faad lame sox twolame vorbis-tools libavcodec-extra* gstreamer1.0-fdkaac gstreamer1.0-plugins-ugly
 ####Config####
 #Grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash modprobe.blacklist=pcspkr"/g' /etc/default/grub
