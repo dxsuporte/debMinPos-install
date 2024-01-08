@@ -13,6 +13,7 @@ else
 fi
 #----------Start----------#
 #Mudar lingual do Sistema
+$PRG install -y locales locales-all
 update-locale LANG=pt_BR.UTF-8 && locale-gen --purge pt_BR.UTF-8
 #Habilitar repositorios extra e oldstable
 $PRG install -y software-properties-common software-properties-gtk
