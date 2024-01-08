@@ -12,6 +12,7 @@ $myPRG install -y apt-transport-https curl
 read -r -p "Instalar o Inkscape - Design gráfico? [y|n] " INKSCAPE
 read -r -p "Instalar o Gimp - Editor de imagem? [y|n] " GIMP
 read -r -p "Instalar o Clementine - Player de Música? [y/n] " CLEMENTINE
+read -r -p "Instalar o Audacity - Editor, gravador de áudio? [y|n] " AUDACITY
 read -r -p "Instalar o VLC - Media Player? [y|n] " VLC
 read -r -p "Instalar o Jogos Nativos? [y|n] " JOGOS
 read -r -p "Instalar o WinFF - Conversor de vídeos? [y|n] " WINFF
@@ -26,8 +27,9 @@ read -r -p "Instalar o DropBox? [y|n] " DROPBOX
 read -r -p "Instalar o MegaSync? [y|n] " MEGASYNC
 read -r -p "Instalar o NextCloud? [y|n] " NEXTCLOUD
 read -r -p "Instalar o TeamViewer - Acesso remoto? [y|n] " TEAMVIEWER
-read -r -p "Instalar o AnyDesk - Acesso remoto ? [y|n] " ANYDESK
-read -r -p "Instalar o RustDesk - Acesso remoto ? [y|n] " RUSTDESK
+read -r -p "Instalar o AnyDesk - Acesso remoto? [y|n] " ANYDESK
+read -r -p "Instalar o RustDesk - Acesso remoto? [y|n] " RUSTDESK
+read -r -p "Instalar o EMBY - Servidor de multimidia? [y|n] " EMBY
 read -r -p "Instalar o BalenaEtcher - Gravador ISO em USB ? [y|n] " BALENAETCHER
 read -r -p "Instalar o VSCode? [y|n] " VSCODE
 read -r -p "Instalar o VSCodium? [y|n] " VSCODIUM
@@ -35,6 +37,8 @@ read -r -p "Instalar o Node JS? [y|n] " NODEJS
 read -r -p "Instalar o SQLite? [y|n] " SQLITE
 read -r -p "Instalar o Antares SQL? [y|n] " ANTARESSQL
 read -r -p "Instalar o DWService? [y|n] " DWSERVICE
+read -r -p "Instalar SAMBA - Compartilhamento rede linux/windows? [y|n] " SAMBA
+read -r -p "Instalar XAMPP - Servidor Apache, MySQL,PHP e PHPMYADMIN? [y|n] " XAMPP
 ######################################################################
 #if [ "$SOFTWAREDEB" = "y" ]; then
 #$myPRG install -y gnome-software
@@ -62,9 +66,14 @@ if [ "$VLC" = "y" ]; then
     $myPRG install -y vlc
     #$myPRG install -y libdvd-pkg
 fi
+#AUDACITY - Media Player
+if [ "$AUDACITY" = "y" ]; then
+    $myPRG install -y audacity
+fi
 #JOGOS Nativos
 if [ "$JOGOS" = "y" ]; then
-    $myPRG install -y aisleriot
+    $myPRG install -y aisleriot gnome-chess gnome-nibbles
+    $myPRG install -y KPatience kcheckers quadrapassel mednafen
 fi
 #WinFF - Conversor de vídeos
 if [ "$WINFF" = "y" ]; then
@@ -128,6 +137,10 @@ fi
 if [ "$RUSTDESK" = "y" ]; then
     sh rustdesk.sh
 fi
+#EMBY - Servidor de multimidia
+if [ "$EMBY" = "y" ]; then
+    sh emby.sh
+fi
 #BalenaEtcher
 if [ "$BALENAETCHER" = "y" ]; then
     sh balenaetcher.sh
@@ -151,6 +164,14 @@ fi
 #DWService
 if [ "$DWSERVICE" = "y" ]; then
     sh dwagent.sh
+fi
+#SAMBA
+if [ "$SAMBA" = "y" ]; then
+    sh samba.sh
+fi
+#XAMPP
+if [ "$XAMPP" = "y" ]; then
+    sh xampp.sh
 fi
 #----------End----------#
 #Atualizar Grub, Limpeza apt

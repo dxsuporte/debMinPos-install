@@ -32,7 +32,6 @@ fi
 if [ "$GNOMEDISK" = "y" ]; then
     $myPRG install -y gnome-disk-utility
     $myPRG install -y baobab
-    #$myPRG install -y gnome-calculator
 fi
 #TORRENT
 if [ "$TORRENT" = "y" ]; then
