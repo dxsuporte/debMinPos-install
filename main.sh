@@ -24,9 +24,9 @@ add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib 
 if [ "$myRELEASE" = "testing" ]; then
     add-apt-repository -y "deb http://deb.debian.org/debian/ bookworm main contrib non-free"
 fi
+add-apt-repository -y "deb https://www.deb-multimedia.org "$(lsb_release -sc)" main non-free"
 wget -c https://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb -O /tmp/deb-multimedia.deb
 $PRG install -y /tmp/deb-multimedia.deb
-echo 'deb [ signed-by=/usr/share/keyrings/deb-multimedia.gpg ] https://www.deb-multimedia.org $(lsb_release -sc) main non-free' | tee /etc/apt/sources.list.d/deb-multimedia.list
 $PRG update && $PRG upgrade -y
 #firmware Drives
 $PRG install -y linux-headers-$(uname -r)
