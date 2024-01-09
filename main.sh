@@ -50,7 +50,7 @@ $PRG install -y xfce4-weather-plugin xfce4-cpugraph-plugin
 $PRG install -y menulibre mugshot
 $PRG install -y thunar thunar-archive-plugin thunar-media-tags-plugin
 $PRG install -y gigolo gvfs-*
-$PRG install -y parole ristretto
+$PRG install -y parole ristretto xfburn
 $PRG install -y mousepad xarchiver
 $PRG install -y xdg-user-dirs xdg-user-dirs-gtk
 $PRG install -y elementary-xfce-icon-theme

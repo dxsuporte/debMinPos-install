@@ -13,8 +13,7 @@
     <Menuname>Hardware</Menuname>
     <Menuname>System</Menuname>
     <Menuname>Other</Menuname>
-    <Merge type="menus"/>
-    <Merge type="files"/>
+    <Merge type="all" />
   </Layout>
 
   <Include>
@@ -96,6 +95,7 @@
         </Not>
       </And>
       <Filename>software-properties-gtk.desktop</Filename>
+      <Filename>kdesystemsettings.desktop</Filename>
       <Filename>org.guido-berhoerster.code.package-update-indicator.preferences.desktop</Filename>
     </Include>
     <Exclude>
@@ -109,19 +109,16 @@
     <Include>
       <And>
         <Category>Settings</Category>
+        <Category>X-XFCE-SettingsDialog</Category>
         <Not>
           <Or>
             <Category>X-XFCE-PersonalSettings</Category>
             <Category>X-XFCE-SystemSettings</Category>
             <Category>X-XFCE-HardwareSettings</Category>
-            <Category>DesktopSettings</Category>
             <Category>HardwareSettings</Category>
             <Category>System</Category>
-            <Filename>nm-connection-editor.desktop</Filename>
-            <Filename>software-properties-gtk.desktop</Filename>
-            <Filename>xscreensaver-properties.desktop</Filename>
-            <Filename>xfce-settings-manager.desktop</Filename>
             <Filename>xfce4-settings-editor.desktop</Filename>
+            <Filename>xfce-settings-manager.desktop</Filename>
             <Filename>org.guido-berhoerster.code.package-update-indicator.preferences.desktop</Filename>
           </Or>
         </Not>
