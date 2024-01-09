@@ -47,6 +47,7 @@
         <Category>DesktopSettings</Category>
       </And>
       <Filename>xscreensaver-properties.desktop</Filename>
+      <Filename>xfce4-about.desktop</Filename>
     </Include>
     <Exclude>
       <Category>X-XFCE-HardwareSettings</Category>

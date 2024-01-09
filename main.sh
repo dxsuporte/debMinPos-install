@@ -47,7 +47,7 @@ $PRG install -y xfce4-notifyd xfce4-screenshooter xfce4-appfinder
 $PRG install -y xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin
 $PRG install -y xfce4-weather-plugin xfce4-cpugraph-plugin
 #Software extras XFCE
-$PRG install -y menulibre mugshot
+$PRG install -y menulibre mugshot libxfce4ui-utils
 $PRG install -y thunar thunar-archive-plugin thunar-media-tags-plugin
 $PRG install -y gigolo gvfs-*
 $PRG install -y parole ristretto xfburn

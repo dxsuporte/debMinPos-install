@@ -8,15 +8,15 @@ set -e
 $myPRG update && $myPRG upgrade -y
 $myPRG install -y apt-transport-https curl
 ######################################################################
-#read -r -p "Instalar Loja de  Software? [y|n] " SOFTWAREDEB
+read -r -p "Instalar Loja de  Software? [y|n] " SOFTWAREDEB
 read -r -p "Instalar o Inkscape - Design gráfico? [y|n] " INKSCAPE
 read -r -p "Instalar o Gimp - Editor de imagem? [y|n] " GIMP
 read -r -p "Instalar o Clementine - Player de Música? [y/n] " CLEMENTINE
 read -r -p "Instalar o Audacity - Editor, gravador de áudio? [y|n] " AUDACITY
 read -r -p "Instalar o VLC - Media Player? [y|n] " VLC
-read -r -p "Instalar o Jogos Nativos? [y|n] " JOGOS
 read -r -p "Instalar o WinFF - Conversor de vídeos? [y|n] " WINFF
-read -r -p "Instalar o Gerenciador de Virtualização - KVM? [y|n] " KVM
+read -r -p "Instalar o Jogos Nativos? [y|n] " JOGOS
+read -r -p "Instalar o KVM - Gerenciador de Virtualização? [y|n] " KVM
 read -r -p "Instalar o LibreOffice? [y|n] " LIBREOFFICE
 read -r -p "Instalar o OnlyOffice? [y|n] " ONLYOFFICE
 read -r -p "Instalar o Microsoft Edge? [y|n] " EDGE
@@ -40,14 +40,14 @@ read -r -p "Instalar o DWService? [y|n] " DWSERVICE
 read -r -p "Instalar SAMBA - Compartilhamento rede linux/windows? [y|n] " SAMBA
 read -r -p "Instalar XAMPP - Servidor Apache, MySQL,PHP e PHPMYADMIN? [y|n] " XAMPP
 ######################################################################
-#if [ "$SOFTWAREDEB" = "y" ]; then
-#$myPRG install -y gnome-software
-#$myPRG install -y gnome-software-plugin-flatpak
-#$myPRG install -y plasma-discover
-#$myPRG install -y plasma-discover-backend-flatpak
-#$myPRG install -y flatpak
-#flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-#fi
+if [ "$SOFTWAREDEB" = "y" ]; then
+    $myPRG install -y gnome-software
+    $myPRG install -y gnome-software-plugin-flatpak
+    $myPRG install -y plasma-discover
+    $myPRG install -y plasma-discover-backend-flatpak
+    $myPRG install -y flatpak
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+fi
 #Inkscape - Design gráfico
 if [ "$INKSCAPE" = "y" ]; then
     $myPRG install -y inkscape
