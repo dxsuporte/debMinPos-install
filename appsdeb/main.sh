@@ -73,7 +73,7 @@ fi
 #JOGOS Nativos
 if [ "$JOGOS" = "y" ]; then
     $myPRG install -y aisleriot gnome-chess gnome-nibbles
-    $myPRG install -y KPatience kcheckers quadrapassel mednafen
+    $myPRG install -y kpat kcheckers quadrapassel mednafen
 fi
 #WinFF - Conversor de vídeos
 if [ "$WINFF" = "y" ]; then
