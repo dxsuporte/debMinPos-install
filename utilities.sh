@@ -35,7 +35,7 @@ if [ "$GNOMEDISK" = "y" ]; then
 fi
 #TORRENT
 if [ "$TORRENT" = "y" ]; then
-    $myPRG install -y deluge
+    $myPRG install -y transmission
 fi
 #BLUETOOTH
 if [ "$BLUETOOTH" = "y" ]; then

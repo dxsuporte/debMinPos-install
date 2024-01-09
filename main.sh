@@ -58,7 +58,7 @@ $PRG install -y elementary-xfce-icon-theme
 $PRG install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
 $PRG install -y arc-theme orchis-gtk-theme bibata-cursor-theme
 #Software Padrão
-$PRG install -y firefox-esr atril galculator mate-calc kazam drawing deepin-screen-recorder
+$PRG install -y firefox-esr atril galculator mate-calc shotwell kazam drawing
 #Software Basic
 $PRG install -y drawing
 #Gerenciador Login Lightdm

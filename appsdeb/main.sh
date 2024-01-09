@@ -55,7 +55,6 @@ fi
 #Gimp - Editor de imagem
 if [ "$GIMP" = "y" ]; then
     $myPRG install -y gimp
-    $myPRG install -y shotwell
 fi
 #Clementine - Player de Música
 if [ "$CLEMENTINE" = "y" ]; then
