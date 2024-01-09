@@ -24,7 +24,6 @@
       <property name="&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter"/>
       <property name="&lt;Primary&gt;Print" type="string" value="kazam -x"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;e" type="string" value="thunar"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;Escape" type="string" value="xkill"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;Escape" type="string" value="xfce4-taskmanager"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;r" type="string" value="xfce4-appfinder -c">
         <property name="startup-notify" type="bool" value="true"/>
