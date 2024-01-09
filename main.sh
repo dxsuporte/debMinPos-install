@@ -16,7 +16,7 @@ fi
 $PRG install -y locales locales-all
 update-locale LANG=pt_BR.UTF-8 && locale-gen --purge pt_BR.UTF-8
 #Habilitar repositorios extra e oldstable
-$PRG install -y software-properties-common software-properties-gtk wget
+$PRG install -y software-properties-common software-properties-gtk wget curl
 add-apt-repository -y contrib non-free
 add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib non-free"
 #echo 'deb https://www.deb-multimedia.org "$(lsb_release -sc)" main non-free' | tee /etc/apt/sources.list.d/deb-multimedia.list
