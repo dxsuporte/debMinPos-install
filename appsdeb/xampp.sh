@@ -10,7 +10,7 @@ if [ -e ./xampp-linux*.run ]; then
 else
     RELEASE=$(curl -s https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/ | grep -m1 "net.sf.files" | cut -d '"' -f 2)
     wget -c https://sinalbr.dl.sourceforge.net/project/xampp/XAMPP%20Linux/"$RELEASE"/xampp-linux-x64-"$RELEASE"-0-installer.run
-    chmod +x /tmp/xampp.run
+    chmod +x xampp-linux*.run
     ./xampp-linux*.run
 fi
 #Copiá o script de configuração da permissão pkexec.
