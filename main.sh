@@ -49,8 +49,7 @@ $PRG install -y xfce4-weather-plugin xfce4-cpugraph-plugin
 $PRG install -y menulibre mugshot libxfce4ui-utils
 $PRG install -y thunar thunar-archive-plugin thunar-media-tags-plugin
 $PRG install -y gigolo gvfs-*
-$PRG install -y parole ristretto xfburn
-$PRG install -y mousepad xarchiver
+$PRG install -y mousepad xarchiver parole xfburn
 $PRG install -y xdg-user-dirs xdg-user-dirs-gtk
 $PRG install -y elementary-xfce-icon-theme
 #Themes
@@ -58,7 +57,7 @@ $PRG install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
 $PRG install -y arc-theme orchis-gtk-theme bibata-cursor-theme
 #Software Padrão
 $PRG install -y firefox-esr atril galculator mate-calc
-$PRG install -y drawing shotwell kazam hardinfo
+$PRG install -y drawing gthumb kazam hardinfo
 #Gerenciador Login Lightdm
 $PRG install -y lightdm lightdm-gtk-greeter
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
