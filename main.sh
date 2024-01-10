@@ -19,7 +19,6 @@ update-locale LANG=pt_BR.UTF-8 && locale-gen --purge pt_BR.UTF-8
 $PRG install -y software-properties-common software-properties-gtk wget curl
 add-apt-repository -y contrib non-free
 add-apt-repository -y "deb http://deb.debian.org/debian/ oldstable main contrib non-free"
-#echo 'deb https://www.deb-multimedia.org "$(lsb_release -sc)" main non-free' | tee /etc/apt/sources.list.d/deb-multimedia.list
 add-apt-repository -y "deb https://www.deb-multimedia.org "$(lsb_release -sc)" main non-free"
 wget -c https://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb -O /tmp/deb-multimedia.deb
 $PRG install -y /tmp/deb-multimedia.deb
@@ -72,8 +71,7 @@ $PRG install -y network-manager network-manager-gnome gnome-system-tools
 $PRG install -y deepin-deb-installer package-update-indicator
 #Programas de Shell e Config Net-tools
 $PRG install -y bash-completion net-tools command-not-found neofetch arping
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/X11:/snap/bin"' | tee /etc/environment
 #Codecs para descompaquitar arquivos
 $PRG install -y zip p7zip* unrar* unzip rar arc arj cabextract lhasa unace* xz-utils sharutils uudeview mpack
 #Codecs de audio e video

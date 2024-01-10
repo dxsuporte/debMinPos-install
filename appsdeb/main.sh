@@ -63,7 +63,8 @@ fi
 #VLC - Media Player
 if [ "$VLC" = "y" ]; then
     $myPRG install -y vlc
-    #$myPRG install -y libdvd-pkg
+    $myPRG install -y libdvd-pkg
+    dpkg-reconfigure libdvd-pkg
 fi
 #AUDACITY - Media Player
 if [ "$AUDACITY" = "y" ]; then

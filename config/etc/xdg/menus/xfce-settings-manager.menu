@@ -54,6 +54,7 @@
       <Category>X-XFCE-SystemSettings</Category>
       <Filename>xfce4-settings-editor.desktop</Filename>
       <Filename>xfce-settings-manager.desktop</Filename>
+      <Filename>menulibre.desktop</Filename>
     </Exclude>
   </Menu>
 
