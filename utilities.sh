@@ -5,52 +5,40 @@ set -e
 . "$(pwd)/myInclude.sh"
 #----------Start----------#
 ######################################################################
-read -r -p "Instalar Firewall? [y|n] " FIREWALL
-read -r -p "Instalar Gerenciador de Pacotes Synaptic? [y|n] " SYNAPTIC
-read -r -p "Instalar Gerenciador de Partições GParted? [y|n] " GPARTED
-read -r -p "Instalar Utilitário de discos Gnome Disk? [y|n] " GNOMEDISK
-read -r -p "Instalar Cliente BitTorrent? [y|n] " TORRENT
-read -r -p "Instalar Bluetooth? [y|n] " BLUETOOTH
-read -r -p "Instalar Gravador de Som simples - SoundRecorder? [y|n] " SOUNDRECORDER
-read -r -p "Instalar WebCam? [y|n] " CHEESE
-read -r -p "Instalar Impressoras? [y|n] " IMP
-read -r -p "Instalar Monitor de Sistema? [y|n] " CONKY
+read -r -p "Instalar o Synaptic? - Gerenciador de Pacotes! [y|n] " SYNAPTIC
+read -r -p "Instalar o GParted? - Gerenciador de Partições! [y|n] " GPARTED
+read -r -p "Instalar o Gnome Disk? - Gerenciador de discos! [y|n] " GNOMEDISK
+read -r -p "Instalar o Gufw? - Gerenciador de Firewall? [y|n] " GUFW
+read -r -p "Instalar o Blueman? Gerenciador de Bluetooth! [y|n] " BLUEMAN
+read -r -p "Instalar o Cups? - Gerenciador de Impressoras! [y|n] " CUPS
+read -r -p "Instalar o Cheese? Gerenciador de WebCam! [y|n] " CHEESE
+read -r -p "Instalar o SoundRecorder? Gravador de Som simples! [y|n] " SOUNDRECORDER
+read -r -p "Instalar o Transmission? Cliente BitTorrent! [y|n] " TORRENT
+read -r -p "Instalar o Conky? Monitor de sistema widgets da área de trabalho! [y|n] " CONKY
 ######################################################################
-#FIREWALL
-if [ "$FIREWALL" = "y" ]; then
-    $myPRG install -y gufw
-fi
-#SYNAPTIC
+#Sinaptic
 if [ "$SYNAPTIC" = "y" ]; then
     $myPRG install -y synaptic
 fi
-#GPARTED
+#Gparted
 if [ "$GPARTED" = "y" ]; then
     apt install -y gparted
 fi
-#GNOMEDISK
+#Gnome Disk
 if [ "$GNOMEDISK" = "y" ]; then
     $myPRG install -y gnome-disk-utility
     $myPRG install -y baobab
 fi
-#TORRENT
-if [ "$TORRENT" = "y" ]; then
-    $myPRG install -y transmission
+#Gufw
+if [ "$GUFW" = "y" ]; then
+    $myPRG install -y gufw
 fi
-#BLUETOOTH
-if [ "$BLUETOOTH" = "y" ]; then
+#Blueman
+if [ "$BLUEMAN" = "y" ]; then
     $myPRG install -y bluez blueman pulseaudio-module-bluetooth
 fi
-#SOUNDRECORDER
-if [ "$SOUNDRECORDER" = "y" ]; then
-    $myPRG install -y gnome-sound-recorder
-fi
-#Cheese webcam
-if [ "$CHEESE" = "y" ]; then
-    $myPRG install -y cheese
-fi
-#Impressoras
-if [ "$IMP" = "y" ]; then
+#Cups
+if [ "$CUPS" = "y" ]; then
     $myPRG install -y system-config-printer
     $myPRG install -y printer-driver-all
     $myPRG install -y printer-driver-escpr
@@ -59,6 +47,18 @@ if [ "$IMP" = "y" ]; then
     $myPRG install -y hplip hp-ppd
     $myPRG install -y openprinting-ppds
     $myPRG install -y simple-scan
+fi
+#Cheese
+if [ "$CHEESE" = "y" ]; then
+    $myPRG install -y cheese
+fi
+#Sound Recorder
+if [ "$SOUNDRECORDER" = "y" ]; then
+    $myPRG install -y gnome-sound-recorder
+fi
+#TORRENT
+if [ "$TORRENT" = "y" ]; then
+    $myPRG install -y transmission
 fi
 #CONKY
 if [ "$CONKY" = "y" ]; then

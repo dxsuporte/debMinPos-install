@@ -15,7 +15,7 @@ grep -c '/home/Compartilhado/Public' /etc/samba/smb.conf || cat config/samba/pub
 grep -c '/home/Compartilhado/Private' /etc/samba/smb.conf || cat config/samba/private | tee -a /etc/samba/smb.conf
 #Adicionar Usuário, Senha do Usuário e Pasta private ao SambaShare
 usermod -aG sambashare $(id 1000 -u -n)
-echo 'Configurando a senha para acesso das pasta compartilhada'
+echo 'Configurando a senha para acesso as pastas compartilhadas'
 smbpasswd -a $(id 1000 -u -n)
 chgrp sambashare /home/Compartilhado/Private
 #Criar Link e Atlaho gernciador de aquivo

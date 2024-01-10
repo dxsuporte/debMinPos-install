@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Exec=exo-open --launch WebBrowser %u localhost:8096
+Exec=exo-open --launch WebBrowser %u http://localhost:8096
 Icon=emby
 StartupNotify=true
 Terminal=false
