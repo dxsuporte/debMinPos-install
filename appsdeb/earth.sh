@@ -4,7 +4,7 @@ set -e
 #Include
 . "$(pwd)/../myInclude.sh"
 #----------Start----------#
-add-apt-repository -y "deb http://dl.google.com/linux/earth/deb/ stable main"
+add-apt-repository -y "deb http://dl.google.com/linux/earth/deb/ stable main" >>/etc/apt/sources.list.d/google-earth-pro.list
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub -O- | apt-key add -
 $myPRG update
 $myPRG install -y google-earth-pro-stable
