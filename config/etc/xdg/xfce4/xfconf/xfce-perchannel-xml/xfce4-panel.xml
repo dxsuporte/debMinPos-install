@@ -39,6 +39,7 @@
       <property name="show-labels" type="bool" value="false"/>
       <property name="show-handle" type="bool" value="false"/>
       <property name="middle-click" type="uint" value="3"/>
+      <property name="flat-buttons" type="bool" value="true"/>
     </property>
     <property name="plugin-3" type="string" value="separator">
       <property name="expand" type="bool" value="false"/>

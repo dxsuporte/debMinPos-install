@@ -4,7 +4,7 @@ set -e
 #Include
 . "$(pwd)/../myInclude.sh"
 #----------Start----------#
-add-apt-repository -y "deb https://packages.microsoft.com/repos/vscode stable main" >>/etc/apt/sources.list.d/vscode.list
-wget -q -O - https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
+wget -qO - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /etc/apt/keyrings/vscode.gpg
+echo "deb [signed-by=/etc/apt/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vscode.list
 $myPRG update
 $myPRG install -y code

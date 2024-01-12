@@ -4,7 +4,7 @@ set -e
 #Include
 . "$(pwd)/../myInclude.sh"
 #----------Start----------#
-add-apt-repository -y "deb https://antares-sql.github.io/antares-ppa ./" >>/etc/apt/sources.list.d/antares.list
-wget -q -O - https://antares-sql.github.io/antares-ppa/key.gpg -O- | apt-key add -
+wget -qO - https://antares-sql.github.io/antares-ppa/key.gpg | gpg --dearmor -o /etc/apt/keyrings/antares.gpg
+echo "deb [signed-by=/etc/apt/keyrings/antares.gpg] https://antares-sql.github.io/antares-ppa ./" | tee /etc/apt/sources.list.d/antares.list
 $myPRG update
 $myPRG install -y antares

@@ -4,7 +4,7 @@ set -e
 #Include
 . "$(pwd)/../myInclude.sh"
 #----------Start----------#
-add-apt-repository -y "deb http://dl.google.com/linux/chrome/deb/ stable main" >>/etc/apt/sources.list.d/google-chrome.list
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub -O- | apt-key add -
+wget -qO - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /etc/apt/keyrings/google-chrome.gpg
+echo "deb [signed-by=/etc/apt/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list
 $myPRG update
 $myPRG install -y google-chrome-stable
