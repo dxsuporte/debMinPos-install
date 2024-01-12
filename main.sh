@@ -57,7 +57,7 @@ $PRG install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
 $PRG install -y arc-theme orchis-gtk-theme bibata-cursor-theme
 #Software Padrão
 $PRG install -y firefox-esr atril galculator mate-calc
-$PRG install -y drawing gthumb kazam hardinfo
+$PRG install -y drawing gthumb mirage kazam hardinfo
 #Gerenciador Login Lightdm
 $PRG install -y lightdm lightdm-gtk-greeter
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
