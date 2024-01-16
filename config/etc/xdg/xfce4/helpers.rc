@@ -3,7 +3,7 @@
 #
 # Copyright (c) 2005-2006 Benedikt Meurer <benny@xfce.org>
 #
-WebBrowser=debian-sensible-browser
+WebBrowser=default-browser
 MailReader=thunderbird
 TerminalEmulator=debian-x-terminal-emulator
 FileManager=thunar
