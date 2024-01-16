@@ -56,8 +56,7 @@ $PRG install -y elementary-xfce-icon-theme
 $PRG install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
 $PRG install -y arc-theme orchis-gtk-theme bibata-cursor-theme
 #Software Padrão
-$PRG install -y firefox-esr atril galculator mate-calc
-$PRG install -y drawing gthumb mirage kazam hardinfo
+$PRG install -y firefox-esr atril mate-calc drawing gthumb mirage kazam
 #Gerenciador Login Lightdm
 $PRG install -y lightdm lightdm-gtk-greeter
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
@@ -97,7 +96,6 @@ rm -f -r /usr/share/themes/Daloa*
 rm -f -r /usr/share/themes/Kokodi*
 rm -f -r /usr/share/themes/Moheli*
 #Configurações Extras
-sed -i '4i Name[pt_BR]=Calculadora' /usr/share/applications/galculator.desktop
 sed -i '3i Name[pt_BR]=Gerenciador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
 sed -i '5i GenericName[pt_BR]=Preferências do indicador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
 #Software Extra
