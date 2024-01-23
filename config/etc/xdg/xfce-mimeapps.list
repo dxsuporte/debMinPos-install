@@ -1,6 +1,6 @@
 [Default Applications]
-image/png=org.gnome.gThumb.desktop
-image/gif=org.gnome.gThumb.desktop
-image/jpeg=org.gnome.gThumb.desktop
-image/jpg=org.gnome.gThumb.desktop
-image/svg=org.gnome.gThumb.desktop
+image/png=mirage.desktop
+image/gif=mirage.desktop
+image/jpeg=mirage.desktop
+image/jpg=mirage.desktop
+image/svg=mirage.desktop
