@@ -47,8 +47,7 @@ $PRG install -y xfce4-panel-profiles || echo 'ok'
 $PRG install -y menulibre mugshot xfburn gigolo gvfs-*
 $PRG install -y xdg-user-dirs-gtk elementary-xfce-icon-theme
 #Themes
-$PRG install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
-$PRG install -y arc-theme orchis-gtk-theme bibata-cursor-theme
+$PRG install -y arc-theme breeze-gtk-theme breeze-cursor-theme bibata-cursor-theme
 #Software Padrão
 $PRG install -y mate-calc drawing mirage kazam
 #Gerenciador Boot Plymouth
