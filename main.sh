@@ -41,7 +41,8 @@ $PRG install -y task-laptop
 $PRG install -y xfce4-terminal
 $PRG install -y xorg
 $PRG install -y xfce4-session
-$PRG install -y xfce4-panel xfce4-panel-profiles
+$PRG install -y xfce4-panel 
+$PRG install -y xfce4-panel-profiles || echo 'ok'
 $PRG install -y xfce4-power-manager xfce4-taskmanager
 $PRG install -y xfce4-notifyd xfce4-screenshooter xfce4-appfinder
 $PRG install -y xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin
