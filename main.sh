@@ -36,6 +36,7 @@ $PRG install -y intel-microcode intel-gpu-tools
 $PRG install -y amd64-microcode amdgcn-tools
 $PRG install -y mesa-vulkan-drivers mesa-utils
 $PRG install -y libglapi-mesa libgl1-mesa-dri libgles2 libegl1 tlp
+$PRG install -y task-laptop
 #Interface grafica XFCE4
 $PRG install -y xfce4-terminal
 $PRG install -y xorg
