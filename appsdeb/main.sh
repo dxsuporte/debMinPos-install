@@ -70,13 +70,11 @@ if [ "$WINFF" = "y" ]; then
 fi
 #JOGOS
 if [ "$JOGOS" = "y" ]; then
-    $myPRG install -y aisleriot gnome-chess gnome-nibbles
-    $myPRG install -y kpat kcheckers quadrapassel mednafen
+    $myPRG install -y aisleriot gnome-chess gnome-nibbles kcheckers quadrapassel mednafen
 fi
 #Chromium
 if [ "$CHROMIUM" = "y" ]; then
-    $myPRG install -y chromium
-    $myPRG install -y chromium-l10n
+    $myPRG install -y chromium chromium-l10n
 fi
 #DropBox
 if [ "$DROPBOX" = "y" ]; then
@@ -88,8 +86,7 @@ if [ "$NEXTCLOUD" = "y" ]; then
 fi
 #SQLite
 if [ "$SQLITE" = "y" ]; then
-    $myPRG install -y sqlite3
-    $myPRG install -y sqlitebrowser
+    $myPRG install -y sqlite3 sqlitebrowser
 fi
 #KVM
 if [ "$KVM" = "y" ]; then

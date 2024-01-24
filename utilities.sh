@@ -19,6 +19,8 @@ read -r -p "Instalar o Conky? Monitor de sistema widgets da área de trabalho! [
 #Sinaptic
 if [ "$SYNAPTIC" = "y" ]; then
     $myPRG install -y synaptic
+else
+    $myPRG remove -y synaptic
 fi
 #Gparted
 if [ "$GPARTED" = "y" ]; then
@@ -35,15 +37,12 @@ if [ "$GUFW" = "y" ]; then
 fi
 #Blueman
 if [ "$BLUEMAN" = "y" ]; then
-    $myPRG install -y bluez blueman pulseaudio-module-bluetooth
+    $myPRG install -y blueman
 fi
 #Cups
 if [ "$CUPS" = "y" ]; then
-    $myPRG install -y system-config-printer
-    $myPRG install -y printer-driver-all
-    $myPRG install -y printer-driver-escpr
-    $myPRG install -y printer-driver-gutenprint
     $myPRG install -y cups
+    $myPRG install -y printer-driver-all
     $myPRG install -y hplip hp-ppd
     $myPRG install -y openprinting-ppds
     $myPRG install -y simple-scan
