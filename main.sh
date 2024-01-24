@@ -27,65 +27,45 @@ $PRG update && $PRG upgrade -y
 $PRG install -y linux-headers-$(uname -r)
 $PRG install -y firmware-linux
 $PRG install -y firmware-amd-graphics
-$PRG install -y firmware-iwlwifi
-$PRG install -y firmware-atheros
-$PRG install -y firmware-realtek
-$PRG install -y firmware-b43legacy-installer
-$PRG install -y firmware-b43-installer
-$PRG install -y intel-microcode intel-gpu-tools
-$PRG install -y amd64-microcode amdgcn-tools
-$PRG install -y mesa-vulkan-drivers mesa-utils
-$PRG install -y libglapi-mesa libgl1-mesa-dri libgles2 libegl1 tlp
-$PRG install -y task-laptop
+$PRG install -y firmware-iwlwifi firmware-atheros firmware-realtek
+$PRG install -y firmware-b43-installer firmware-b43legacy-installer
+$PRG install -y intel-microcode amd64-microcode intel-gpu-tools amdgcn-tools
+$PRG install -y mesa-vulkan-drivers mesa-utils libglapi-mesa libgl1-mesa-dri libgles2 libegl1
+$PRG install -y task-laptop tlp
 #Interface grafica XFCE4 Padrão
 $PRG install -y task-xfce-desktop
 $PRG install -y task-brazilian-portuguese*
 #Interface grafica remove app do padrão
-$PRG remove -y libreoffice-*
-$PRG remove -y xsane
-$PRG remove -y xterm
-$PRG remove -y exfalso
+$PRG remove libreoffice-* -y
+$PRG remove -y xsane xterm exfalso
 $PRG remove -y xfce4-dict
 $PRG autoremove -y
 #Interface grafica XFCE4
-$PRG install -y xorg
-$PRG install -y xfce4-session
-$PRG install -y xfce4-terminal
-$PRG install -y xfce4-panel 
+$PRG install -y xfce4-taskmanager xfce4-screenshooter xfce4-whiskermenu-plugin xfce4-weather-plugin
 $PRG install -y xfce4-panel-profiles || echo 'ok'
-$PRG install -y xfce4-power-manager xfce4-taskmanager
-$PRG install -y xfce4-notifyd xfce4-screenshooter xfce4-appfinder
-$PRG install -y xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin
-$PRG install -y xfce4-weather-plugin xfce4-cpugraph-plugin
 #Software extras XFCE
-$PRG install -y menulibre mugshot libxfce4ui-utils
-$PRG install -y thunar thunar-archive-plugin thunar-media-tags-plugin
-$PRG install -y gigolo gvfs-*
-$PRG install -y mousepad xarchiver parole xfburn
-$PRG install -y xdg-user-dirs xdg-user-dirs-gtk
-$PRG install -y elementary-xfce-icon-theme
+$PRG install -y menulibre mugshot xfburn gigolo gvfs-*
+$PRG install -y xdg-user-dirs-gtk elementary-xfce-icon-theme
 #Themes
 $PRG install -y breeze-gtk-theme breeze-cursor-theme xfwm4-theme-breeze
 $PRG install -y arc-theme orchis-gtk-theme bibata-cursor-theme
 #Software Padrão
-$PRG install -y firefox-esr atril mate-calc drawing mirage kazam
-#Gerenciador Login Lightdm
-$PRG install -y lightdm lightdm-gtk-greeter
-sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
+$PRG install -y mate-calc drawing mirage kazam
 #Gerenciador Boot Plymouth
-$PRG install -y plymouth plymouth-themes grub-theme-starfield
+$PRG install -y plymouth-themes grub-theme-starfield
 plymouth-set-default-theme -R bgrt
 #Gerenciador de sistema.
-$PRG install -y network-manager network-manager-gnome gnome-system-tools
-$PRG install -y deepin-deb-installer package-update-indicator
+$PRG install -y gnome-system-tools deepin-deb-installer package-update-indicator
 #Programas de Shell e Config Net-tools
-$PRG install -y bash-completion net-tools command-not-found neofetch arping
+$PRG install -y net-tools command-not-found neofetch arping
 echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/X11:/snap/bin"' | tee /etc/environment
 #Codecs para descompaquitar arquivos
 $PRG install -y zip p7zip* unrar* unzip rar arc arj cabextract lhasa unace* xz-utils sharutils uudeview mpack
 #Codecs de audio e video
 $PRG install -y ffmpeg mencoder faad lame sox twolame vorbis-tools gstreamer1.0-plugins-ugly
 ####Config####
+#Login Lightdm
+sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash modprobe.blacklist=pcspkr"/g' /etc/default/grub
 sed -i '11i GRUB_THEME="/usr/share/grub/themes/starfield/theme.txt"' /etc/default/grub
