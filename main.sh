@@ -37,10 +37,20 @@ $PRG install -y amd64-microcode amdgcn-tools
 $PRG install -y mesa-vulkan-drivers mesa-utils
 $PRG install -y libglapi-mesa libgl1-mesa-dri libgles2 libegl1 tlp
 $PRG install -y task-laptop
+#Interface grafica XFCE4 Padrão
+$PRG install -y task-xfce-desktop
+$PRG install -y task-brazilian-portuguese*
+#Interface grafica remove app do padrão
+$PRG remove -y libreoffice-*
+$PRG remove -y xsane
+$PRG remove -y xterm
+$PRG remove -y exfalso
+$PRG remove -y xfce4-dict
+$PRG autoremove -y
 #Interface grafica XFCE4
-$PRG install -y xfce4-terminal
 $PRG install -y xorg
 $PRG install -y xfce4-session
+$PRG install -y xfce4-terminal
 $PRG install -y xfce4-panel 
 $PRG install -y xfce4-panel-profiles || echo 'ok'
 $PRG install -y xfce4-power-manager xfce4-taskmanager
