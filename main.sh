@@ -36,7 +36,7 @@ $PRG install -y task-laptop tlp
 $PRG install -y task-xfce-desktop
 $PRG install -y task-brazilian-portuguese*
 #Interface grafica remove app do padrão
-$PRG remove libreoffice-* -y
+apt update && apt remove libreoffice-* -y
 $PRG remove -y xsane xterm exfalso
 $PRG remove -y xfce4-dict
 $PRG autoremove -y
