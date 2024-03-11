@@ -38,7 +38,6 @@ $PRG install -y task-brazilian-portuguese*
 #Interface grafica remove app do padrão
 apt update && apt remove libreoffice-* -y
 $PRG remove -y xsane xterm exfalso
-$PRG remove -y xfce4-dict
 $PRG autoremove -y
 #Interface grafica XFCE4
 $PRG install -y xfce4-taskmanager xfce4-screenshooter xfce4-whiskermenu-plugin xfce4-weather-plugin
@@ -47,7 +46,7 @@ $PRG install -y xfce4-panel-profiles || echo 'ok'
 $PRG install -y menulibre mugshot xfburn gigolo gvfs-*
 $PRG install -y xdg-user-dirs-gtk elementary-xfce-icon-theme bibata-cursor-theme
 #Software Padrão
-$PRG install -y mate-calc drawing mirage kazam
+$PRG install -y mate-calc drawing kazam
 #Gerenciador Boot Plymouth
 $PRG install -y plymouth-themes grub-theme-starfield
 plymouth-set-default-theme -R bgrt
