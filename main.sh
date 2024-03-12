@@ -56,7 +56,7 @@ $PRG install -y gnome-system-tools deepin-deb-installer package-update-indicator
 $PRG install -y net-tools command-not-found neofetch arping
 echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/X11:/snap/bin"' | tee /etc/environment
 #Codecs para descompaquitar arquivos
-$PRG install -y zip p7zip* unrar* unzip rar arc arj cabextract lhasa unace* xz-utils sharutils uudeview mpack
+$PRG install -y p7zip* unrar* unzip rar arc arj cabextract lhasa unace* xz-utils sharutils uudeview mpack
 #Codecs de audio e video
 $PRG install -y ffmpeg mencoder faad lame sox twolame vorbis-tools gstreamer1.0-plugins-ugly
 ####Config####
