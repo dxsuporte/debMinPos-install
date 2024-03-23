@@ -91,6 +91,7 @@ fi
 #KVM
 if [ "$KVM" = "y" ]; then
     $myPRG install -y virt-manager
+    #virsh net-start default
 fi
 #Gnome Software
 if [ "$GNOMESOFTWARE" = "y" ]; then
