@@ -59,6 +59,8 @@ echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/ga
 $PRG install -y p7zip* unrar* unzip rar arc arj cabextract lhasa unace* xz-utils sharutils uudeview mpack
 #Codecs de audio e video
 $PRG install -y ffmpeg mencoder faad lame sox twolame vorbis-tools gstreamer1.0-plugins-ugly
+#
+$PRG install -y python3-unidecode
 ####Config####
 #Login Lightdm
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
