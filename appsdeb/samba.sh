@@ -1,11 +1,9 @@
 #!/bin/sh
 #Interromper o script se algum comando falhar.
 set -e
-#Include
-. "$(pwd)/../myInclude.sh"
 #----------Start----------#
 #Atualizar sistema e Instalar Samba
-$myPRG update && $myPRG install -y samba smbclient cifs-utils wsdd wsdd2
+apt update && apt install -y samba smbclient cifs-utils wsdd wsdd2
 #Criar Pasta public e private
 mkdir -m 777 -p /home/Compartilhado/Public /home/Compartilhado/Private
 #Samba config

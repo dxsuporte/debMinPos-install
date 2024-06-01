@@ -1,13 +1,20 @@
 #!/bin/sh
 #Interromper o script se algum comando falhar.
 set -e
-#Include
-. "$(pwd)/../myInclude.sh"
 #----------Start----------#
 #Atualizar sistema
-$myPRG update && $myPRG upgrade -y
-$myPRG install -y apt-transport-https curl
+apt update && apt upgrade -y
+apt install -y apt-transport-https curl
 ######################################################################
+read -r -p "Instalar o Synaptic? - Gerenciador de Pacotes! [y|n] " SYNAPTIC
+read -r -p "Instalar o GParted? - Gerenciador de Partições! [y|n] " GPARTED
+read -r -p "Instalar o Gnome Disk? - Gerenciador de discos! [y|n] " GNOMEDISK
+read -r -p "Instalar o Gufw? - Gerenciador de Firewall? [y|n] " GUFW
+read -r -p "Instalar o Blueman? Gerenciador de Bluetooth! [y|n] " BLUEMAN
+read -r -p "Instalar o Cups? - Gerenciador de Impressoras! [y|n] " CUPS
+read -r -p "Instalar o Cheese? Gerenciador de WebCam! [y|n] " CHEESE
+read -r -p "Instalar o SoundRecorder? Gravador de Som simples! [y|n] " SOUNDRECORDER
+read -r -p "Instalar o Transmission? Cliente BitTorrent! [y|n] " TORRENT
 read -r -p "Instalar o Gimp? - Editor de imagem! [y|n] " GIMP
 read -r -p "Instalar o Inkscape? - Design gráfico! [y|n] " INKSCAPE
 read -r -p "Instalar o Audacity? - Editor, gravador de áudio! [y|n] " AUDACITY
@@ -41,82 +48,126 @@ read -r -p "Instalar o KVM? - Gerenciador de Virtualização! [y|n] " KVM
 read -r -p "Instalar a Gnome Software? - Loja de  Software Gnome! [y|n] " GNOMESOFTWARE
 read -r -p "Instalar o Discover? - Loja de  Software KDE! [y|n] " DISCOVER
 read -r -p "Instalar o Flatpak? - Loja de Software Flathub! [y|n] " FLATPAK
+read -r -p "Instalar o Conky? Monitor de sistema widgets da área de trabalho! [y|n] " CONKY
+read -r -p "Instalar o OH-MY-BASH? Tema do terminal bash! [y|n] " OHMYBASH
 ######################################################################
 ## git clone https://github.com/vinceliuice/Colloid-icon-theme
-## sudo ./install.sh -s -t 
+## sudo ./install.sh -s -t
 ## sudo apt install gnome-themes-extra gnome-themes-standard gtk2-engines-murrine sassc libsass1
 ## git clone https://github.com/vinceliuice/Colloid-gtk-theme
 ## sudo ./install.sh --tweaks normal
 ##
+#Sinaptic
+if [ "$SYNAPTIC" = "y" ]; then
+    apt install -y synaptic
+else
+    apt remove -y synaptic
+fi
+#Gparted
+if [ "$GPARTED" = "y" ]; then
+    apt install -y gparted
+fi
+#Gnome Disk
+if [ "$GNOMEDISK" = "y" ]; then
+    apt install -y gnome-disk-utility
+    apt install -y baobab
+fi
+#Gufw
+if [ "$GUFW" = "y" ]; then
+    apt install -y gufw
+fi
+#Blueman
+if [ "$BLUEMAN" = "y" ]; then
+    apt install -y blueman
+fi
+#Cups
+if [ "$CUPS" = "y" ]; then
+    apt install -y printer-driver-all
+    apt install -y hplip hp-ppd
+    apt install -y openprinting-ppds
+    apt install -y simple-scan
+fi
+#Cheese
+if [ "$CHEESE" = "y" ]; then
+    apt install -y cheese
+fi
+#Sound Recorder
+if [ "$SOUNDRECORDER" = "y" ]; then
+    apt install -y gnome-sound-recorder
+fi
+#TORRENT
+if [ "$TORRENT" = "y" ]; then
+    apt install -y transmission
+fi
 #Gimp
 if [ "$GIMP" = "y" ]; then
-    $myPRG install -y gimp
+    apt install -y gimp
 fi
 #Inkscape
 if [ "$INKSCAPE" = "y" ]; then
-    $myPRG install -y inkscape
+    apt install -y inkscape
 fi
 #AUDACITY
 if [ "$AUDACITY" = "y" ]; then
-    $myPRG install -y audacity
+    apt install -y audacity
 fi
 #Clementine
 if [ "$CLEMENTINE" = "y" ]; then
-    $myPRG install -y clementine
+    apt install -y clementine
 fi
 #VLC
 if [ "$VLC" = "y" ]; then
-    $myPRG install -y vlc
-    $myPRG install -y libdvd-pkg
+    apt install -y vlc
+    apt install -y libdvd-pkg
     dpkg-reconfigure libdvd-pkg
 fi
 #WinFF
 if [ "$WINFF" = "y" ]; then
-    $myPRG install -y winff
+    apt install -y winff
 fi
 #JOGOS
 if [ "$JOGOS" = "y" ]; then
-    $myPRG install -y aisleriot gnome-chess gnome-nibbles kcheckers quadrapassel mednafen
+    apt install -y aisleriot gnome-chess gnome-nibbles kcheckers quadrapassel mednafen
 fi
 #Chromium
 if [ "$CHROMIUM" = "y" ]; then
-    $myPRG install -y chromium chromium-l10n
+    apt install -y chromium chromium-l10n
 fi
 #DropBox
 if [ "$DROPBOX" = "y" ]; then
-    $myPRG install -y thunar-dropbox-plugin
+    apt install -y thunar-dropbox-plugin
 fi
 #NextCloud
 if [ "$NEXTCLOUD" = "y" ]; then
-    $myPRG install -y nextcloud-desktop
+    apt install -y nextcloud-desktop
 fi
 #SQLite
 if [ "$SQLITE" = "y" ]; then
-    $myPRG install -y sqlite3 sqlitebrowser
+    apt install -y sqlite3 sqlitebrowser
 fi
 #KVM
 if [ "$KVM" = "y" ]; then
-    $myPRG install -y virt-manager
+    apt install -y virt-manager
     virsh net-autostart default
     #virsh net-start default
 fi
 #Gnome Software
 if [ "$GNOMESOFTWARE" = "y" ]; then
-    $myPRG install -y gnome-software
+    apt install -y gnome-software
 fi
 #Discover
 if [ "$DISCOVER" = "y" ]; then
-    $myPRG install -y plasma-discover
+    apt install -y plasma-discover
 fi
 #Flatpak / Flathub
 if [ "$FLATPAK" = "y" ]; then
-    $myPRG install -y flatpak
+    apt install -y flatpak
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     if [ "$GNOMESOFTWARE" = "y" ]; then
-        $myPRG install -y gnome-software-plugin-flatpak
+        apt install -y gnome-software-plugin-flatpak
     fi
     if [ "$DISCOVER" = "y" ]; then
-        $myPRG install -y plasma-discover-backend-flatpak
+        apt install -y plasma-discover-backend-flatpak
     fi
 fi
 #LibreOffice
@@ -189,9 +240,34 @@ fi
 if [ "$XAMPP" = "y" ]; then
     sh xampp.sh
 fi
+#CONKY
+if [ "$CONKY" = "y" ]; then
+    apt install -y conky-all
+    apt install -y fonts-font-awesome
+    cp -f -r /etc/conky/conky.bkp.conf /etc/conky/conky.conf
+    #REDE
+    ETH="$(lshw -c network | grep 'logical' | grep -m1 en | awk {'print $3'})"
+    if [ $ETH ]; then
+        sed -i "s|ETH|$ETH|g" /etc/conky/conky.conf
+    fi
+    #WI-FI
+    WTH="$(lshw -c network | grep 'logical' | grep -m1 wl | awk {'print $3'})"
+    if [ $WTH ]; then
+        sed -i "s|WTH|$WTH|g" /etc/conky/conky.conf
+    fi
+fi
+#OHMYBASH
+if [ "$OHMYBASH" = "y" ]; then
+#Theme Bash User Root
+bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended || echo 'OK'
+sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
+#Theme Bash User First Home
+runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended' || echo 'OK'
+sed -i 's/OSH_THEME="font"/OSH_THEME="mairan"/g' /home/$(id 1000 -u -n)/.bashrc
+fi
 #----------End----------#
 #Atualizar Grub, Limpeza apt
-update-grub2 && $myPRG autoremove -y && apt autoclean && apt clean
+update-grub2 && apt autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
 read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
 if [ "$REBOOT" = "y" ]; then
