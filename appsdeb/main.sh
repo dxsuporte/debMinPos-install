@@ -42,6 +42,12 @@ read -r -p "Instalar a Gnome Software? - Loja de  Software Gnome! [y|n] " GNOMES
 read -r -p "Instalar o Discover? - Loja de  Software KDE! [y|n] " DISCOVER
 read -r -p "Instalar o Flatpak? - Loja de Software Flathub! [y|n] " FLATPAK
 ######################################################################
+## git clone https://github.com/vinceliuice/Colloid-icon-theme
+## sudo ./install.sh -s -t 
+## sudo apt install gnome-themes-extra gnome-themes-standard gtk2-engines-murrine sassc libsass1
+## git clone https://github.com/vinceliuice/Colloid-gtk-theme
+## sudo ./install.sh --tweaks normal
+##
 #Gimp
 if [ "$GIMP" = "y" ]; then
     $myPRG install -y gimp
