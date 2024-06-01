@@ -26,7 +26,7 @@ apt update && apt remove libreoffice-* -y
 #Remove xfce
 apt remove -y xsane xterm exfalso hv3
 #Remove cinnamon
-apt remove -y hexchat pidgin thunderbird sound-juicer deja-dup yelp gnote seahorse mate-icon-theme
+apt remove -y hexchat pidgin thunderbird sound-juicer deja-dup gnote seahorse mate-icon-theme
 apt remove -y gnome-logs gnome-games gnome-font-viewer gnome-characters
 apt autoremove -y
 #Mudar lingual do Sistema
@@ -34,7 +34,7 @@ apt install -y locales-all
 update-locale LANG=pt_BR.UTF-8 && locale-gen --purge pt_BR.UTF-8
 apt install -y task-brazilian-portuguese*
 #Interface grafica XFCE4
-apt install -y xfce4-panel-profiles
+#apt install -y xfce4-panel-profiles
 #Software extras XFCE
 apt install -y menulibre mugshot gigolo deepin-deb-installer gvfs*
 #Gerenciador geral do sistema.
