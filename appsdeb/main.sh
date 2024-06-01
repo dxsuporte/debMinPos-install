@@ -46,7 +46,6 @@ read -r -p "Instalar o SAMBA? - Compartilhamento de arquivos de servidores Linux
 read -r -p "Instalar o XAMPP? - Servidor Apache, MySQL,PHP e PHPMYADMIN! [y|n] " XAMPP
 read -r -p "Instalar o KVM? - Gerenciador de Virtualização! [y|n] " KVM
 read -r -p "Instalar a Gnome Software? - Loja de  Software Gnome! [y|n] " GNOMESOFTWARE
-read -r -p "Instalar o Discover? - Loja de  Software KDE! [y|n] " DISCOVER
 read -r -p "Instalar o Flatpak? - Loja de Software Flathub! [y|n] " FLATPAK
 read -r -p "Instalar o Conky? Monitor de sistema widgets da área de trabalho! [y|n] " CONKY
 read -r -p "Instalar o OH-MY-BASH? Tema do terminal bash! [y|n] " OHMYBASH
@@ -155,20 +154,11 @@ fi
 if [ "$GNOMESOFTWARE" = "y" ]; then
     apt install -y gnome-software
 fi
-#Discover
-if [ "$DISCOVER" = "y" ]; then
-    apt install -y plasma-discover
-fi
 #Flatpak / Flathub
 if [ "$FLATPAK" = "y" ]; then
     apt install -y flatpak
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    if [ "$GNOMESOFTWARE" = "y" ]; then
-        apt install -y gnome-software-plugin-flatpak
-    fi
-    if [ "$DISCOVER" = "y" ]; then
-        apt install -y plasma-discover-backend-flatpak
-    fi
+    apt install -y gnome-software-plugin-flatpak
 fi
 #LibreOffice
 if [ "$LIBREOFFICE" = "y" ]; then
@@ -258,12 +248,12 @@ if [ "$CONKY" = "y" ]; then
 fi
 #OHMYBASH
 if [ "$OHMYBASH" = "y" ]; then
-#Theme Bash User Root
-bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended || echo 'OK'
-sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
-#Theme Bash User First Home
-runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended' || echo 'OK'
-sed -i 's/OSH_THEME="font"/OSH_THEME="mairan"/g' /home/$(id 1000 -u -n)/.bashrc
+    #Theme Bash User Root
+    bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended || echo 'OK'
+    sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
+    #Theme Bash User First Home
+    runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended' || echo 'OK'
+    sed -i 's/OSH_THEME="font"/OSH_THEME="mairan"/g' /home/$(id 1000 -u -n)/.bashrc
 fi
 #----------End----------#
 #Atualizar Grub, Limpeza apt

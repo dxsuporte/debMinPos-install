@@ -23,7 +23,11 @@ apt install -y mesa-vulkan-drivers mesa-utils libglapi-mesa libgl1-mesa-dri
 apt install -y task-laptop tlp
 #Interface grafica remove app do padrão
 apt update && apt remove libreoffice-* -y
+#Remove xfce
 apt remove -y xsane xterm exfalso hv3
+#Remove cinnamon
+apt remove -y hexchat pidgin thunderbird sound-juicer deja-dup yelp gnote seahorse mate-icon-theme
+apt remove -y gnome-logs gnome-games gnome-font-viewer gnome-characters
 apt autoremove -y
 #Mudar lingual do Sistema
 apt install -y locales-all
@@ -32,15 +36,14 @@ apt install -y task-brazilian-portuguese*
 #Interface grafica XFCE4
 apt install -y xfce4-panel-profiles
 #Software extras XFCE
-apt install -y menulibre mugshot gigolo gvfs*
-apt install -y xdg-user-dirs-gtk elementary-xfce-icon-theme bibata-cursor-theme
+apt install -y menulibre mugshot gigolo deepin-deb-installer gvfs*
+#Gerenciador geral do sistema.
+apt install -y gnome-system-tools xdg-user-dirs-gtk elementary-xfce-icon-theme bibata-cursor-theme
 #Software Padrão
 apt install -y mate-calc drawing kazam
 #Gerenciador Boot Plymouth
 apt install -y plymouth-themes grub-theme-starfield
 plymouth-set-default-theme -R bgrt
-#Gerenciador de sistema.
-apt install -y gnome-system-tools deepin-deb-installer package-update-indicator
 #Programas de Shell e Config Net-tools
 apt install -y net-tools command-not-found neofetch arping
 echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/X11:/snap/bin"' | tee /etc/environment
@@ -48,8 +51,12 @@ echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/ga
 apt install -y p7zip* unrar* rar arc arj cabextract lhasa unace* sharutils uudeview mpack
 #Codecs de audio e video
 apt install -y ffmpeg mencoder faad lame sox twolame vorbis-tools
-#
+#Outros Codecs
 apt install -y python3-unidecode
+#Gerenciador e atualizador de pacotes
+apt install -y package-update-indicator
+sed -i '3i Name[pt_BR]=Gerenciador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
+sed -i '5i GenericName[pt_BR]=Preferências do indicador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
 ####Config####
 #Login Lightdm
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
@@ -64,7 +71,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 #Copy Files Configs
 cp -f -r config/usr/* /usr/
 cp -f -r config/etc/* /etc/
-cp -f -r config/etc/xdg/* /etc/skel/.config/
+mkdir -p /etc/skel/.config/
+cp -f -r config/etc/xdg/ /etc/skel/.config/
 #Desktop Base
 unlink /etc/alternatives/desktop-theme
 ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
@@ -86,16 +94,11 @@ ln -sf /usr/share/desktop-base/lines-theme/login/background-nologo.svg /usr/shar
 ln -sf /usr/share/desktop-base/moonlight-theme/login/background-nologo.svg /usr/share/backgrounds/13.svg
 ln -sf /usr/share/desktop-base/softwaves-theme/login/background-nologo.svg /usr/share/backgrounds/14.svg
 ln -sf /usr/share/plymouth/themes/emerald/Emerald_plymouth.svg /usr/share/backgrounds/15.svg
-#Navegador Padrão
-sed -i 's/debian-sensible-browser/default-browser.desktop/g' /etc/xdg/xfce4/helpers.rc
 #Remover themas não usados
 rm -f -r /usr/share/icons/elementary-xfce-darke*
 rm -f -r /usr/share/themes/Daloa*
 rm -f -r /usr/share/themes/Kokodi*
 rm -f -r /usr/share/themes/Moheli*
-#Configurações Extras
-sed -i '3i Name[pt_BR]=Gerenciador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
-sed -i '5i GenericName[pt_BR]=Preferências do indicador de atualização de pacote' /usr/share/applications/org.guido-berhoerster.code.package-update-indicator.preferences.desktop
 #----------End----------#
 #Atualizar Grub, Limpeza apt
 update-grub2 && apt autoremove -y && apt autoclean && apt clean
