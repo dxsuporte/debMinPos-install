@@ -62,8 +62,9 @@ sed -i 's/#GRUB_DISABLE_RECOVERY=true/GRUB_DISABLE_RECOVERY=true/g' /etc/default
 sed -i 's/starfield.png/\/usr\/share\/images\/desktop-base\/desktop-grub.png/g' /usr/share/grub/themes/starfield/theme.txt
 grub-mkconfig -o /boot/grub/grub.cfg
 #Copy Files Configs
-cp -f -r config/etc/* /etc/
 cp -f -r config/usr/* /usr/
+cp -f -r config/etc/* /etc/
+cp -f -r config/etc/xdg/* /etc/skel/.config/
 #Desktop Base
 unlink /etc/alternatives/desktop-theme
 ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
