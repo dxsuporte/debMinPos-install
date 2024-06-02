@@ -13,7 +13,7 @@ elif [ $(which nautilus) ]; then
 elif [ $(which caja) ]; then
     apt install -y caja-dropbox
 #Nemo
-elif [ $(which nemo) ] || [ $RELEASE == 'linuxmint' ]; then
+elif [ $(which nemo) ] && [ $RELEASE == 'linuxmint' ]; then
     apt install -y nemo-dropbox
 else
     VERSION=$(curl -s https://linux.dropbox.com/packages/debian/ | grep amd64 | tail -n1 | cut -d '_' -f2)
