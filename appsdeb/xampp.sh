@@ -7,7 +7,7 @@ if [ -e ./xampp-linux*.run ]; then
     sh xampp-linux*.run
 else
     RELEASE=$(curl -s https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/ | grep -m1 "net.sf.files" | cut -d '"' -f 2)
-    wget -c https://sinalbr.dl.sourceforge.net/project/xampp/XAMPP%20Linux/"$RELEASE"/xampp-linux-x64-"$RELEASE"-0-installer.run -O /tmp/xampp-linux-x64-installer.run
+    curl -fsSL https://sinalbr.dl.sourceforge.net/project/xampp/XAMPP%20Linux/"$RELEASE"/xampp-linux-x64-"$RELEASE"-0-installer.run -o /tmp/xampp-linux-x64-installer.run
     chmod +x /tmp/xampp-linux-x64-installer.run
     /tmp/./xampp-linux-x64-installer.run
 fi
