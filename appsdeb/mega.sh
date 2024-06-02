@@ -16,12 +16,12 @@ curl -fsSL https://mega.nz/linux/repo/"$RELEASE"/amd64/megasync-"$RELEASE"_amd64
 apt install -y /tmp/megasync-amd64.deb
 #Thunar
 if [ $(which thunar) ]; then
-    curl -fsSL https://mega.nz/linux/repo/$RELEASE"/amd64/thunar-megasync-"$RELEASE"_amd64.deb -o /tmp/thunar-megasync-amd64.deb
+    curl -fsSL https://mega.nz/linux/repo/"$RELEASE"/amd64/thunar-megasync-"$RELEASE"_amd64.deb -o /tmp/thunar-megasync-amd64.deb
     apt install -y /tmp/thunar-megasync-amd64.deb
 fi
 #Nautilus
 if [ $(which nautilus) ]; then
-    curl -fsSL https://mega.nz/linux/repo/$RELEASE"/amd64/nautilus-megasync-"$RELEASE"_amd64.deb -o /tmp/nautilus-megasync-amd64.deb
+    curl -fsSL https://mega.nz/linux/repo/"$RELEASE"/amd64/nautilus-megasync-"$RELEASE"_amd64.deb -o /tmp/nautilus-megasync-amd64.deb
     apt install -y /tmp/nautilus-megasync-amd64.deb
 fi
 #Nemo
