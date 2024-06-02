@@ -29,7 +29,7 @@ apt install -y intel-microcode intel-gpu-tools
 apt install -y mesa-vulkan-drivers mesa-utils libglapi-mesa libgl1-mesa-dri
 apt install -y task-laptop tlp
 #Software extras
-apt install -y xfce4-panel-profiles menulibre mugshot gigolo deepin-deb-installer mate-calc drawing kazam
+apt install -y menulibre gigolo gdebi mate-calc drawing kazam
 #Gerenciador geral do sistema.
 apt install -y gvfs* gnome-system-tools xdg-user-dirs-gtk tracker elementary-xfce-icon-theme bibata-cursor-theme
 #Gerenciador Boot Plymouth
@@ -87,9 +87,9 @@ ln -sf /usr/share/plymouth/themes/emerald/Emerald_plymouth.svg /usr/share/backgr
 #Atualizar Grub, Limpeza apt
 update-grub2 && apt autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
-read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
+read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! Deseja reiniciar agora [y|n] " REBOOT
 if [ "$REBOOT" = "y" ]; then
     rm -f -r /tmp/* && reboot
 else
-    rm -f -r /tmp/* && reboot
+    rm -f -r /tmp/*
 fi

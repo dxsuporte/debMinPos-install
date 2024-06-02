@@ -21,3 +21,4 @@ show-command-hibernate=false
 show-command-logout=true
 show-command-menueditor=true
 show-command-profile=true
+command-profile=users-admin

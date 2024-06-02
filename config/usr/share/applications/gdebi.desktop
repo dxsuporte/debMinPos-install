@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name=GDebi Package Installer
+Name[pt]=Instalador de Pacotes
+Name[pt_BR]=Instalador de pacotes GDebi
+GenericName=Package Installer
+GenericName[pt]=Instalador de Pacotes
+GenericName[pt_BR]=Instalador de Pacotes
+Comment=Install and view software packages
+Comment[pt]=Instalar e ver pacotes de software
+Comment[pt_BR]=Instalar e visualizar pacotes de programa
+Exec=gdebi-gtk %f
+Icon=gnome-mime-application-x-deb
+Terminal=true
+Type=Application
+Categories=System;
+MimeType=application/vnd.debian.binary-package;
+NotShowIn=KDE;
+X-Ubuntu-Gettext-Domain=gdebi
+StartupNotify=true
+Keywords=package;apt;dpkg;install

@@ -193,6 +193,7 @@
             </And>
             <Or>
                 <Filename>xfce4-session-logout.desktop</Filename>
+                <Filename>xfce4-sensors.desktop</Filename>
                 <Filename>megasync.desktop</Filename>
                 <Filename>conky.desktop</Filename>
                 <Filename>dwagent.desktop</Filename>
