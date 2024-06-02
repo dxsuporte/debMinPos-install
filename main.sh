@@ -12,6 +12,13 @@ echo "deb https://www.deb-multimedia.org "$(lsb_release -sc)" main non-free" | t
 wget -c https://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb -O /tmp/deb-multimedia.deb
 apt install -y /tmp/deb-multimedia.deb
 apt update && apt upgrade -y
+#XFCE DESKTOP e Remove aplicativos
+apt install -y task-xfce-desktop
+apt remove -y xsane xterm exfalso hv3 libreoffice-*
+apt autoremove -y
+#Mudar lingual do Sistema
+apt install -y locales-all task-brazilian-portuguese*
+update-locale LANG=pt_BR.UTF-8 && locale-gen --purge pt_BR.UTF-8
 #firmware Drives
 apt install -y linux-headers-$(uname -r)
 apt install -y firmware-linux
@@ -21,12 +28,6 @@ apt install -y firmware-amd-graphics amd64-microcode amdgcn-tools
 apt install -y intel-microcode intel-gpu-tools
 apt install -y mesa-vulkan-drivers mesa-utils libglapi-mesa libgl1-mesa-dri
 apt install -y task-laptop tlp
-#Remove apps
-apt remove -y xsane xterm exfalso hv3 libreoffice-*
-apt autoremove -y
-#Mudar lingual do Sistema
-apt install -y locales-all task-brazilian-portuguese*
-update-locale LANG=pt_BR.UTF-8 && locale-gen --purge pt_BR.UTF-8
 #Software extras
 apt install -y xfce4-panel-profiles menulibre mugshot gigolo deepin-deb-installer mate-calc drawing kazam
 #Gerenciador geral do sistema.
@@ -46,9 +47,6 @@ echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/ga
 #Copiar aquivo de configurações
 cp -f -r config/usr/* /usr/
 cp -f -r config/etc/* /etc/
-#Configuração do Skel
-mkdir -p /etc/skel/.config/
-cp -f -r config/etc/xdg/ /etc/skel/.config/
 #Remover Configurações
 rm -f -r /usr/share/icons/elementary-xfce-darke*
 rm -f -r /usr/share/themes/Daloa*
@@ -95,7 +93,3 @@ if [ "$REBOOT" = "y" ]; then
 else
     rm -f -r /tmp/* && reboot
 fi
-
-#gsettings set org.gnome.desktop.interface color-scheme default
-#gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-#runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended' || echo 'OK'
