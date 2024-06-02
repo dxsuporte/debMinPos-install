@@ -16,7 +16,7 @@ elif [ $(which caja) ]; then
 elif [ $(which nemo) ] && [ $RELEASE == 'linuxmint' ]; then
     apt install -y nemo-dropbox
 else
-    VERSION=$(curl -s https://linux.dropbox.com/packages/debian/ | grep amd64 | tail -n1 | cut -d '_' -f2)
+    VERSION=$(curl -s https://linux.dropbox.com/packages/"$RELEASE"/ | grep amd64 | tail -n1 | cut -d '_' -f2)
     curl -fsSL https://linux.dropbox.com/packages/"$RELEASE"/dropbox_"$VERSION"_amd64.deb -o /tmp/dropbox_amd64.deb
     apt install -y /tmp/dropbox_amd64.deb
 fi
