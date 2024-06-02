@@ -4,7 +4,3 @@ set -e
 #----------Start----------#
 curl -1sLf 'https://dl.cloudsmith.io/public/balena/etcher/setup.deb.sh' | sudo -E bash
 apt install -y balena-etcher
-#Não funciounou dessa maneira, erro no pacote deb
-#RELEASE=$(curl -s https://api.github.com/repos/balena-io/etcher/releases/latest | grep tag_name | cut -d '"' -f 4 | sed 's/v//')
-#wget -c https://github.com/balena-io/etcher/releases/download/v$RELEASE/balena-etcher_"$RELEASE"_amd64.deb -O /tmp/balenaetcher.deb
-#apt install -y -f /tmp/balenaetcher.deb

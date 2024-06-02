@@ -30,7 +30,6 @@ read -r -p "Instalar o Google Chrome? - Navegadores de Internet! [y|n] " CHROME
 read -r -p "Instalar o Google Earth? - Mapas do Google! [y|n] " EARTH
 read -r -p "Instalar o DropBox? - Arquivos em nuvem! [y|n] " DROPBOX
 read -r -p "Instalar o MegaSync? - Arquivos em nuvem! [y|n] " MEGASYNC
-read -r -p "Instalar o NextCloud? - Arquivos em nuvem! [y|n] " NEXTCLOUD
 read -r -p "Instalar o TeamViewer? - Acesso remoto! [y|n] " TEAMVIEWER
 read -r -p "Instalar o AnyDesk? - Acesso remoto! [y|n] " ANYDESK
 read -r -p "Instalar o RustDesk? - Acesso remoto! [y|n] " RUSTDESK
@@ -68,8 +67,7 @@ if [ "$GPARTED" = "y" ]; then
 fi
 #Gnome Disk
 if [ "$GNOMEDISK" = "y" ]; then
-    apt install -y gnome-disk-utility
-    apt install -y baobab
+    apt install -y gnome-disk-utility baobab
 fi
 #Gufw
 if [ "$GUFW" = "y" ]; then
@@ -134,11 +132,7 @@ if [ "$CHROMIUM" = "y" ]; then
 fi
 #DropBox
 if [ "$DROPBOX" = "y" ]; then
-    apt install -y thunar-dropbox-plugin
-fi
-#NextCloud
-if [ "$NEXTCLOUD" = "y" ]; then
-    apt install -y nextcloud-desktop
+    apt install -y nautilus-dropbox thunar-dropbox-plugin
 fi
 #SQLite
 if [ "$SQLITE" = "y" ]; then
@@ -232,37 +226,19 @@ if [ "$XAMPP" = "y" ]; then
 fi
 #CONKY
 if [ "$CONKY" = "y" ]; then
-    apt install -y conky-all
-    apt install -y fonts-font-awesome
-    cp -f -r /etc/conky/conky.conf /etc/conky/bkp.conky.conf
-    cp -f -r /config/conky/conky.conf /etc/conky/conky.conf
-    #REDE
-    ETH="$(lshw -c network | grep 'logical' | grep -m1 en | awk {'print $3'})"
-    if [ $ETH ]; then
-        sed -i "s|ETH|$ETH|g" /etc/conky/conky.conf
-    fi
-    #WI-FI
-    WTH="$(lshw -c network | grep 'logical' | grep -m1 wl | awk {'print $3'})"
-    if [ $WTH ]; then
-        sed -i "s|WTH|$WTH|g" /etc/conky/conky.conf
-    fi
+    sh conky.sh
 fi
 #OHMYBASH
 if [ "$OHMYBASH" = "y" ]; then
-    #Theme Bash User Root
-    bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended || echo 'OK'
-    sed -i 's/OSH_THEME="font"/OSH_THEME="zork"/g' /root/.bashrc
-    #Theme Bash User First Home
-    runuser -l $(id 1000 -u -n) -c 'bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended' || echo 'OK'
-    sed -i 's/OSH_THEME="font"/OSH_THEME="mairan"/g' /home/$(id 1000 -u -n)/.bashrc
+    sh ohmybash.sh
 fi
 #----------End----------#
 #Atualizar Grub, Limpeza apt
 update-grub2 && apt autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
-read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! [Enter] " REBOOT
+read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! Deseja reiniciar agora? [y|n] " REBOOT
 if [ "$REBOOT" = "y" ]; then
     rm -f -r /tmp/* && reboot
 else
-    rm -f -r /tmp/* && reboot
+    rm -f -r /tmp/*
 fi

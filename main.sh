@@ -87,7 +87,7 @@ ln -sf /usr/share/plymouth/themes/emerald/Emerald_plymouth.svg /usr/share/backgr
 #Atualizar Grub, Limpeza apt
 update-grub2 && apt autoremove -y && apt autoclean && apt clean
 #Reinicia o sistema
-read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! Deseja reiniciar agora [y|n] " REBOOT
+read -r -p "Instalação concluida! Seu pc precisa ser reiniciad! Deseja reiniciar agora? [y|n] " REBOOT
 if [ "$REBOOT" = "y" ]; then
     rm -f -r /tmp/* && reboot
 else
