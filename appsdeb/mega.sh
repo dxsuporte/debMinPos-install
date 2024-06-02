@@ -9,7 +9,7 @@ elif [ "$(lsb_release -rs)" = "n/a" ]; then
     RELEASE="Debian_testing"
 #Ubuntu
 elif [ "$(lsb_release -is)" = "Ubuntu" ]; then
-    RELEASE="xUbuntu$(lsb_release -rs)"
+    RELEASE="xUbuntu_$(lsb_release -rs)"
 fi
 #----------Start----------#
 curl -fsSL https://mega.nz/linux/repo/"$RELEASE"/amd64/megasync-"$RELEASE"_amd64.deb -o /tmp/megasync-amd64.deb
