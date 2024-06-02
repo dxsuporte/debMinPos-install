@@ -8,8 +8,7 @@ else
     VERSION="22"
 fi
 #----------Start----------#
-curl -fsSL https://deb.nodesource.com/setup_$VERSION.x -o nodesource_setup.sh
-bash nodesource_setup.sh
+curl -fsSL https://deb.nodesource.com/setup_$VERSION.x -o /tmp/nodesource_setup.sh
+bash /tmp/nodesource_setup.sh
 apt update
 apt install -y nodejs
-apt install -y npm
