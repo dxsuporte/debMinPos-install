@@ -130,10 +130,6 @@ fi
 if [ "$CHROMIUM" = "y" ]; then
     apt install -y chromium chromium-l10n
 fi
-#DropBox
-if [ "$DROPBOX" = "y" ]; then
-    apt install -y nautilus-dropbox thunar-dropbox-plugin
-fi
 #SQLite
 if [ "$SQLITE" = "y" ]; then
     apt install -y sqlite3 sqlitebrowser
@@ -161,6 +157,10 @@ fi
 #OnlyOffice
 if [ "$ONLYOFFICE" = "y" ]; then
     sh onlyoffice.sh
+fi
+#DropBox
+if [ "$DROPBOX" = "y" ]; then
+    sh dropbox.sh
 fi
 #MegaSync
 if [ "$MEGASYNC" = "y" ]; then
