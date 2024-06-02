@@ -10,7 +10,7 @@ fi
 #----------Start----------#
 wget -c https://mega.nz/linux/repo/Debian_"$RELEASE"/amd64/megasync-Debian_"$RELEASE"_amd64.deb -q -O /tmp/megasync-Debian_amd64.deb
 apt install -y /tmp/megasync-Debian_amd64.deb
-wget -c https://mega.nz/linux/repo/Debian_"$RELEASE"/amd64/thunar-megasync-Debian_"$RELEASE"_amd64.deb -q -O /tmp/thunar-megasync-Debian_amd64.deb
+wget -c https://mega.nz/linux/repo/Debian_"$RELEASE"/amd64/thunar-megasync-Debian_"$RELEASE"_amd64.deb -O /tmp/thunar-megasync-Debian_amd64.deb
 apt install -y /tmp/thunar-megasync-Debian_amd64.deb
 #XFCE
 #if [ $XDG_CURRENT_DESKTOP = XFCE ]; then fi
