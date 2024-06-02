@@ -9,7 +9,7 @@ else
     RELEASE=$(curl -s https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/ | grep -m1 "net.sf.files" | cut -d '"' -f 2)
     wget -c https://sinalbr.dl.sourceforge.net/project/xampp/XAMPP%20Linux/"$RELEASE"/xampp-linux-x64-"$RELEASE"-0-installer.run -O /tmp/xampp-linux-x64-installer.run
     chmod +x /tmp/xampp-linux-x64-installer.run
-    sh /tmp/xampp-linux-x64-installer.run
+    /tmp/./xampp-linux-x64-installer.run
 fi
 #Copiá o script de configuração da permissão pkexec.
 cp -f config/xampp/org.apachefriends.xampp-control-panel.policy /usr/share/polkit-1/actions/

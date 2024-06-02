@@ -9,6 +9,6 @@ else
 fi
 #----------Start----------#
 curl -fsSL https://deb.nodesource.com/setup_$VERSION.x -o /tmp/nodesource_setup.sh
-bash /tmp/nodesource_setup.sh
+sh /tmp/nodesource_setup.sh
 apt update
 apt install -y nodejs
