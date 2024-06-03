@@ -1,0 +1,7 @@
+[user]
+pinned=xfce4-appfinder;thunar;firefox;
+noWindowsListIfSingle=true
+showWindowCount=true
+middleButtonBehavior=1
+indicatorStyle=2
+inactiveIndicatorStyle=4

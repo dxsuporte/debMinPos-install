@@ -19,14 +19,14 @@
       <property name="XF86WWW" type="string" value="exo-open --launch WebBrowser"/>
       <property name="HomePage" type="string" value="exo-open --launch WebBrowser"/>
       <property name="XF86Mail" type="string" value="exo-open --launch MailReader"/>
-      <property name="Print" type="string" value="xfce4-screenshooter"/>
+      <property name="Print" type="string" value="xfce4-screenshooter -r"/>
       <property name="&lt;Alt&gt;Print" type="string" value="xfce4-screenshooter -w"/>
-      <property name="&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -r"/>
+      <property name="&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter"/>
       <property name="&lt;Super&gt;e" type="string" value="thunar"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;f" type="string" value="thunar"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Escape" type="string" value="xkill"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;Escape" type="string" value="xfce4-taskmanager"/>
-      <property name="&lt;Super&gt;r" type="string" value="xfce4-appfinder -c">
+      <property name="&lt;Primary&gt;&lt;Alt&gt;r" type="string" value="xfce4-appfinder -c">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
       <property name="&lt;Alt&gt;&lt;Super&gt;s" type="string" value="orca"/>
@@ -85,14 +85,14 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;8" type="string" value="workspace_8_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;9" type="string" value="workspace_9_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;0" type="string" value="workspace_10_key"/>
-      <property name="&lt;Super&gt;KP_Left" type="string" value="tile_left_key"/>
-      <property name="&lt;Super&gt;KP_Right" type="string" value="tile_right_key"/>
-      <property name="&lt;Super&gt;KP_Down" type="string" value="tile_down_key"/>
-      <property name="&lt;Super&gt;KP_Up" type="string" value="tile_up_key"/>
-      <property name="&lt;Super&gt;KP_Page_Up" type="string" value="tile_up_right_key"/>
-      <property name="&lt;Super&gt;KP_Home" type="string" value="tile_up_left_key"/>
-      <property name="&lt;Super&gt;KP_End" type="string" value="tile_down_left_key"/>
-      <property name="&lt;Super&gt;KP_Next" type="string" value="tile_down_right_key"/>
+      <property name="&lt;Primary&gt;Up" type="string" value="tile_up_key"/>
+      <property name="&lt;Primary&gt;Down" type="string" value="tile_down_key"/>
+      <property name="&lt;Primary&gt;Left" type="string" value="tile_left_key"/>
+      <property name="&lt;Primary&gt;Right" type="string" value="tile_right_key"/>
+      <property name="&lt;Primary&gt;Home" type="string" value="tile_up_left_key"/>
+      <property name="&lt;Primary&gt;Page_Up" type="string" value="tile_up_right_key"/>
+      <property name="&lt;Primary&gt;End" type="string" value="tile_down_left_key"/>
+      <property name="&lt;Primary&gt;Page_Down" type="string" value="tile_down_right_key"/>
     </property>
   </property>
 </channel>
