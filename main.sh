@@ -45,8 +45,8 @@ apt install -y python3-unidecode
 apt install -y net-tools command-not-found neofetch arping
 echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/X11:/snap/bin"' | tee /etc/environment
 #APPs Externos | XFCE-DOCKLIKE
-VERSION=$(curl -s https://mxrepo.com/mx/repo/pool/main/x/xfce4-docklike-plugin/ | grep amd64 | tail -n1 | cut -d '_' -f2)
-curl -fSL https://mxrepo.com/mx/repo/pool/main/x/xfce4-docklike-plugin/xfce4-docklike-plugin_"$VERSION"_amd64.deb -o /tmp/xfce4-docklike-plugin_amd64.deb
+VERSION=$(curl -s https://download.opensuse.org/repositories/home:/tangerine:/deb12-xfce4.18/Debian_12/amd64/ | grep xfce4-docklike-plugin | tail -n1 | cut -d '_' -f2)
+curl -fSL https://download.opensuse.org/repositories/home:/tangerine:/deb12-xfce4.18/Debian_12/amd64/xfce4-docklike-plugin_"$VERSION"_amd64.deb -o /tmp/xfce4-docklike-plugin_amd64.deb
 apt install -y /tmp/xfce4-docklike-plugin_amd64.deb
 #Copiar aquivo de configurações
 cp -f -r config/usr/* /usr/

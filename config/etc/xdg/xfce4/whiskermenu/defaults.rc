@@ -1,5 +1,5 @@
 command-switchuser=dm-tool switch-to-greeter
-favorites=xfce4-web-browser.desktop,xfce4-mail-reader.desktop,xfce4-file-manager.desktop,xfce4-terminal-emulator.desktop,xfce4-screenshooter.desktop,org.xfce.mousepad.desktop,galculator.desktop,org.gnome.Software.desktop,org.kde.discover.desktop,xfce4-about.desktop
+favorites=xfce4-web-browser.desktop,xfce4-mail-reader.desktop,xfce4-file-manager.desktop,xfce4-terminal-emulator.desktop,xfce4-screenshooter.desktop,org.xfce.mousepad.desktop,org.gnome.Calculator.desktop,org.gnome.Software.desktop,xfce4-about.desktop
 item-icon-size=0
 hover-switch-category=true
 launcher-show-description=false
