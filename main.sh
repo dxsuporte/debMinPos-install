@@ -29,7 +29,7 @@ apt install -y intel-microcode intel-gpu-tools
 apt install -y mesa-vulkan-drivers mesa-utils libglapi-mesa libgl1-mesa-dri
 apt install -y task-laptop tlp
 #Software extras
-apt install -y menulibre gigolo gdebi mate-calc drawing kazam
+apt install -y menulibre gigolo gdebi gnome-calculator drawing kazam
 #Gerenciador geral do sistema.
 apt install -y gvfs* gnome-system-tools xdg-user-dirs-gtk tracker elementary-xfce-icon-theme bibata-cursor-theme
 #Gerenciador Boot Plymouth
@@ -44,6 +44,10 @@ apt install -y python3-unidecode
 #Programas de Shell e Config Net-tools
 apt install -y net-tools command-not-found neofetch arping
 echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/X11:/snap/bin"' | tee /etc/environment
+#APPs Externos | XFCE-DOCKLIKE
+VERSION=$(curl -s https://mxrepo.com/mx/repo/pool/main/x/xfce4-docklike-plugin/ | grep amd64 | tail -n1 | cut -d '_' -f2)
+curl -fSL https://mxrepo.com/mx/repo/pool/main/x/xfce4-docklike-plugin/xfce4-docklike-plugin_"$VERSION"_amd64.deb -o /tmp/xfce4-docklike-plugin_amd64.deb
+apt install -y /tmp/xfce4-docklike-plugin_amd64.deb
 #Copiar aquivo de configurações
 cp -f -r config/usr/* /usr/
 cp -f -r config/etc/* /etc/
