@@ -3,7 +3,7 @@
 set -e
 #----------Start----------#
 RELEASE=$(curl -s https://github.com/MediaBrowser/Emby.Releases/releases | grep emby-server-deb | grep -m1 amd64 | cut -d '_' -f2)
-curl -fsSL https://github.com/MediaBrowser/Emby.Releases/releases/download/"$RELEASE"/emby-server-deb_"$RELEASE"_amd64.deb -o /tmp/emby-server-deb.deb
+curl -fSL https://github.com/MediaBrowser/Emby.Releases/releases/download/"$RELEASE"/emby-server-deb_"$RELEASE"_amd64.deb -o /tmp/emby-server-deb.deb
 apt install -y /tmp/emby-server-deb.deb
 #Copiá a script do ícone para o menu.
 cp -f config/emby/emby.desktop /usr/share/applications/

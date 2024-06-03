@@ -12,20 +12,20 @@ elif [ "$(lsb_release -is)" = "Ubuntu" ]; then
     RELEASE="xUbuntu_$(lsb_release -rs)"
 fi
 #----------Start----------#
-curl -fsSL https://mega.nz/linux/repo/"$RELEASE"/amd64/megasync-"$RELEASE"_amd64.deb -o /tmp/megasync-amd64.deb
+curl -fSL https://mega.nz/linux/repo/"$RELEASE"/amd64/megasync-"$RELEASE"_amd64.deb -o /tmp/megasync-amd64.deb
 apt install -y /tmp/megasync-amd64.deb
 #Thunar
 if [ $(which thunar) ]; then
-    curl -fsSL https://mega.nz/linux/repo/"$RELEASE"/amd64/thunar-megasync-"$RELEASE"_amd64.deb -o /tmp/thunar-megasync-amd64.deb
+    curl -fSL https://mega.nz/linux/repo/"$RELEASE"/amd64/thunar-megasync-"$RELEASE"_amd64.deb -o /tmp/thunar-megasync-amd64.deb
     apt install -y /tmp/thunar-megasync-amd64.deb
 fi
 #Nautilus
 if [ $(which nautilus) ]; then
-    curl -fsSL https://mega.nz/linux/repo/"$RELEASE"/amd64/nautilus-megasync-"$RELEASE"_amd64.deb -o /tmp/nautilus-megasync-amd64.deb
+    curl -fSL https://mega.nz/linux/repo/"$RELEASE"/amd64/nautilus-megasync-"$RELEASE"_amd64.deb -o /tmp/nautilus-megasync-amd64.deb
     apt install -y /tmp/nautilus-megasync-amd64.deb
 fi
 #Nemo
 if [ $(which nemo) ]; then
-    curl -fsSL https://mega.nz/linux/repo/"$RELEASE"/amd64/nemo-megasync-"$RELEASE"_amd64.deb -o /tmp/nemo-megasync-amd64.deb
+    curl -fSL https://mega.nz/linux/repo/"$RELEASE"/amd64/nemo-megasync-"$RELEASE"_amd64.deb -o /tmp/nemo-megasync-amd64.deb
     apt install -y /tmp/nemo-megasync-amd64.deb
 fi

@@ -5,7 +5,7 @@ set -e
 sed -i 's/deb cdrom:/#deb cdrom:/g' /etc/apt/sources.list
 #----------Start----------#
 #Habilitar repositorios extra e oldstable
-apt install -y software-properties-common software-properties-gtk wget curl
+apt install -y software-properties-common software-properties-gtk wget curl gpg
 add-apt-repository -y contrib non-free
 echo "deb http://deb.debian.org/debian/ oldstable main contrib non-free" | tee /etc/apt/sources.list.d/oldstable.list
 echo "deb https://www.deb-multimedia.org "$(lsb_release -sc)" main non-free" | tee /etc/apt/sources.list.d/deb-multimedia.list

@@ -4,7 +4,7 @@ set -e
 #----------Start----------#
 #Atualizar sistema
 apt update && apt upgrade -y
-apt install -y apt-transport-https wget curl
+apt install -y apt-transport-https wget curl gpg
 ######################################################################
 read -r -p "Instalar o Synaptic? - Gerenciador de Pacotes! [y|n] " SYNAPTIC
 read -r -p "Instalar o GParted? - Gerenciador de Partições! [y|n] " GPARTED
