@@ -40,7 +40,7 @@
     <property name="MenuImages" type="bool" value="true"/>
     <property name="ButtonImages" type="bool" value="true"/>
     <property name="MenuBarAccel" type="string" value="F10"/>
-    <property name="CursorThemeName" type="string" value="Adwaita"/>
+    <property name="CursorThemeName" type="string" value="Bibata-Original-Classic"/>
     <property name="CursorThemeSize" type="int" value="24"/>
     <property name="DecorationLayout" type="string" value=":minimize,maximize,close"/>
     <property name="DialogsUseHeader" type="bool" value="false"/>
