@@ -12,20 +12,20 @@
       <property name="icon-size" type="uint" value="0"/>
       <property name="size" type="uint" value="40"/>
       <property name="plugin-ids" type="array">
-        <value type="int" value="14"/>
-        <value type="int" value="3"/>
         <value type="int" value="1"/>
+        <value type="int" value="3"/>
+        <value type="int" value="4"/>
         <value type="int" value="5"/>
-        <value type="int" value="7"/>
-        <value type="int" value="16"/>
         <value type="int" value="6"/>
+        <value type="int" value="7"/>
         <value type="int" value="8"/>
         <value type="int" value="9"/>
         <value type="int" value="10"/>
         <value type="int" value="11"/>
         <value type="int" value="12"/>
         <value type="int" value="13"/>
-        <value type="int" value="4"/>
+        <value type="int" value="14"/>
+        <value type="int" value="15"/>
       </property>
     </property>
   </property>
@@ -38,38 +38,28 @@
       <property name="flat-buttons" type="bool" value="true"/>
       <property name="show-tooltips" type="bool" value="true"/>
     </property>
+    <property name="plugin-1" type="string" value="whiskermenu">
+      <property name="launcher-show-description" type="bool" value="false"/>
+      <property name="view-mode" type="int" value="2"/>
+      <property name="launcher-icon-size" type="int" value="1"/>
+      <property name="category-icon-size" type="int" value="0"/>
+      <property name="menu-width" type="int" value="455"/>
+      <property name="menu-height" type="int" value="550"/>
+      <property name="position-commands-alternate" type="bool" value="true"/>
+      <property name="position-search-alternate" type="bool" value="true"/>
+      <property name="hover-switch-category" type="bool" value="true"/>
+      <property name="show-command-restart" type="bool" value="true"/>
+    </property>
     <property name="plugin-3" type="string" value="separator">
       <property name="expand" type="bool" value="false"/>
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-6" type="string" value="systray">
-      <property name="square-icons" type="bool" value="true"/>
-      <property name="known-legacy-items" type="array">
-        <value type="string" value="miniaplicativo gerenciador de redes"/>
-      </property>
-      <property name="known-items" type="array">
-        <value type="string" value="org.guido-berhoerster.code.package-update-indicator"/>
-      </property>
-      <property name="icon-size" type="int" value="0"/>
-    </property>
-    <property name="plugin-8" type="string" value="pulseaudio">
-      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="show-notifications" type="bool" value="true"/>
-    </property>
-    <property name="plugin-9" type="string" value="power-manager-plugin"/>
-    <property name="plugin-10" type="string" value="notification-plugin"/>
-    <property name="plugin-11" type="string" value="separator">
+    <property name="plugin-4" type="string" value="docklike" />
+    <property name="plugin-5" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-12" type="string" value="clock">
-      <property name="digital-layout" type="uint" value="1"/>
-      <property name="digital-date-format" type="string" value="%a, %d %b %Y"/>
-    </property>
-    <property name="plugin-13" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-    </property>
-    <property name="plugin-4" type="string" value="showdesktop"/>
-    <property name="plugin-7" type="string" value="weather">
+    <property name="plugin-6" type="string" value="weather">
       <property name="location" type="empty">
         <property name="name" type="string" value="Palmas, Brazil"/>
         <property name="latitude" type="string" value="-10.168300"/>
@@ -104,24 +94,35 @@
         <property name="use-color" type="bool" value="false"/>
       </property>
     </property>
-    <property name="plugin-14" type="string" value="whiskermenu">
-      <property name="launcher-show-description" type="bool" value="false"/>
-      <property name="view-mode" type="int" value="2"/>
-      <property name="launcher-icon-size" type="int" value="1"/>
-      <property name="category-icon-size" type="int" value="0"/>
-      <property name="menu-width" type="int" value="455"/>
-      <property name="menu-height" type="int" value="550"/>
-      <property name="position-commands-alternate" type="bool" value="true"/>
-      <property name="position-search-alternate" type="bool" value="true"/>
-      <property name="hover-switch-category" type="bool" value="true"/>
-      <property name="show-command-restart" type="bool" value="true"/>
-    </property>
-    <property name="plugin-15" type="string" value="separator">
+    <property name="plugin-7" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-16" type="string" value="separator">
+    <property name="plugin-8" type="string" value="systray">
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="miniaplicativo gerenciador de redes"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="org.guido-berhoerster.code.package-update-indicator"/>
+      </property>
+      <property name="icon-size" type="int" value="0"/>
+    </property>
+    <property name="plugin-9" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="show-notifications" type="bool" value="true"/>
+    </property>
+    <property name="plugin-10" type="string" value="power-manager-plugin"/>
+    <property name="plugin-11" type="string" value="notification-plugin"/>
+    <property name="plugin-12" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-1" type="string" value="docklike" />
+    <property name="plugin-13" type="string" value="clock">
+      <property name="digital-layout" type="uint" value="1"/>
+      <property name="digital-date-format" type="string" value="%a, %d %b %Y"/>
+    </property>
+    <property name="plugin-14" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-15" type="string" value="showdesktop"/>
   </property>
 </channel>
