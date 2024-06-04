@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=ZorinGrey-Dark
+Name=Zorin-Grey-Dark
 Comment=The dark desktop theme with grey highlights for Zorin OS
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=ZorinGrey-Dark
-MetacityTheme=ZorinGrey-Dark
-IconTheme=ZorinGrey-Dark
+GtkTheme=Zorin-Grey-Dark
+MetacityTheme=Zorin-Grey-Dark
+IconTheme=Zorin-Grey-Dark
 CursorTheme=Adwaita
 ButtonLayout=:minimize,maximize,close

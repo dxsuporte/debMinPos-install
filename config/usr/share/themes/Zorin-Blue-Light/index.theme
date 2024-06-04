@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=ZorinBlue-Light
+Name=Zorin-Blue-Light
 Comment=The light desktop theme with blue highlights for Zorin OS
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=ZorinBlue-Light
-MetacityTheme=ZorinBlue-Light
-IconTheme=ZorinBlue-Light
+GtkTheme=Zorin-Blue-Light
+MetacityTheme=Zorin-Blue-Light
+IconTheme=Zorin-Blue-Light
 CursorTheme=Adwaita
 ButtonLayout=:minimize,maximize,close
