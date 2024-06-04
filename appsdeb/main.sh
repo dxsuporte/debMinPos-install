@@ -49,12 +49,7 @@ read -r -p "Instalar o Flatpak? - Loja de Software Flathub! [y|n] " FLATPAK
 read -r -p "Instalar o Conky? Monitor de sistema widgets da área de trabalho! [y|n] " CONKY
 read -r -p "Instalar o OH-MY-BASH? Tema do terminal bash! [y|n] " OHMYBASH
 ######################################################################
-## git clone https://github.com/vinceliuice/Colloid-icon-theme
-## sudo ./install.sh -s -t
-## sudo apt install gnome-themes-extra gnome-themes-standard gtk2-engines-murrine sassc libsass1
-## git clone https://github.com/vinceliuice/Colloid-gtk-theme
-## sudo ./install.sh --tweaks normal
-##
+
 #Sinaptic
 if [ "$SYNAPTIC" = "y" ]; then
     apt install -y synaptic
@@ -138,7 +133,6 @@ fi
 if [ "$KVM" = "y" ]; then
     apt install -y virt-manager
     virsh net-autostart default
-    #virsh net-start default
 fi
 #Gnome Software
 if [ "$GNOMESOFTWARE" = "y" ]; then
