@@ -1443,6 +1443,31 @@ row.activatable:selected:backdrop { background-color: #9a9a9a; background-image:
 
 row.activatable:selected:backdrop label, row.activatable:selected:backdrop { color: white; }
 
+/********************* App Whiskermenu * */
+window#whiskermenu-window { border-radius: 12px; background-color: transparent; border: none; }
+
+window#whiskermenu-window entry.search:focus { background-color: white; }
+
+window#whiskermenu-window > frame > border { border-radius: 12px; padding: 6px 8px 6px 9px; margin: 6px; border: none; background-color: white; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 3px 0 rgba(0, 0, 0, 0.18), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.15); }
+
+window#whiskermenu-window box.categories > button.radio { padding: 3px 6px; margin: 1px 0; }
+
+window#whiskermenu-window box.categories > button.radio:hover { background-color: rgba(0, 0, 0, 0.12); }
+
+window#whiskermenu-window box.categories > button.radio:checked, window#whiskermenu-window box.categories > button.radio:active { background-color: rgba(0, 0, 0, 0.26); color: rgba(0, 0, 0, 0.87); }
+
+window#whiskermenu-window box.categories > button.radio:checked:hover, window#whiskermenu-window box.categories > button.radio:active:hover { background-image: none; }
+
+window#whiskermenu-window scrolledwindow.frame { padding: 3px; background-color: white; border-radius: 6px; }
+
+window#whiskermenu-window scrolledwindow.frame treeview.view { border-radius: 6px; }
+
+window#whiskermenu-window scrolledwindow.frame treeview.view:not(:hover):not(:selected) { background: none; }
+
+window#whiskermenu-window scrolledwindow.frame treeview.view:selected:hover { background-color: rgba(0, 0, 0, 0.12); color: rgba(0, 0, 0, 0.87); }
+
+window#whiskermenu-window .title-area > .commands-area > button.flat.command-button:checked, window#whiskermenu-window .title-area > .commands-area > button.flat.command-button:active { background-color: rgba(0, 0, 0, 0.26); color: rgba(0, 0, 0, 0.87); }
+
 /********************* App Notifications * */
 .app-notification, .app-notification.frame { padding: 10px; margin: 8px; border-radius: 30px; border: none; box-shadow: 0 1px 4px 1px rgba(18, 51, 84, 0.2); }
 
