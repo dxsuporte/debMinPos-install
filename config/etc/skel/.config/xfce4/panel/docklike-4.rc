@@ -1,9 +1,9 @@
 [user]
 pinned=/usr/share/applications/xfce4-appfinder.desktop;/usr/share/applications/thunar.desktop;/usr/share/applications/firefox-esr.desktop;
 noWindowsListIfSingle=true
-showWindowCount=true
+showWindowCount=false
 middleButtonBehavior=1
 indicatorStyle=3
 inactiveIndicatorStyle=4
-showPreviews=true
+showPreviews=false
 indicatorOrientation=1
