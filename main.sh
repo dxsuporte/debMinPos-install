@@ -49,10 +49,7 @@ VERSION=$(curl -s https://download.opensuse.org/repositories/home:/tangerine:/de
 curl -fSL https://download.opensuse.org/repositories/home:/tangerine:/deb12-xfce4.18/Debian_12/amd64/xfce4-docklike-plugin_"$VERSION"_amd64.deb -o /tmp/xfce4-docklike-plugin_amd64.deb
 apt install -y /tmp/xfce4-docklike-plugin_amd64.deb
 #Copiar aquivo de configurações
-cp -f -r config/usr/* /usr/
-cp -f -r config/etc/* /etc/
-cp -f -r config/etc/skel/.config /root/
-cp -f -r config/etc/skel/.face /root/
+cp -f -r config/* /
 runuser $(id 1000 -u -n) -c "cp -f -r config/etc/skel/.face /home/$(id 1000 -u -n)/"
 runuser $(id 1000 -u -n) -c "cp -f -r config/etc/skel/.config /home/$(id 1000 -u -n)/"
 #Configurar Cache Icons
@@ -65,8 +62,8 @@ rm -f -r /usr/share/themes/Daloa*
 rm -f -r /usr/share/themes/Kokodi*
 rm -f -r /usr/share/themes/Moheli*
 #Desktop Base
-unlink /etc/alternatives/desktop-theme
-ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
+##unlink /etc/alternatives/desktop-theme
+##ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
 #Login Lightdm
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
 #Grub
@@ -79,7 +76,7 @@ sed -i 's/starfield.png/\/usr\/share\/images\/desktop-base\/desktop-grub.png/g' 
 grub-mkconfig -o /boot/grub/grub.cfg
 #Backgrounds
 ln -sf /usr/share/backgrounds/xfce/* /usr/share/backgrounds/
-ln -sf /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
+#ln -sf /usr/share/desktop-base/dx-theme/login/background.svg /usr/share/backgrounds/default.svg
 ln -sf /usr/share/desktop-base/emerald-theme/login/background.svg /usr/share/backgrounds/01.svg
 ln -sf /usr/share/desktop-base/futureprototype-theme/login/background.svg /usr/share/backgrounds/02.svg
 ln -sf /usr/share/desktop-base/homeworld-theme/login/background.svg /usr/share/backgrounds/03.svg
