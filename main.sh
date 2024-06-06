@@ -29,7 +29,7 @@ apt install -y intel-microcode intel-gpu-tools
 apt install -y mesa-vulkan-drivers mesa-utils libglapi-mesa libgl1-mesa-dri
 apt install -y task-laptop tlp
 #Software extras
-apt install -y menulibre gigolo gdebi gnome-calculator drawing kazam
+apt install -y menulibre gigolo mugshot gdebi gnome-calculator drawing kazam
 #Gerenciador geral do sistema.
 apt install -y gvfs* gnome-system-tools xdg-user-dirs-gtk tracker elementary-xfce-icon-theme bibata-cursor-theme
 #Gerenciador Boot Plymouth
@@ -52,7 +52,13 @@ apt install -y /tmp/xfce4-docklike-plugin_amd64.deb
 cp -f -r config/usr/* /usr/
 cp -f -r config/etc/* /etc/
 cp -f -r config/etc/skel/.config /root/
+cp -f -r config/etc/skel/.face /root/
+runuser $(id 1000 -u -n) -c "cp -f -r config/etc/skel/.face /home/$(id 1000 -u -n)/"
 runuser $(id 1000 -u -n) -c "cp -f -r config/etc/skel/.config /home/$(id 1000 -u -n)/"
+#Configurar Cache Icons
+gtk-update-icon-cache /usr/share/icons/Zorin/
+gtk-update-icon-cache /usr/share/icons/Zorin-Blue-Light/
+gtk-update-icon-cache /usr/share/icons/Zorin-Blue-Dark/
 #Remover Configurações
 rm -f -r /usr/share/icons/elementary-xfce-darke*
 rm -f -r /usr/share/themes/Daloa*
