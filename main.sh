@@ -51,6 +51,8 @@ apt install -y /tmp/xfce4-docklike-plugin_amd64.deb
 #Copiar aquivo de configurações
 cp -f -r config/usr/* /usr/
 cp -f -r config/etc/* /etc/
+cp -f -r config/etc/skel/.config /root/
+runuser $(id 1000 -u -n) -c "cp -f -r config/etc/skel/.config /home/$(id 1000 -u -n)/"
 #Remover Configurações
 rm -f -r /usr/share/icons/elementary-xfce-darke*
 rm -f -r /usr/share/themes/Daloa*
