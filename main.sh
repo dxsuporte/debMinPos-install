@@ -53,9 +53,9 @@ cp -f -r config/* /
 runuser $(id 1000 -u -n) -c "cp -f -r config/etc/skel/.face /home/$(id 1000 -u -n)/"
 runuser $(id 1000 -u -n) -c "cp -f -r config/etc/skel/.config /home/$(id 1000 -u -n)/"
 #Configurar Cache Icons
-gtk-update-icon-cache /usr/share/icons/Zorin/
-gtk-update-icon-cache /usr/share/icons/Zorin-Blue-Light/
-gtk-update-icon-cache /usr/share/icons/Zorin-Blue-Dark/
+gtk-update-icon-cache /usr/share/icons/Deco/
+gtk-update-icon-cache /usr/share/icons/Deco-Blue-Light/
+gtk-update-icon-cache /usr/share/icons/Deco-Blue-Dark/
 #Remover Configurações
 rm -f -r /usr/share/icons/elementary-xfce-darke*
 rm -f -r /usr/share/themes/Daloa*
@@ -64,8 +64,10 @@ rm -f -r /usr/share/themes/Moheli*
 #Desktop Base
 ##unlink /etc/alternatives/desktop-theme
 ##ln -s /usr/share/desktop-base/dx-theme/ /etc/alternatives/desktop-theme
-#Login Lightdm
+#Lightdm - Mostra usuário no Login
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' /etc/lightdm/lightdm.conf
+#PulseAudio - Não suspender audio
+sed -i 's/load-module module-suspend-on-idle/#load-module module-suspend-on-idle/g' /etc/pulse/default.pa
 #Grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash modprobe.blacklist=pcspkr"/g' /etc/default/grub
 sed -i '11i GRUB_THEME="/usr/share/grub/themes/starfield/theme.txt"' /etc/default/grub
