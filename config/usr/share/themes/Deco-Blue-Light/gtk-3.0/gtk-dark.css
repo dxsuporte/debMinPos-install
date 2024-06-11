@@ -1350,7 +1350,8 @@ printdialog paper:backdrop { color: #595959; border: 1px solid #262626; }
 printdialog .dialog-action-box { margin: 12px; }
 
 /********** Frames * */
-frame > border, .frame { box-shadow: none; margin: 0; padding: 0; border-radius: 10px; border: 1px solid #1e2529; }
+
+frame > border, .frame { margin: 0; padding: 1; border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: none; border-radius: 9;  }
 
 frame > border.flat, .frame.flat { border-style: none; }
 
