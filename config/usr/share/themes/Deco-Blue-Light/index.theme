@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Deco-Blue-Light
+Comment=Tema deco remix
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Deco-Blue-Light
+MetacityTheme=Deco-Blue-Light
+IconTheme=Deco-Blue-Light
+CursorTheme=Adwaita
+ButtonLayout=:minimize,maximize,close

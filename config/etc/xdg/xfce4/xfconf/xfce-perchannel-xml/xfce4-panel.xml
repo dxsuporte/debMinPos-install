@@ -42,7 +42,7 @@
       <property name="launcher-show-description" type="bool" value="false"/>
       <property name="view-mode" type="int" value="2"/>
       <property name="launcher-icon-size" type="int" value="1"/>
-      <property name="category-icon-size" type="int" value="0"/>
+      <property name="category-icon-size" type="int" value="1"/>
       <property name="menu-width" type="int" value="455"/>
       <property name="menu-height" type="int" value="550"/>
       <property name="position-commands-alternate" type="bool" value="true"/>
