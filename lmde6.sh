@@ -30,9 +30,9 @@ apt install -y python3-unidecode
 apt install -y net-tools command-not-found neofetch arping
 echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/X11:/snap/bin"' | tee /etc/environment
 #Copiar aquivo de configurações
-cp -f -r config/user/share/backgrounds/* /user/share/backgrounds/
-cp -f -r config/user/share/icons/* /user/share/icons/
-cp -f -r config/user/share/themes/* /user/share/themes/
+cp -f -r config/usr/share/backgrounds/* /usr/share/backgrounds/
+cp -f -r config/usr/share/icons/* /usr/share/icons/
+cp -f -r config/usr/share/themes/* /usr/share/themes/
 #Remover Configurações
 rm -f -r /usr/share/icons/elementary-xfce-darke*
 #Grub
